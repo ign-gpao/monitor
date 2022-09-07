@@ -1,5 +1,13 @@
 # 📑 Changelog
 
+## [0.3.0](https://github.com/ign-gpao/monitor/tree/0.3.0) (2022-09-07)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/0.2.0...0.3.0)
+
+### 📁 Other pull requests
+
+- Init [\#15](https://github.com/ign-gpao/monitor/pull/15) ([arnaudbirk](https://github.com/arnaudbirk))
+
 ## [0.2.0](https://github.com/ign-gpao/monitor/tree/0.2.0) (2022-09-07)
 
 [Full Changelog](https://github.com/ign-gpao/monitor/compare/0.1.0...0.2.0)
