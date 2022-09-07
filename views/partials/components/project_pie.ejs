@@ -1,0 +1,52 @@
+<!-- views/partials/jobs_info.ejs -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h6 class="m-0 font-weight-bold text-primary">Répartition des jobs</h6>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+        <canvas id="pie-chart" width="450" height="450"></canvas>
+
+        <script>
+
+var options = {
+   tooltips: {
+     enabled: false
+   },
+   plugins: {
+     datalabels: {
+       formatter: (value, ctx) => {
+         let datasets = ctx.chart.data.datasets;
+         if (datasets.indexOf(ctx.dataset) === datasets.length - 1) {
+           let sum = datasets[0].data.reduce((a, b) => a + b, 0);
+           let percentage = Math.round((value / sum) * 100) + '%';
+           return percentage;
+         } else {
+           return percentage;
+         }
+       },
+       color: '#fff',
+     }
+   }
+ };
+            new Chart(document.getElementById("pie-chart"), {
+    type: 'doughnut',
+    data: {
+      labels: ["Prêt", "En cours", "En attente", "Terminé", "Echoué"],
+      datasets: [{
+        label: "Répartition des jobs",
+        backgroundColor: ["#0275d8", "#f0ad4e","#6c757d","#5cb85c","#d9534f"],
+        data: [<%= project.ready %>,<%= project.running %>,<%= project.waiting %>,<%= project.done %>,<%= project.failed %>]
+      }]
+    },
+    options: options
+});
+
+        </script>
+        
+    </div>
+  </div>
+  

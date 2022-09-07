@@ -1,0 +1,108 @@
+<div class="card shadow mb-4 border-left-warning h-100 py-2">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-warning">Projets</h6>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      const data = JSON.parse('<%- data %>');
+        const columns = JSON.parse('<%- columns %>');
+    
+        var table = $('#dataTable').DataTable( {
+            "language": {
+                "lengthMenu": "Afficher _MENU_ par page",
+                "zeroRecords": "Aucun éléments",
+                "info": "Page _PAGE_ sur _PAGES_",
+                "infoEmpty": "Aucun enregistrement disponible",
+                "infoFiltered": "(filtered from _MAX_ total records)",
+                "search": "Rechercher",
+                "paginate": {
+                    "first":	"Premier",
+                    "previous":	"Pr&eacute;c&eacute;dent",
+                    "next":	"Suivant",
+                    "last":	"Dernier"
+                }
+            },
+            "order": [[ 0, "asc" ]],
+            "lengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "Tous"]],
+            "pageLength": 100,
+            "dom": '<"d-flex"<"mr-auto p-2"l<"toolbar_tab">><"p-2"f>>t<"d-flex"<"mr-auto p-2"i><"p-2"p>>',
+            "data": data,
+            "columns": columns,
+            "createdRow": function( row, data, dataIndex, cells ) {
+                $('button', cells[3])[0].innerText = data.priority;
+            },
+            "rowCallback": function( row, data, index ) {
+            var status = data.status;
+            switch(status){
+                case "failed":
+                    $('td', row).addClass('text-danger');
+                    break;
+                case "running":
+                    $('td', row).addClass('text-warning');
+                    break;
+                case "waiting":
+                    $('td', row).addClass('text-secondary');
+                    break;
+                case "done":
+                    $('td', row).addClass('text-success');
+                    break;
+                case "ready":
+                    $('td', row).addClass('text-primary');
+                    break;
+            }
+        }
+          } 
+        );
+        // Add event listener for actions
+        $('#dataTable tbody').on('click', 'button.del_project', function () {
+            var tr = $(this).closest('tr');
+            var row = table.row( tr );
+            deleteProject(row.data().id, row.data().name);
+        } );
+        $('#dataTable tbody').on('click', 'button.view_project', function () {
+            var tr = $(this).closest('tr');
+            var row = table.row( tr );
+            window.location.href = `/project/${row.data().id}`;
+        } );
+        $('#dataTable tbody').on('click', 'a.dropdown-item', function (event) {
+            var tr = $(this).closest('tr');
+            var row = table.row( tr );
+            switch (event.target.innerText) {
+                case 'Low':
+                    setPriority(row.data().id, 'low');
+                    break;
+
+                case 'Normal':
+                    setPriority(row.data().id, 'normal');
+                    break;
+                
+                case 'High':
+                    setPriority(row.data().id, 'high');
+                    break;
+            
+                default:
+                    break;
+            }
+        } );
+      var i = jQuery('<i></i>');
+      i.addClass('fas fa-trash fa-1x')
+  
+      var button = jQuery('<button></button>');
+      button.addClass('btn btn-danger');
+      button.attr('type', 'button')
+            .attr('data-toggle', "tooltip")
+            .attr('title', 'Supprime tous les projets')
+            .attr('onclick', 'deleteAllProjects()')
+            .append(i)
+            .append(' Supprime tous les projets');
+      $("div.toolbar_tab").append(button);
+    } );
+  </script>

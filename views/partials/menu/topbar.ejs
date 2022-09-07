@@ -1,0 +1,159 @@
+<!-- views/partials/topbar.ejs -->
+<!-- Content Row -->
+<div class="row">
+
+    <!-- Jobs -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div id="job_card" class="card border-left-primary shadow">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Jobs</div>
+              <div class="row no-gutters align-items-center">
+                <div class="col-auto">
+                  <div id="topbar_jobs_value" class="h5 mb-0 mr-3 font-weight-bold text-gray-800">0%</div>
+                </div>
+                <div class="col">
+                  <div class="progress progress-sm mr-2">
+                    <div id="topbar_jobs_pg" class="progress-bar bg-primary" role="progressbar" style="width: 0%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-cogs fa-2x text-gray-300"></i>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+            <a class="small text-primary stretched-link" href="/jobs">Vue détaillée</a>
+            <div class="small text-black"><i class="fas fa-angle-right"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sessions -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div id="session_card" class="card border-left-success shadow">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Sessions</div>
+              <div class="row no-gutters align-items-center">
+                <div class="col-auto">
+                  <div id="topbar_sessions_value" class="h5 mb-0 mr-3 font-weight-bold text-gray-800">0%</div>
+                </div>
+                <div class="col">
+                  <div class="progress progress-sm mr-2">
+                    <div id="topbar_sessions_pg" class="progress-bar bg-success" role="progressbar" style="width: 0%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-microchip fa-2x text-gray-300"></i>
+            </div>
+          </div>
+          
+        </div>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+            <a class="small text-success stretched-link" href="/sessions">Vue détaillée</a>
+            <div class="small text-black"><i class="fas fa-angle-right"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hosts -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div id="host_card" class="card border-left-info shadow">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Hosts</div>
+              <div class="row no-gutters align-items-center">
+                <div class="col-auto">
+                  <div id="topbar_hosts_value" class="h5 mb-0 mr-3 font-weight-bold text-gray-800">0</div>
+                </div>
+                <div class="col-auto">
+                </div>
+              </div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-sitemap fa-2x text-gray-300"></i>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+            <a class="small text-info stretched-link" href="/hosts">Vue détaillée</a>
+            <div class="small text-black"><i class="fas fa-angle-right"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div id="project_card" class="card border-left-warning shadow">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Projects</div>
+              <div class="row no-gutters align-items-center">
+                <div class="col-auto">
+                  <div id="topbar_projects_value" class="h5 mb-0 mr-3 font-weight-bold text-gray-800">0%</div>
+                </div>
+                <div class="col">
+                  <div class="progress progress-sm mr-2">
+                    <div id="topbar_projects_pg" class="progress-bar bg-warning" role="progressbar" style="width: 0%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-folder fa-2x text-gray-300"></i>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+            <a class="small text-warning stretched-link" href="/projects">Vue détaillée</a>
+            <div class="small text-black"><i class="fas fa-angle-right"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+        
+        var url = location.href;
+        var split = url.split('/');
+        var page = split[split.length-1];
+
+        switch(page){
+          case 'jobs':
+            $('#job_card').addClass('shadow-lg h-100 py-2');
+            break;
+          case 'sessions':
+            $('#session_card').addClass('shadow-lg h-100 py-2');
+            break;
+          case 'hosts':
+            $('#host_card').addClass('shadow-lg h-100 py-2');
+            break;
+          case 'projects':
+            $('#project_card').addClass('shadow-lg h-100 py-2');
+            break;
+        }
+
+        $('#topbar_jobs_pg').attr('style', 'width: '+percent(<%= topBar.jobStatus.done %>, <%= topBar.jobStatus.total %>)+"%");
+        $('#topbar_jobs_value').text(percent(<%= topBar.jobStatus.done %>, <%= topBar.jobStatus.total %>)+"%");
+
+        $('#topbar_sessions_pg').attr('style', 'width: '+percent(<%= topBar.sessionStatus.active %>, <%= topBar.sessionStatus.total %>)+"%");
+        $('#topbar_sessions_value').text(percent(<%= topBar.sessionStatus.active %>, <%= topBar.sessionStatus.total %>)+"%");
+
+        $('#topbar_hosts_value').text(<%= topBar.nbHosts %>);
+
+        $('#topbar_projects_pg').attr('style', 'width: '+percent(<%= topBar.projectStatusGlobal.done %>, <%= topBar.projectStatusGlobal.total %>)+"%");
+        $('#topbar_projects_value').text(percent(<%= topBar.projectStatusGlobal.done %>, <%= topBar.projectStatusGlobal.total %>)+"%");
+
+        
+    } );
+    </script>

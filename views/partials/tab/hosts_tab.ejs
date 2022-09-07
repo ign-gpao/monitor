@@ -1,0 +1,49 @@
+<div class="card shadow mb-4 border-left-info h-100 py-2">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-info">Machines</h6>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+    $(document).ready(function() {
+        const data = JSON.parse('<%- data %>');
+        const columns = JSON.parse('<%- columns %>');
+    
+        var table = $('#dataTable').DataTable( {
+            "language": {
+                "lengthMenu": "Afficher _MENU_ par page",
+                "zeroRecords": "Aucun éléments",
+                "info": "Page _PAGE_ sur _PAGES_",
+                "infoEmpty": "Aucun enregistrement disponible",
+                "infoFiltered": "(filtered from _MAX_ total records)",
+                "search": "Rechercher",
+                "paginate": {
+                    "first":	"Premier",
+                    "previous":	"Pr&eacute;c&eacute;dent",
+                    "next":	"Suivant",
+                    "last":	"Dernier"
+                }
+            },
+            "order": [[ 0, "asc" ]],
+            "lengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "Tous"]],
+            "pageLength": 100,
+            "dom": '<"d-flex"<"mr-auto p-2"l<"toolbar_tab">><"p-2"f>>t<"d-flex"<"mr-auto p-2"i><"p-2"p>>',
+            "data": data,
+            "columns": columns
+          } 
+        );
+        // Add event listener for actions
+        $('#dataTable tbody').on('click', 'button.view_host', function () {
+            var tr = $(this).closest('tr');
+            var row = table.row( tr );
+            setNbThread(row.data().host, row.data().active);
+        } );    
+    } );
+</script>
