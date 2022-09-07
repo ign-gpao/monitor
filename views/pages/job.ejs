@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <title>GPAO - Job</title>
+
+    <%- include ("../partials/head") %>
+
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <%- include ("../partials/menu/sidebar") %>
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Information sur le job : <%= id %></h1>
+          </div>
+
+          <%- include ("../partials/menu/topbar") %>
+
+          <% if (locals.job) { %>
+          <!-- Content Row -->
+          <div class="row">
+            <div class="col-lg-6 mb-4">
+              <%- include ("../partials/components/job_info") %>
+            </div>
+            <div class="col-lg-6 mb-4">
+              <%- include ("../partials/tab/job_dependencies_tab") %>
+            </div>
+          </div>
+          <div class="column">
+            <%- include ("../partials/components/job_command") %>
+            <%- include ("../partials/components/job_log") %>
+          </div>
+
+        </div>
+        <!-- /.container-fluid -->
+        <% } %>
+      </div>
+      <!-- End of Main Content -->
+
+      <%- include ("../partials/footer") %>
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Custom scripts for all pages-->
+  <script src="/js/sb-admin-2.min.js"></script>
+</body>
+</html>

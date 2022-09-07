@@ -1,0 +1,63 @@
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Dépendances</h6>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped" id="dataTable" cellspacing="0">
+        </table>
+      </div>
+    </div>
+  </div>
+  <script>
+
+    $(document).ready(function() {
+        const data = JSON.parse('<%- data %>');
+        const columns = JSON.parse('<%- columns %>');
+    
+        var table = $('#dataTable').DataTable( {
+            "language": {
+                "lengthMenu": "Afficher _MENU_ par page",
+                "zeroRecords": "Aucun éléments",
+                "info": "Page _PAGE_ sur _PAGES_",
+                "infoEmpty": "Aucun enregistrement disponible",
+                "infoFiltered": "(filtered from _MAX_ total records)",
+                "search": "Rechercher",
+                "paginate": {
+                    "first":	"Premier",
+                    "previous":	"Pr&eacute;c&eacute;dent",
+                    "next":	"Suivant",
+                    "last":	"Dernier"
+                }
+            },
+            "order": [[ 0, "asc" ]],
+            "lengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "Tous"]],
+            "pageLength": 10,
+            "dom": '<"d-flex"<"mr-auto p-2"l<"toolbar_tab">><"p-2"f>>t<"d-flex"<"mr-auto p-2"i><"p-2"p>>',
+            "data": data,
+            "columns": columns,
+            "rowCallback": function( row, data, index ) {
+              var status = data.job_status;
+              switch(status){
+                  case "failed":
+                      $('td', row).addClass('text-danger');
+                      break;
+                  case "running":
+                      $('td', row).addClass('text-warning');
+                      break;
+                  case "waiting":
+                      $('td', row).addClass('text-secondary');
+                      break;
+                  case "done":
+                      $('td', row).addClass('text-success');
+                      break;
+                  case "ready":
+                      $('td', row).addClass('text-primary');
+                      break;
+                      
+            }
+        }
+          } 
+        );
+    } );
+</script>

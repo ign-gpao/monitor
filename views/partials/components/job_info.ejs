@@ -1,0 +1,33 @@
+<!-- views/partials/jobs_info.ejs -->
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <h6 class="m-0 font-weight-bold text-primary">Job : <%= job.job_id %></h6>
+      </div>
+        <%if (job.job_status == 'failed') { %>
+          <div class="col-lg-6 text-right">
+            <button type="button" onclick='reinitJobs([<%= job.job_id %>])' data-toggle="tooltip" title="Réinitialise le job <%= job.job_id %>" class="btn btn-circle btn-warning">
+              <i class="fas fa-sync-alt fa-1x" aria-hidden="true"></i>
+            </button>
+          </div>
+        <%}%>
+    </div>
+  </div>
+  <div class="card-body">
+      <ul class="list-group list-group-flush">
+          <li class="list-group-item">Id : <%= job.job_id %></li>
+          <li class="list-group-item">Nom du Job : <%= job.job_name %></li>
+          <li class="list-group-item">Tags : <%= job.job_tags %></li>
+          <li class="list-group-item">Date de début : <%= job.date_debut %> à  <%= job.hms_debut %> (UTC)</li>
+          <li class="list-group-item">Date de fin : <%= job.date_fin %> à  <%= job.hms_fin %> (UTC)</li>
+          <li class="list-group-item">Durée : <%= job.duree %> secondes</li>
+          <li class="list-group-item">Statut : <%= job.job_status %></li>
+          <li class="list-group-item">Code de retour : <%= job.job_return_code %></li>
+          <li class="list-group-item">Id Projet : <%= job.project_id %></li>
+          <li class="list-group-item">Nom du Projet : <%= job.project_name %></li>
+          <li class="list-group-item">Id Session : <%= job.session_id %></li>
+          <li class="list-group-item">Machine : <%= job.session_host %></li>
+      </ul>        
+  </div>
+</div>

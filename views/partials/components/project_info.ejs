@@ -1,0 +1,23 @@
+<!-- views/partials/jobs_info.ejs -->
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <h6 class="m-0 font-weight-bold text-primary">Informations sur le projet</h6>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+      <ul class="list-group list-group-flush">
+          <li class="list-group-item">Id : <%= project.project_id %></li>
+          <li class="list-group-item">Nom du Projet : <%= project.project_name %></li>
+          <li class="list-group-item">Statut : <%= project.project_status %></li>
+          <li class="list-group-item">Priorité : <%= project.project_priority %></li>
+          <li class="list-group-item">Nombre de jobs total : <%= project.count %></li>
+          <li class="list-group-item">Duree Moyenne d'un job : <%= project.avg_job_duree %>s</li>
+          <li class="list-group-item">Durée Minimal d'un job : <%= project.min_job_duree %>s</li>
+          <li class="list-group-item">Durée Maximal d'un job : <%= project.max_job_duree %>s</li>
+          <li class="list-group-item">Durée Total de traitement : <%= project.total_job_duree %>s</li>
+      </ul>        
+  </div>
+</div>
