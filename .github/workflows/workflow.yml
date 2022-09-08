@@ -43,7 +43,7 @@ jobs:
         prLabel: '### 📁 Other pull requests'
         addSections: '{"documentation":{"prefix":"### 📖 Documentation","labels":["documentation"]},"tests":{"prefix":"### ✅ Testing","labels":["tests"]}}'
         issues: true
-        issuesWoLabels: true
+        issuesWoLabels: true  console.log(`${req.app.get('apiUrl')}/api/jobs/status`)  console.log(`${req.app.get('apiUrl')}/api/jobs/status`)
         pullRequests: true
         prWoLabels: true
         author: true
@@ -57,8 +57,8 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "github-actions[bot]"
-        git add CHANGELOG.md
-        git commit -am "[bot] Update changelog and version"
+        git add CHANGELOG.md package.json docker/Dockerfile
+        git commit -m "[bot] Update changelog and version"
         git push
         git tag -d ${{steps.tagging.outputs.new_tag}}
         git push origin :${{steps.tagging.outputs.new_tag}}
