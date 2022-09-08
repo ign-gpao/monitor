@@ -1,6 +1,6 @@
 FROM node:latest
 LABEL maintainer="IGN"
-LABEL version="0.3.0"
+LABEL version="0.4.0"
 
 ENV http_proxy=$http_proxy
 ENV https_proxy=$http_proxy
