@@ -1,29 +1,14 @@
 const express = require('express');
 const debug = require('debug');
-const git = require('git-last-commit');
 
 const app = express();
-
-function getLastCommit() {
-  return new Promise((resolve) => {
-    git.getLastCommit(
-      (err, commit) => {
-        resolve(commit);
-      },
-    );
-  });
-}
-
-getLastCommit().then((commit) => {
-  app.set('version', `0.1.${commit.shortHash.toUpperCase()}`);
-});
 
 // Url du moniteur sur lequel fonctionne le moniteur
 // par défaut http://localhost:8000
 const URL_MONITOR = process.env.URL_MONITOR || 'localhost';
 const MONITOR_PORT = process.env.MONITOR_PORT || 8000;
 
-// Url de l'api qui est appelé par le moniteur
+// Url de l'api qui est appelé par le monconst git = require('git-last-commit');iteur
 // par défaut http://localhost:8080
 const URL_API = process.env.URL_API || 'localhost';
 const API_PORT = process.env.API_PORT || 8080;
@@ -40,6 +25,7 @@ const SERVER_URL = `http://${SERVER_HOSTNAME}:${API_PORT}`;
 app.set('apiUrl', `http://${URL_API}:${API_PORT}`);
 app.set('apiMonitor', `http://${URL_MONITOR}:${MONITOR_PORT}`);
 app.set('server', SERVER_URL);
+app.set('version', process.env.npm_package_version);
 
 const routes = require('./routes');
 
@@ -61,3 +47,4 @@ debug.log(`URL de l'API : ${app.get('apiUrl')}`);
 
 app.listen(MONITOR_PORT);
 debug.log(`URL du monitor : ${app.get('apiMonitor')}`);
+debug.log(`Version du monitor : ${app.get('version')}`);
