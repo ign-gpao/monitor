@@ -1,5 +1,13 @@
 # 📑 Changelog
 
+## [1.0.0](https://github.com/ign-gpao/monitor/tree/1.0.0) (2022-09-08)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/0.5.0...1.0.0)
+
+### 📁 Other pull requests
+
+- remove package from package.json \#major [\#18](https://github.com/ign-gpao/monitor/pull/18) ([arnaudbirk](https://github.com/arnaudbirk))
+
 ## [0.5.0](https://github.com/ign-gpao/monitor/tree/0.5.0) (2022-09-08)
 
 [Full Changelog](https://github.com/ign-gpao/monitor/compare/0.4.0...0.5.0)
