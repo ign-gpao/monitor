@@ -1,10 +1,30 @@
 # 📑 Changelog
 
+## [Unreleased](https://github.com/ign-gpao/monitor/tree/HEAD)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.0.1...HEAD)
+
+### 🚀 Enhancements
+
+- Changement command lancement du monitor [\#23](https://github.com/ign-gpao/monitor/issues/23)
+
+## [1.0.1](https://github.com/ign-gpao/monitor/tree/1.0.1) (2022-10-20)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.0.0...1.0.1)
+
+### 🐛 Bug fixes
+
+- \#patch replace launch command [\#24](https://github.com/ign-gpao/monitor/pull/24) ([arnaudbirk](https://github.com/arnaudbirk))
+
+### 📁 Other issues
+
+- Monitor : Migration [\#2](https://github.com/ign-gpao/monitor/issues/2)
+
 ## [1.0.0](https://github.com/ign-gpao/monitor/tree/1.0.0) (2022-09-08)
 
 [Full Changelog](https://github.com/ign-gpao/monitor/compare/0.5.0...1.0.0)
 
-### 📁 Other pull requests
+### 🚀 Enhancements
 
 - remove package from package.json \#major [\#18](https://github.com/ign-gpao/monitor/pull/18) ([arnaudbirk](https://github.com/arnaudbirk))
 
