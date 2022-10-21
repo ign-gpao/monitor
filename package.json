@@ -8,8 +8,9 @@
   },
   "main": "serveur.js",
   "scripts": {
-    "lint": "eslint middlewares/ routes/ serveur.js",
-    "start": "nodejs serveur.js"
+    "test": "eslint middlewares/ routes/ serveur.js",
+    "start": "nodejs serveur.js",
+    "dev": "supervisor -e node,js,ejs serveur.js"
   },
   "author": "",
   "license": "ISC",
