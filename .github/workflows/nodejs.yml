@@ -21,7 +21,7 @@ jobs:
       run: | 
         npm install
         
-    - name: API Run lint
+    - name: Monitor Run lint
       working-directory: .
       run: |
-        npm run lint
+        npm test
