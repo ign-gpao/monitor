@@ -2,15 +2,27 @@
 
 ## [Unreleased](https://github.com/ign-gpao/monitor/tree/HEAD)
 
-[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.0.1...HEAD)
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.1.0...HEAD)
 
-### 🚀 Enhancements
+### 🐛 Bug fixes
 
-- Changement command lancement du monitor [\#23](https://github.com/ign-gpao/monitor/issues/23)
+- Fix lien monitor [\#25](https://github.com/ign-gpao/monitor/issues/25)
+
+## [1.1.0](https://github.com/ign-gpao/monitor/tree/1.1.0) (2022-10-21)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.0.1...1.1.0)
+
+### 🐛 Bug fixes
+
+- 25 fix lien monitor [\#26](https://github.com/ign-gpao/monitor/pull/26) ([arnaudbirk](https://github.com/arnaudbirk))
 
 ## [1.0.1](https://github.com/ign-gpao/monitor/tree/1.0.1) (2022-10-20)
 
 [Full Changelog](https://github.com/ign-gpao/monitor/compare/1.0.0...1.0.1)
+
+### 🚀 Enhancements
+
+- Changement command lancement du monitor [\#23](https://github.com/ign-gpao/monitor/issues/23)
 
 ### 🐛 Bug fixes
 
