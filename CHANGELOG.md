@@ -2,11 +2,19 @@
 
 ## [Unreleased](https://github.com/ign-gpao/monitor/tree/HEAD)
 
-[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.1.0...HEAD)
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.1.1...HEAD)
 
 ### 🐛 Bug fixes
 
-- Fix lien monitor [\#25](https://github.com/ign-gpao/monitor/issues/25)
+- Possibilité d'avoir une erreur de guillemet dans le job name [\#27](https://github.com/ign-gpao/monitor/issues/27)
+
+## [1.1.1](https://github.com/ign-gpao/monitor/tree/1.1.1) (2022-10-21)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.1.0...1.1.1)
+
+### 🐛 Bug fixes
+
+- \#patch fix pb ' dans le nom des jobs et des projets [\#28](https://github.com/ign-gpao/monitor/pull/28) ([arnaudbirk](https://github.com/arnaudbirk))
 
 ## [1.1.0](https://github.com/ign-gpao/monitor/tree/1.1.0) (2022-10-21)
 
@@ -14,6 +22,7 @@
 
 ### 🐛 Bug fixes
 
+- Fix lien monitor [\#25](https://github.com/ign-gpao/monitor/issues/25)
 - 25 fix lien monitor [\#26](https://github.com/ign-gpao/monitor/pull/26) ([arnaudbirk](https://github.com/arnaudbirk))
 
 ## [1.0.1](https://github.com/ign-gpao/monitor/tree/1.0.1) (2022-10-20)
