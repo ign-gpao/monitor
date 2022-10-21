@@ -12,7 +12,7 @@
 
   <script>
     $(document).ready(function() {
-      const data = JSON.parse('<%- data %>');
+        const data = <%- data %>;
         const columns = JSON.parse('<%- columns %>');
     
         var table = $('#dataTable').DataTable( {
