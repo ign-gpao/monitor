@@ -1,12 +1,8 @@
 # 📑 Changelog
 
-## [Unreleased](https://github.com/ign-gpao/monitor/tree/HEAD)
+## [1.3.0](https://github.com/ign-gpao/monitor/tree/1.3.0) (2022-10-25)
 
-[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.2.0...HEAD)
-
-### 🚀 Enhancements
-
-- Ajouter un lien entre les projets visibles sur le dashboard et la vue détaillé du projet correspondant. [\#29](https://github.com/ign-gpao/monitor/issues/29)
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.2.0...1.3.0)
 
 ## [1.2.0](https://github.com/ign-gpao/monitor/tree/1.2.0) (2022-10-25)
 
@@ -14,6 +10,7 @@
 
 ### 🚀 Enhancements
 
+- Ajouter un lien entre les projets visibles sur le dashboard et la vue détaillé du projet correspondant. [\#29](https://github.com/ign-gpao/monitor/issues/29)
 - 29 ajouter un lien entre les projets visibles sur le dashboard et la vue détaillé du projet correspondant [\#36](https://github.com/ign-gpao/monitor/pull/36) ([arnaudbirk](https://github.com/arnaudbirk))
 
 ## [1.1.1](https://github.com/ign-gpao/monitor/tree/1.1.1) (2022-10-21)
