@@ -80,9 +80,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{steps.tagging.outputs.new_tag}}
-        release_name: Release ${{steps.tagging.outputs.new_tag}}
-        body: ${{ steps.generate-release-changelog.outputs.changelog }}
+        title: Release ${{steps.tagging.outputs.new_tag}}
 
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v2
