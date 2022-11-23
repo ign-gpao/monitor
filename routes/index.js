@@ -55,6 +55,7 @@ router.get('/project/:id', topBar.getInfo, projects.getProject, dependencies.get
 router.get('/jobs', topBar.getInfo, jobs.getJobs, projects.getProjects, (req, res) => {
   res.render('pages/jobs', {
     topBar: req.topBar,
+    filter: req.query.filter,
     projects: req.projects,
     data: req.jobs_data,
     columns: req.jobs_columns,
