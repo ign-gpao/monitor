@@ -25,7 +25,9 @@
           <li class="list-group-item">Statut : <%= job.job_status %></li>
           <li class="list-group-item">Code de retour : <%= job.job_return_code %></li>
           <li class="list-group-item">Id Projet : <%= job.project_id %></li>
-          <li class="list-group-item">Nom du Projet : <%= job.project_name %></li>
+          <li class="list-group-item">Nom du Projet : <%= job.project_name %>
+            <a class="font-italic btn btn-link" id="linked_jobs"href="/jobs?filter=<%= job.project_id %>" >Accéder aux jobs de ce projet</a>
+          </li>
           <li class="list-group-item">Id Session : <%= job.session_id %></li>
           <li class="list-group-item">Machine : <%= job.session_host %></li>
       </ul>        

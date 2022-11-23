@@ -7,7 +7,9 @@
     <select name="projects" id="project-select">
         <option value="-1">-- Tous les projets --</option>
         <% projects.forEach(function( project ){ %>
-          <option value="<%= project.id %>"><%= project.id %> - <%= project.name %></option>
+          <option value="<%= project.id %>"  <%if (filter && filter==project.id) {%>  selected <%}%> > 
+            <%= project.id %> - <%= project.name %>
+          </option>
         <% }) %>
     </select>
     <div class="table-responsive">
