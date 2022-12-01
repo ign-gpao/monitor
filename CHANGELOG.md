@@ -2,11 +2,7 @@
 
 ## [Unreleased](https://github.com/ign-gpao/monitor/tree/HEAD)
 
-[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.6.0...HEAD)
 
-### 🚀 Enhancements
-
-- Ajouter un lien qui permet de basculer sur la page des jobs filtrés par projet depuis la page détaillé d'un job. [\#30](https://github.com/ign-gpao/monitor/issues/30)
 
 ## [1.6.0](https://github.com/ign-gpao/monitor/tree/1.6.0) (2022-11-23)
 
