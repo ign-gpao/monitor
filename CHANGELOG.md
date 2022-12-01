@@ -1,8 +1,28 @@
 # 📑 Changelog
 
-## [Unreleased](https://github.com/ign-gpao/monitor/tree/HEAD)
+## [1.8.0](https://github.com/ign-gpao/monitor/tree/1.8.0) (2022-12-01)
 
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/20221201145816...1.8.0)
 
+### 📁 Other pull requests
+
+- 40 ajouter un lien sur la vue détaillée dun job au niveau des dépendances afin daccéder plus facilement aux jobs à traiter en amont [\#41](https://github.com/ign-gpao/monitor/pull/41) ([ijeuffrard](https://github.com/ijeuffrard))
+
+## [20221201145816](https://github.com/ign-gpao/monitor/tree/20221201145816) (2022-12-01)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.7.0...20221201145816)
+
+## [1.7.0](https://github.com/ign-gpao/monitor/tree/1.7.0) (2022-12-01)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.6.0...1.7.0)
+
+### 🚀 Enhancements
+
+- Ajouter un lien sur la vue détaillées d'un projet au niveau des dépendances afin d'accéder plus facilement au projet à traiter en amont [\#35](https://github.com/ign-gpao/monitor/issues/35)
+
+### 📁 Other pull requests
+
+- 35 ajouter un lien sur la vue détaillées dun projet au niveau des dépendances afin daccéder plus facilement au projet à traiter en amont [\#38](https://github.com/ign-gpao/monitor/pull/38) ([ijeuffrard](https://github.com/ijeuffrard))
 
 ## [1.6.0](https://github.com/ign-gpao/monitor/tree/1.6.0) (2022-11-23)
 
@@ -10,6 +30,7 @@
 
 ### 🚀 Enhancements
 
+- Ajouter un lien qui permet de basculer sur la page des jobs filtrés par projet depuis la page détaillé d'un job. [\#30](https://github.com/ign-gpao/monitor/issues/30)
 - enhancement \#30 ok [\#39](https://github.com/ign-gpao/monitor/pull/39) ([ijeuffrard](https://github.com/ijeuffrard))
 
 ## [20221025095119](https://github.com/ign-gpao/monitor/tree/20221025095119) (2022-10-25)
