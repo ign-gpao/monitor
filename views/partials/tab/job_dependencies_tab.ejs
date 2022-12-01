@@ -37,24 +37,27 @@
             "data": data,
             "columns": columns,
             "rowCallback": function( row, data, index ) {
+
+              var name = $('td:eq(2)', row);
+              name.html('<a href="/job/'+data.job_id+'">'+data.job_name+'</a>')
+
               var status = data.job_status;
               switch(status){
                   case "failed":
-                      $('td', row).addClass('text-danger');
+                      $('td, a', row).addClass('text-danger');
                       break;
                   case "running":
-                      $('td', row).addClass('text-warning');
+                      $('td, a', row).addClass('text-warning');
                       break;
                   case "waiting":
-                      $('td', row).addClass('text-secondary');
+                      $('td, a', row).addClass('text-secondary');
                       break;
                   case "done":
-                      $('td', row).addClass('text-success');
+                      $('td, a', row).addClass('text-success');
                       break;
                   case "ready":
-                      $('td', row).addClass('text-primary');
-                      break;
-                      
+                      $('td, a', row).addClass('text-primary');
+                      break;                         
             }
         }
           } 
