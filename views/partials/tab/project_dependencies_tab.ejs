@@ -37,6 +37,10 @@
             "data": data,
             "columns": columns,
             "rowCallback": function( row, data, index ) {
+
+              var id = $('td:eq(1)', row);
+              id.html('<a href="/project/'+data.project_id+'">'+data.project_id+'</a>')
+
               var name = $('td:eq(2)', row);
               name.html('<a href="/project/'+data.project_id+'">'+data.project_name+'</a>')
 

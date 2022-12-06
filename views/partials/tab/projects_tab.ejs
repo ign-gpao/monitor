@@ -36,26 +36,34 @@
             "dom": '<"d-flex"<"mr-auto p-2"l<"toolbar_tab">><"p-2"f>>t<"d-flex"<"mr-auto p-2"i><"p-2"p>>',
             "data": data,
             "columns": columns,
+            "autoWidth": false,
             "createdRow": function( row, data, dataIndex, cells ) {
                 $('button', cells[3])[0].innerText = data.priority;
             },
             "rowCallback": function( row, data, index ) {
+
+            var id = $('td:eq(0)', row);
+            id.html('<a href="/project/'+data.id+'">'+data.id+'</a>')
+
+            var name = $('td:eq(1)', row);
+            name.html('<a href="/project/'+data.id+'">'+data.name+'</a>')
+
             var status = data.status;
             switch(status){
                 case "failed":
-                    $('td', row).addClass('text-danger');
+                    $('td, a', row).addClass('text-danger');
                     break;
                 case "running":
-                    $('td', row).addClass('text-warning');
+                    $('td, a', row).addClass('text-warning');
                     break;
                 case "waiting":
-                    $('td', row).addClass('text-secondary');
+                    $('td, a', row).addClass('text-secondary');
                     break;
                 case "done":
-                    $('td', row).addClass('text-success');
+                    $('td, a', row).addClass('text-success');
                     break;
                 case "ready":
-                    $('td', row).addClass('text-primary');
+                    $('td, a', row).addClass('text-primary');
                     break;
             }
         }
@@ -94,15 +102,28 @@
         } );
       var i = jQuery('<i></i>');
       i.addClass('fas fa-trash fa-1x')
+      
+      var i2 = jQuery('<i></i>');
+      i2.addClass('fas fa-trash fa-1x')
   
-      var button = jQuery('<button></button>');
-      button.addClass('btn btn-danger');
-      button.attr('type', 'button')
+    //   var buttonDelAllProject = jQuery('<button></button>');
+    //   buttonDelAllProject.addClass('btn btn-danger');
+    //   buttonDelAllProject.attr('type', 'button')
+    //         .attr('data-toggle', "tooltip")
+    //         .attr('title', 'Supprime tous les projets')
+    //         .attr('onclick', 'deleteAllProjects()')
+    //         .append(i)
+    //         .append(' Supprime tous les projets');
+    //   $("div.toolbar_tab").append(buttonDelAllProject);
+
+      var buttonDelFilteredProject = jQuery('<button></button>');
+      buttonDelFilteredProject.addClass('btn btn-danger');
+      buttonDelFilteredProject.attr('type', 'button')
             .attr('data-toggle', "tooltip")
-            .attr('title', 'Supprime tous les projets')
-            .attr('onclick', 'deleteAllProjects()')
-            .append(i)
-            .append(' Supprime tous les projets');
-      $("div.toolbar_tab").append(button);
+            .attr('title', 'Supprime tous les projets visibles')
+            .attr('onclick', 'deleteFilteredProjects()')
+            .append(i2)
+            .append(' Supprime les projets visibles');
+      $("div.toolbar_tab").append(buttonDelFilteredProject);
     } );
   </script>

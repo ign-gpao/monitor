@@ -6,4 +6,4 @@ if [ "$(docker ps -aq -f name=monitor-gpao)" ]; then
     docker rm -f monitor-gpao
 fi
 
-npm start
+npm run dev

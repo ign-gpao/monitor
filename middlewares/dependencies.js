@@ -10,7 +10,7 @@ async function getJobDependencies(req, res, next) {
       data: 'dep_id',
     },
     {
-      title: 'Job en amont',
+      title: 'Id job en amont',
       data: 'dep_up',
     },
     {
