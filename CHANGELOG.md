@@ -1,5 +1,29 @@
 # 📑 Changelog
 
+## [Unreleased](https://github.com/ign-gpao/monitor/tree/HEAD)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.9.0...HEAD)
+
+### 🚀 Enhancements
+
+- pouvoir supprimer plusieurs projets en même temps. [\#19](https://github.com/ign-gpao/monitor/issues/19)
+
+## [1.9.0](https://github.com/ign-gpao/monitor/tree/1.9.0) (2022-12-06)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/20221201153311...1.9.0)
+
+### 🚀 Enhancements
+
+- Revoir la colorisation des barres de progression sur le dashboard [\#32](https://github.com/ign-gpao/monitor/issues/32)
+
+### 📁 Other pull requests
+
+- 19 pouvoir supprimer plusieurs projets en même temps [\#42](https://github.com/ign-gpao/monitor/pull/42) ([arnaudbirk](https://github.com/arnaudbirk))
+
+## [20221201153311](https://github.com/ign-gpao/monitor/tree/20221201153311) (2022-12-01)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.8.0...20221201153311)
+
 ## [1.8.0](https://github.com/ign-gpao/monitor/tree/1.8.0) (2022-12-01)
 
 [Full Changelog](https://github.com/ign-gpao/monitor/compare/20221201145816...1.8.0)
