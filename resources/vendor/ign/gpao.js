@@ -155,6 +155,36 @@ function deleteAllProjects () {
   }
 }
 
+// Fonction permettant de supprimer les projets filtrés
+function deleteFilteredProjects () {
+  if (window.confirm(`Supprimer tous les projets filtrés ?`)) {
+  
+    var table = $('#dataTable').DataTable();
+    var rowsFiltered = table.rows({
+      search: 'applied',     // 'none',    'applied', 'removed'
+    }).data();
+
+    var projectsStr = '{"projects":[]}';
+    var jsonProject = JSON.parse(projectsStr);
+
+    for(i = 0; i < rowsFiltered.length; i++){
+      jsonProject["projects"].push(rowsFiltered[i].id);
+    }
+
+    console.log(JSON.stringify(jsonProject));
+
+    fetch(`${apiUrl}/api/projects/deleteList`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(jsonProject)
+    }).then(() => {
+      location.reload();
+    });
+  }
+}
+
 // Fonction permettant de vider la base GPAO
 function cleanDatabase () {
   if (window.confirm(`Souhaitez vous vider la base ?`)) {

@@ -45,38 +45,46 @@ $(document).ready(function() {
         "dom": '<"d-flex"<"mr-auto p-2"l<"toolbar_tab">><"p-2"f>>t<"d-flex"<"mr-auto p-2"i><"p-2"p>>',
         "data": data,
         "columns": columns,
+        "autoWidth": false,
         "createdRow": function( row, data, dataIndex, cells ) {
             if (data.job_status !== 'failed')
-                $('button', cells[9])[1].style.visibility = "hidden";
+                $('button', cells[9])[0].style.visibility = "hidden";
         },
         "rowCallback": function( row, data, index ) {
+            var job_id = $('td:eq(0)', row);
+            job_id.html('<a href="/job/'+data.job_id+'">'+data.job_id+'</a>')
+
+            var job_name = $('td:eq(1)', row);
+            job_name.html('<a href="/job/'+data.job_id+'">'+data.job_name+'</a>')
+
+            var project_id = $('td:eq(7)', row);
+            project_id.html('<a href="/project/'+data.job_id_project+'">'+data.job_id_project+'</a>')
+
+            var project_name = $('td:eq(8)', row);
+            project_name.html('<a href="/project/'+data.job_id_project+'">'+data.project_name+'</a>')
+
             var status = data.job_status;
             switch(status){
                 case "failed":
-                    $('td', row).addClass('text-danger');
+                    $('td, a', row).addClass('text-danger');
                     break;
                 case "running":
-                    $('td', row).addClass('text-warning');
+                    $('td, a', row).addClass('text-warning');
                     break;
                 case "waiting":
-                    $('td', row).addClass('text-secondary');
+                    $('td, a', row).addClass('text-secondary');
                     break;
                 case "done":
-                    $('td', row).addClass('text-success');
+                    $('td, a', row).addClass('text-success');
                     break;
                 case "ready":
-                    $('td', row).addClass('text-primary');
+                    $('td, a', row).addClass('text-primary');
                     break;
             }
         }
     } 
     );
     // Add event listener for actions
-    $('#dataTable tbody').on('click', 'button.view_job', function () {
-        var tr = $(this).closest('tr');
-        var row = table.row( tr );
-        window.location.href = `/job/${row.data().job_id}`;
-    } );
     $('#dataTable tbody').on('click', 'button.reinit_job', function () {
         var tr = $(this).closest('tr');
         var row = table.row( tr );

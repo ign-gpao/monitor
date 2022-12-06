@@ -46,7 +46,7 @@ async function getJobs(req, res, next) {
       title: 'Action',
       orderable: false,
       data: null,
-      defaultContent: '<button type=\\"button\\" data-toggle=\\"tooltip\\" title=\\"Affiche une vue détaillée sur le job\\" class=\\"view_job btn btn-circle btn-success\\"><i class=\\"fas fa-search fa-1x\\" aria-hidden=\\"true\\"></i></button><button type=\\"button\\" data-toggle=\\"tooltip\\" title=\\"Réinitialise le job\\" class=\\"reinit_job btn btn-circle btn-warning\\"><i class=\\"fas fa-sync-alt fa-1x\\" aria-hidden=\\"true\\"></i></button>',
+      defaultContent: '<button type=\\"button\\" data-toggle=\\"tooltip\\" title=\\"Réinitialise le job\\" class=\\"reinit_job btn btn-circle btn-warning\\"><i class=\\"fas fa-sync-alt fa-1x\\" aria-hidden=\\"true\\"></i></button>',
     },
   ]);
 
