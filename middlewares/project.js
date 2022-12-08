@@ -21,13 +21,13 @@ async function getProjects(req, res, next) {
       title: 'Priorité',
       orderable: false,
       data: null,
-      defaultContent: '<button class=\\"project_priority btn btn-primary dropdown-toggle\\" type=\\"button\\" id=\\"dropdownMenuButton\\" data-toggle=\\"dropdown\\" aria-haspopup=\\"true\\" aria-expanded=\\"false\\">Change Priority</button><div class=\\"dropdown-menu\\" aria-labelledby=\\"dropdownMenuButton\\"><a class=\\"dropdown-item\\">Low</a><a class=\\"dropdown-item\\">Normal</a><a class=\\"dropdown-item\\">High</a></div>',
+      defaultContent: '<button class=\\"project_priority btn btn-sm btn-primary dropdown-toggle\\" type=\\"button\\" id=\\"dropdownMenuButton\\" data-toggle=\\"dropdown\\" aria-haspopup=\\"true\\" aria-expanded=\\"false\\">Change Priority</button><div class=\\"dropdown-menu\\" aria-labelledby=\\"dropdownMenuButton\\"><a class=\\"dropdown-item\\">Low</a><a class=\\"dropdown-item\\">Normal</a><a class=\\"dropdown-item\\">High</a></div>',
     },
     {
       title: 'Action',
       orderable: false,
       data: null,
-      defaultContent: '<button type=\\"button\\" data-toggle=\\"tooltip\\" title=\\"Supprime le projet de la base\\" class=\\"del_project btn btn-circle btn-danger\\"><i class=\\"fas fa-trash fa-1x\\" aria-hidden=\\"true\\"></i></button>',
+      defaultContent: '<button type=\\"button\\" data-toggle=\\"tooltip\\" title=\\"Supprime le projet de la base\\" class=\\"del_project btn btn-sm btn-circle btn-danger\\"><i class=\\"fas fa-trash fa-1x\\" aria-hidden=\\"true\\"></i></button>',
     },
   ]);
 

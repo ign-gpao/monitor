@@ -28,7 +28,7 @@ async function getHosts(req, res, next) {
       title: 'Action',
       orderable: false,
       data: null,
-      defaultContent: '<button type=\\"button\\" data-toggle=\\"tooltip\\" title=\\"Modifie le nombre de thread actif sur la machine\\" class=\\"view_host btn btn-circle btn-info\\"><i class=\\"fas fa-cogs fa-1x\\" aria-hidden=\\"true\\"></i></button>',
+      defaultContent: '<button type=\\"button\\" data-toggle=\\"tooltip\\" title=\\"Modifie le nombre de thread actif sur la machine\\" class=\\"view_host btn btn-sm btn-circle btn-info\\"><i class=\\"fas fa-cogs fa-1x\\" aria-hidden=\\"true\\"></i></button>',
     },
   ]);
 
