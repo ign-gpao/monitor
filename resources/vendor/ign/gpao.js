@@ -68,7 +68,7 @@ function jsonChanged(file) {
   reader.readAsText(file);  
 }
 
-function txtChanged(file) {
+function txtChanged(file, tags) {
   var reader = new FileReader();
   reader.addEventListener('load', function(e) {
   // contents of file in variable     
@@ -76,7 +76,12 @@ function txtChanged(file) {
     let P = { projects:[{name: file.name, jobs:[]}]};
     text.forEach((line, index) => {
       if (line.length>0){
-        let job = {name: `job ${index}`, command: line};
+        let job;
+        if(tags === ""){
+          job = {name: `job ${index}`, command: line};
+        } else {
+          job = {name: `job ${index}`, command: line, tags: [tags]};
+        }
         P.projects[0].jobs.push(job);
       }
     });
