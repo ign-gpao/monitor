@@ -3,15 +3,24 @@
     <h6 class="m-0 font-weight-bold text-primary">Jobs</h6>
   </div>
   <div class="card-body">
-    <label>Filtrer par projets :</label>
-    <select name="projects" id="project-select">
-        <option value="-1">-- Tous les projets --</option>
-        <% projects.forEach(function( project ){ %>
-          <option value="<%= project.id %>"  <%if (filter && filter==project.id) {%>  selected <%}%> > 
-            <%= project.id %> - <%= project.name %>
-          </option>
-        <% }) %>
-    </select>
+    <div class="btn-toolbar ml-1 mb-3"> 
+      <div class="input-group input-group-sm">
+        <div class="input-group-prepend">
+          <label class="input-group-text">Filtrer par projets</label>
+        </div>
+        <select class="custom-select" name="projects" id="project-select">
+          <option value="-1">-- Tous les projets --</option>
+          <% projects.forEach(function( project ){ %>
+            <option value="<%= project.id %>"  <%if (filter && filter==project.id) {%>  selected <%}%> > 
+              <%= project.id %> - <%= project.name %>
+            </option>
+          <% }) %>
+        </select>    
+      </div>  
+    </div>
+
+ 
+    
     <div class="table-responsive">
       <table class="table table-bordered table-striped" id="dataTable" cellspacing="0">
       </table>
@@ -42,7 +51,7 @@ $(document).ready(function() {
         "order": [[ 0, "asc" ]],
         "lengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "Tous"]],
         "pageLength": 100,
-        "dom": '<"d-flex"<"mr-auto p-2"l<"toolbar_tab">><"p-2"f>>t<"d-flex"<"mr-auto p-2"i><"p-2"p>>',
+        "dom": '<"d-flex m-1"<"mr-auto"l><f>><"d-flex m-1"<"mr-auto toolbar_tab"><p>>t<"d-flex m-1"<"mr-auto"i><p>>',
         "data": data,
         "columns": columns,
         "autoWidth": false,
