@@ -26,4 +26,4 @@ jobs:
     - name: Monitor Run lint
       working-directory: .
       run: |
-        npm test
+        npm run lint
