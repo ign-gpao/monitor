@@ -1,5 +1,25 @@
 # 📑 Changelog
 
+## [Unreleased](https://github.com/ign-gpao/monitor/tree/HEAD)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.11.0...HEAD)
+
+### 🚀 Enhancements
+
+- Tri sur les tableaux [\#5](https://github.com/ign-gpao/monitor/issues/5)
+
+## [1.11.0](https://github.com/ign-gpao/monitor/tree/1.11.0) (2022-12-09)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/20221209121520...1.11.0)
+
+### 📁 Other pull requests
+
+- fix css dataTable [\#45](https://github.com/ign-gpao/monitor/pull/45) ([ijeuffrard](https://github.com/ijeuffrard))
+
+## [20221209121520](https://github.com/ign-gpao/monitor/tree/20221209121520) (2022-12-09)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.10.0...20221209121520)
+
 ## [1.10.0](https://github.com/ign-gpao/monitor/tree/1.10.0) (2022-12-09)
 
 [Full Changelog](https://github.com/ign-gpao/monitor/compare/1.9.0...1.10.0)
