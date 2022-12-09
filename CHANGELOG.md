@@ -1,40 +1,37 @@
 # 📑 Changelog
 
-## [Unreleased](https://github.com/ign-gpao/monitor/tree/HEAD)
+## [1.10.0](https://github.com/ign-gpao/monitor/tree/1.10.0) (2022-12-09)
 
-[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.9.0...HEAD)
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.9.0...1.10.0)
 
 ### 🚀 Enhancements
 
-- pouvoir supprimer plusieurs projets en même temps. [\#19](https://github.com/ign-gpao/monitor/issues/19)
+- On aurait besoin d'un bouton permettant d'actualiser la page des jobs en cours sans perdre le filtre fait sur le nom du chantier [\#9](https://github.com/ign-gpao/monitor/issues/9)
+
+### 📁 Other pull requests
+
+- Fix height cell [\#44](https://github.com/ign-gpao/monitor/pull/44) ([arnaudbirk](https://github.com/arnaudbirk))
 
 ## [1.9.0](https://github.com/ign-gpao/monitor/tree/1.9.0) (2022-12-06)
 
-[Full Changelog](https://github.com/ign-gpao/monitor/compare/20221201153311...1.9.0)
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.8.0...1.9.0)
 
 ### 🚀 Enhancements
 
 - Revoir la colorisation des barres de progression sur le dashboard [\#32](https://github.com/ign-gpao/monitor/issues/32)
+- pouvoir supprimer plusieurs projets en même temps. [\#19](https://github.com/ign-gpao/monitor/issues/19)
 
 ### 📁 Other pull requests
 
 - 19 pouvoir supprimer plusieurs projets en même temps [\#42](https://github.com/ign-gpao/monitor/pull/42) ([arnaudbirk](https://github.com/arnaudbirk))
 
-## [20221201153311](https://github.com/ign-gpao/monitor/tree/20221201153311) (2022-12-01)
-
-[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.8.0...20221201153311)
-
 ## [1.8.0](https://github.com/ign-gpao/monitor/tree/1.8.0) (2022-12-01)
 
-[Full Changelog](https://github.com/ign-gpao/monitor/compare/20221201145816...1.8.0)
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.7.0...1.8.0)
 
 ### 📁 Other pull requests
 
 - 40 ajouter un lien sur la vue détaillée dun job au niveau des dépendances afin daccéder plus facilement aux jobs à traiter en amont [\#41](https://github.com/ign-gpao/monitor/pull/41) ([ijeuffrard](https://github.com/ijeuffrard))
-
-## [20221201145816](https://github.com/ign-gpao/monitor/tree/20221201145816) (2022-12-01)
-
-[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.7.0...20221201145816)
 
 ## [1.7.0](https://github.com/ign-gpao/monitor/tree/1.7.0) (2022-12-01)
 
