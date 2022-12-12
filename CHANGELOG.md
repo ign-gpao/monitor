@@ -2,27 +2,43 @@
 
 ## [Unreleased](https://github.com/ign-gpao/monitor/tree/HEAD)
 
-[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.11.0...HEAD)
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.12.0...HEAD)
+
+### 🚀 Enhancements
+
+- Ajouter les boutons pages précédente/suivant de chaque tableau \(jobs, sessions, host, projet\) en haut en bas [\#34](https://github.com/ign-gpao/monitor/issues/34)
+
+## [1.12.0](https://github.com/ign-gpao/monitor/tree/1.12.0) (2022-12-12)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.11.0...1.12.0)
+
+### 📁 Other pull requests
+
+- 34 ajouter les boutons pages précédentesuivant de chaque tableau jobs sessions host projet en haut en bas [\#46](https://github.com/ign-gpao/monitor/pull/46) ([ijeuffrard](https://github.com/ijeuffrard))
+
+## [1.11.0](https://github.com/ign-gpao/monitor/tree/1.11.0) (2022-12-09)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/20221209122203...1.11.0)
+
+## [20221209122203](https://github.com/ign-gpao/monitor/tree/20221209122203) (2022-12-09)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.10.0...20221209122203)
 
 ### 🚀 Enhancements
 
 - Tri sur les tableaux [\#5](https://github.com/ign-gpao/monitor/issues/5)
 
-## [1.11.0](https://github.com/ign-gpao/monitor/tree/1.11.0) (2022-12-09)
-
-[Full Changelog](https://github.com/ign-gpao/monitor/compare/20221209121520...1.11.0)
-
 ### 📁 Other pull requests
 
 - fix css dataTable [\#45](https://github.com/ign-gpao/monitor/pull/45) ([ijeuffrard](https://github.com/ijeuffrard))
 
-## [20221209121520](https://github.com/ign-gpao/monitor/tree/20221209121520) (2022-12-09)
-
-[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.10.0...20221209121520)
-
 ## [1.10.0](https://github.com/ign-gpao/monitor/tree/1.10.0) (2022-12-09)
 
-[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.9.0...1.10.0)
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/20221209121520...1.10.0)
+
+## [20221209121520](https://github.com/ign-gpao/monitor/tree/20221209121520) (2022-12-09)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.9.0...20221209121520)
 
 ### 🚀 Enhancements
 
