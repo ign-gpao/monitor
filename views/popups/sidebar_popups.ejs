@@ -1,0 +1,26 @@
+<!-- Ajout de projet via fichier texte -->
+<div class="modal fade" id="importTxt" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="importTxtLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="importTxtLabel">Créer un projet à partir d'un fichier texte</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Saisir les tags à attribuer au projet</span>
+                </div>
+                <input id="tags" type="text" class="form-control" placeholder="tag1,tag2" aria-label="tag" aria-describedby="basic-addon1">
+            </div>
+            <i>S'applique à toutes les commandes du projet, laisser vide pour n'attribuer aucun tag.</i>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary " onclick="javascript:document.getElementById('file-txt').click();">Importer un fichier texte</button>
+                <input id="file-txt" type="file" name="name" onchange="txtChanged(this.files[0],document.getElementById('tags').value)" style="display: none;" />
+            </div>
+        </div>
+    </div>
+</div>
