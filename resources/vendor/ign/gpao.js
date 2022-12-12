@@ -73,14 +73,14 @@ function txtChanged(file, tags) {
   reader.addEventListener('load', function(e) {
   // contents of file in variable     
     var text = e.target.result.split(/\r\n|\n/);
-    let P = { projects:[{name: file.name, jobs:[]}]};
+    const P = { projects:[{name: file.name, jobs:[]}]};
     text.forEach((line, index) => {
-      if (line.length>0){
+      if (line.length>0) {
         let job;
-        if(tags === ""){
+        if (tags === "") {
           job = {name: `job ${index}`, command: line};
         } else {
-          job = {name: `job ${index}`, command: line, tags: [tags]};
+          job = {name: `job ${index}`, command: line, tags: tags.split(',')};
         }
         P.projects[0].jobs.push(job);
       }
