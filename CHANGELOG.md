@@ -2,15 +2,27 @@
 
 ## [Unreleased](https://github.com/ign-gpao/monitor/tree/HEAD)
 
-[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.12.0...HEAD)
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.13.0...HEAD)
 
 ### 🚀 Enhancements
 
-- Ajouter les boutons pages précédente/suivant de chaque tableau \(jobs, sessions, host, projet\) en haut en bas [\#34](https://github.com/ign-gpao/monitor/issues/34)
+- possibilité d'ajouter des Tags sur un chantier créé à partir d'un fichier texte \(de lignes de commandes\) [\#43](https://github.com/ign-gpao/monitor/issues/43)
+
+## [1.13.0](https://github.com/ign-gpao/monitor/tree/1.13.0) (2022-12-14)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.12.0...1.13.0)
+
+### 📁 Other pull requests
+
+- 43 possibilité dajouter des tags sur un chantier créé à partir dun fichier texte de lignes de commandes [\#47](https://github.com/ign-gpao/monitor/pull/47) ([ijeuffrard](https://github.com/ijeuffrard))
 
 ## [1.12.0](https://github.com/ign-gpao/monitor/tree/1.12.0) (2022-12-12)
 
 [Full Changelog](https://github.com/ign-gpao/monitor/compare/1.11.0...1.12.0)
+
+### 🚀 Enhancements
+
+- Ajouter les boutons pages précédente/suivant de chaque tableau \(jobs, sessions, host, projet\) en haut en bas [\#34](https://github.com/ign-gpao/monitor/issues/34)
 
 ### 📁 Other pull requests
 
@@ -18,11 +30,7 @@
 
 ## [1.11.0](https://github.com/ign-gpao/monitor/tree/1.11.0) (2022-12-09)
 
-[Full Changelog](https://github.com/ign-gpao/monitor/compare/20221209122203...1.11.0)
-
-## [20221209122203](https://github.com/ign-gpao/monitor/tree/20221209122203) (2022-12-09)
-
-[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.10.0...20221209122203)
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.10.0...1.11.0)
 
 ### 🚀 Enhancements
 
@@ -34,11 +42,7 @@
 
 ## [1.10.0](https://github.com/ign-gpao/monitor/tree/1.10.0) (2022-12-09)
 
-[Full Changelog](https://github.com/ign-gpao/monitor/compare/20221209121520...1.10.0)
-
-## [20221209121520](https://github.com/ign-gpao/monitor/tree/20221209121520) (2022-12-09)
-
-[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.9.0...20221209121520)
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.9.0...1.10.0)
 
 ### 🚀 Enhancements
 
