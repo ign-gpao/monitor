@@ -37,7 +37,7 @@
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
               <a class="collapse-item" href="javascript:document.getElementById('file-json').click();">A partir d'un Json</a>
-              <input id="file-json" type="file" name="name" onchange="jsonChanged(this.files[0])" style="display: none;" />
+              <input id="file-json" type="file" accept=".json" name="name" onchange="jsonChanged(this.files[0])" style="display: none;" />
               <a class="collapse-item" data-toggle="modal" data-target="#importTxt">A partir d'un fichier texte</a>
             </div>
           </div>
@@ -93,4 +93,4 @@
   <!-- End of Sidebar -->
 
 <!-- Popups of Sidebar -->
-<%- include ("../../popups/sidebar_popups") %>
+<%- include ("../../popups/popup_import_project_from_txt") %>
