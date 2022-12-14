@@ -9,19 +9,19 @@ async function getHosts(req, res, next) {
       data: 'host',
     },
     {
-      title: 'Fermé',
+      title: 'Fermée',
       data: 'closed',
-    },
-    {
-      title: 'Active',
-      data: 'active',
     },
     {
       title: 'En veille',
       data: 'idle',
     },
     {
-      title: 'Utilisé',
+      title: 'Active',
+      data: 'active',
+    },
+    {
+      title: 'Utilisée',
       data: 'running',
     },
     {
