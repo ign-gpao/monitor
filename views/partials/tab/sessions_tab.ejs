@@ -38,7 +38,6 @@
             "autoWidth": false,
             "rowCallback": function( row, data, index ) {
               var status = data.sessions_status;
-              console.log(status);
               switch(status){
                   case "closed":
                       $('td', row).addClass('text-danger');
@@ -55,7 +54,6 @@
                   case "idle_requested":
                       $('td', row).addClass('text-primary');
                       break;
-
               }
           }
         }

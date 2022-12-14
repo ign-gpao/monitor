@@ -37,9 +37,21 @@
             "dom": '<"d-flex m-1"<"mr-auto"l><f>><"d-flex m-1"<"mr-auto toolbar_tab"><p>>t<"d-flex m-1"<"mr-auto"i><p>>',
             "data": data,
             "columns": columns,
-            "autoWidth": false
+            "autoWidth": false,
+            "rowCallback": function( row, data, index ) {
+              if ((data.active + data.idle + data.running) == 0) {
+                $('td', row).addClass('text-danger');
+              } if (data.idle > 0 && data.active == 0) {
+                $('td', row).addClass('text-secondary');
+              } if (data.active > 0) {
+                $('td', row).addClass('text-success');
+              } if (data.running > 0) {
+                $('td', row).addClass('text-warning');
+              }
+            }
           } 
         );
+
         // Add event listener for actions
         $('#dataTable tbody').on('click', 'button.view_host', function () {
             var tr = $(this).closest('tr');
