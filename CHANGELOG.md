@@ -2,15 +2,31 @@
 
 ## [Unreleased](https://github.com/ign-gpao/monitor/tree/HEAD)
 
-[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.13.0...HEAD)
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.14.0...HEAD)
 
 ### 🚀 Enhancements
 
-- possibilité d'ajouter des Tags sur un chantier créé à partir d'un fichier texte \(de lignes de commandes\) [\#43](https://github.com/ign-gpao/monitor/issues/43)
+- Revoir la colorisation de la page des hosts [\#33](https://github.com/ign-gpao/monitor/issues/33)
+
+## [1.14.0](https://github.com/ign-gpao/monitor/tree/1.14.0) (2022-12-15)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/20221214095013...1.14.0)
+
+### 📁 Other pull requests
+
+- colorisation host [\#48](https://github.com/ign-gpao/monitor/pull/48) ([ijeuffrard](https://github.com/ijeuffrard))
+
+## [20221214095013](https://github.com/ign-gpao/monitor/tree/20221214095013) (2022-12-14)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.13.0...20221214095013)
 
 ## [1.13.0](https://github.com/ign-gpao/monitor/tree/1.13.0) (2022-12-14)
 
 [Full Changelog](https://github.com/ign-gpao/monitor/compare/1.12.0...1.13.0)
+
+### 🚀 Enhancements
+
+- possibilité d'ajouter des Tags sur un chantier créé à partir d'un fichier texte \(de lignes de commandes\) [\#43](https://github.com/ign-gpao/monitor/issues/43)
 
 ### 📁 Other pull requests
 
