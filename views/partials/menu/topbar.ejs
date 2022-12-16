@@ -26,7 +26,7 @@
           </div>
         </div>
         <div class="card-footer d-flex align-items-center justify-content-between">
-            <a class="small text-primary stretched-link" href="/jobs">Vue détaillée</a>
+            <a class="small text-primary stretched-link" href="<%= base %>/jobs">Vue détaillée</a>
             <div class="small text-black"><i class="fas fa-angle-right"></i></div>
         </div>
       </div>
@@ -57,7 +57,7 @@
           
         </div>
         <div class="card-footer d-flex align-items-center justify-content-between">
-            <a class="small text-success stretched-link" href="/sessions">Vue détaillée</a>
+            <a class="small text-success stretched-link" href="<%= base %>/sessions">Vue détaillée</a>
             <div class="small text-black"><i class="fas fa-angle-right"></i></div>
         </div>
       </div>
@@ -84,7 +84,7 @@
           </div>
         </div>
         <div class="card-footer d-flex align-items-center justify-content-between">
-            <a class="small text-info stretched-link" href="/hosts">Vue détaillée</a>
+            <a class="small text-info stretched-link" href="<%= base %>/hosts">Vue détaillée</a>
             <div class="small text-black"><i class="fas fa-angle-right"></i></div>
         </div>
       </div>
@@ -114,7 +114,7 @@
           </div>
         </div>
         <div class="card-footer d-flex align-items-center justify-content-between">
-            <a class="small text-warning stretched-link" href="/projects">Vue détaillée</a>
+            <a class="small text-warning stretched-link" href="<%= base %>/projects">Vue détaillée</a>
             <div class="small text-black"><i class="fas fa-angle-right"></i></div>
         </div>
       </div>
@@ -123,7 +123,6 @@
 
   <script type="text/javascript">
     $(document).ready(function() {
-        
         var url = location.href;
         var split = url.split('/');
         var page = split[split.length-1];

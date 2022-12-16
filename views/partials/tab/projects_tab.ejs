@@ -43,10 +43,10 @@
             "rowCallback": function( row, data, index ) {
 
             var id = $('td:eq(0)', row);
-            id.html('<a href="/project/'+data.id+'">'+data.id+'</a>')
+            id.html('<a href="<%= base %>/project/'+data.id+'">'+data.id+'</a>')
 
             var name = $('td:eq(1)', row);
-            name.html('<a href="/project/'+data.id+'">'+data.name+'</a>')
+            name.html('<a href="<%= base %>/project/'+data.id+'">'+data.name+'</a>')
 
             var status = data.status;
             switch(status){
