@@ -3,6 +3,9 @@ const debug = require('debug');
 
 const app = express();
 
+// URL publique de base
+const BASE_URL = process.env.BASE_URL || '';
+
 // Url du moniteur sur lequel fonctionne le moniteur
 // par défaut http://localhost:8000
 const URL_MONITOR = process.env.URL_MONITOR || 'localhost';
@@ -14,7 +17,7 @@ const URL_API = process.env.URL_API || 'localhost';
 const API_PORT = process.env.API_PORT || 8080;
 
 // Dans le cas d'un déploiement de la stack via docker les variables d'environnement:
-// URL_MONITOR, MONITOR_PORT, URL_API, API_PORT
+// BASE_URL, URL_MONITOR, MONITOR_PORT, URL_API, API_PORT
 // sont surchargées dans le docker-compose.yml.
 
 // Nom du serveur d'un point de vue client nécessaire pour les requêtes
@@ -22,6 +25,7 @@ const API_PORT = process.env.API_PORT || 8080;
 const SERVER_HOSTNAME = process.env.SERVER_HOSTNAME || 'localhost';
 const SERVER_URL = `http://${SERVER_HOSTNAME}:${API_PORT}`;
 
+app.set('baseUrl', `${BASE_URL}`);
 app.set('apiUrl', `http://${URL_API}:${API_PORT}`);
 app.set('apiMonitor', `http://${URL_MONITOR}:${MONITOR_PORT}`);
 app.set('server', SERVER_URL);
@@ -46,5 +50,6 @@ app.use('/', routes);
 debug.log(`URL de l'API : ${app.get('apiUrl')}`);
 
 app.listen(MONITOR_PORT);
+debug.log(`URL de base : ${app.get('baseUrl')}`);
 debug.log(`URL du monitor : ${app.get('apiMonitor')}`);
 debug.log(`Version du monitor : ${app.get('version')}`);

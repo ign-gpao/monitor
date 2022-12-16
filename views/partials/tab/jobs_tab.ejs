@@ -58,16 +58,16 @@ $(document).ready(function() {
         },
         "rowCallback": function( row, data, index ) {
             var job_id = $('td:eq(0)', row);
-            job_id.html('<a href="/job/'+data.job_id+'">'+data.job_id+'</a>')
+            job_id.html('<a href="<%= base %>/job/'+data.job_id+'">'+data.job_id+'</a>')
 
             var job_name = $('td:eq(1)', row);
-            job_name.html('<a href="/job/'+data.job_id+'">'+data.job_name+'</a>')
+            job_name.html('<a href="<%= base %>/job/'+data.job_id+'">'+data.job_name+'</a>')
 
             var project_id = $('td:eq(7)', row);
-            project_id.html('<a href="/project/'+data.job_id_project+'">'+data.job_id_project+'</a>')
+            project_id.html('<a href="<%= base %>/project/'+data.job_id_project+'">'+data.job_id_project+'</a>')
 
             var project_name = $('td:eq(8)', row);
-            project_name.html('<a href="/project/'+data.job_id_project+'">'+data.project_name+'</a>')
+            project_name.html('<a href="<%= base %>/project/'+data.job_id_project+'">'+data.project_name+'</a>')
 
             var status = data.job_status;
             switch(status){
