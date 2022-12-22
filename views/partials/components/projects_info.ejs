@@ -21,9 +21,12 @@
   <script type="text/javascript">
     $(document).ready(function() {  
       <% projects.forEach(function( project ){ %>
-        $('#topbar_project_pg_<%= project.id_project %>').attr('style', 'width: '+percent(<%= project.done %>, <%= project.total %>)+"%");
-        $('#topbar_project_pg_<%= project.id_project %>').text(percent(<%= project.done %>, <%= project.total %>)+"%");
+        $('#topbar_project_pg_<%= project.id_project %>').attr('style', 'width: '+percent(<%= project.done %>+<%= project.failed %>, <%= project.total %>)+"%");
+        $('#topbar_project_pg_<%= project.id_project %>').text(percent(<%= project.done %>+<%= project.failed %>, <%= project.total %>)+"%");
         $('#topbar_project_value_<%= project.id_project %>').text("<%= project.done %> traités, <%= project.failed %> échoués, <%= project.running %> en cours, <%= project.waiting %> en attente sur <%= project.total %> au total");
+        <% if (project.failed==project.total) { %>
+        $('#topbar_project_pg_<%= project.id_project %>').addClass('bg-danger');
+        <% } %>
       <% }) %>
       <% if (projects.length==0) { %>
           $('#no-elements').append( "<strong>Aucun projet dans la base</strong>" );

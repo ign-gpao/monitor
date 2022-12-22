@@ -5,7 +5,7 @@ async function getHosts(req, res, next) {
   req.hosts_data = JSON.stringify(json.data);
   req.hosts_columns = JSON.stringify([
     {
-      title: 'Host',
+      title: 'Host <a class=\\"far fa-question-circle collapse-item\\" data-toggle=\\"modal\\" data-target=\\"#hostStatusInfo\\"></a>',
       data: 'host',
     },
     {

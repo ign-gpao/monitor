@@ -1,0 +1,37 @@
+<!--Info sur le statut des jobs -->
+<div class="modal fade" id="jobStatusInfo" data-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">À propos du status des jobs</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container p-0">
+                    <div class="row">
+                        <div class="col text-secondary">waiting</div>
+                        <div class="col-10 font-italic">le job est en attente de ses dépendances</div>
+                    </div>
+                    <div class="row">
+                        <div class="col text-primary">ready</div>
+                        <div class="col-10 font-italic">le job est prêt à être exécuté</div>
+                    </div>
+                    <div class="row">
+                        <div class="col text-warning">running</div>
+                        <div class="col-10 font-italic">le job est en cours d'exécution</div>
+                    </div>
+                    <div class="row">
+                        <div class="col text-success">done</div>
+                        <div class="col-10 font-italic">le job a été exécuté avec succès</div>
+                    </div>
+                    <div class="row">
+                        <div class="col text-danger">failed</div>
+                        <div class="col-10 font-italic">l'exécution du job a échoué</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
