@@ -14,7 +14,7 @@ async function getProjects(req, res, next) {
       data: 'name',
     },
     {
-      title: 'Statut',
+      title: 'Statut <a class=\\"far fa-question-circle collapse-item\\" data-toggle=\\"modal\\" data-target=\\"#projectStatusInfo\\"></a>',
       data: 'status',
     },
     {

@@ -17,7 +17,7 @@ async function getSessions(req, res, next) {
       data: 'sessions_tags',
     },
     {
-      title: 'Statut',
+      title: 'Statut <a class=\\"far fa-question-circle collapse-item\\" data-toggle=\\"modal\\" data-target=\\"#sessionStatusInfo\\"></a>',
       data: 'sessions_status',
     },
     {
