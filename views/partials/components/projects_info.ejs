@@ -35,7 +35,6 @@
           $('#topbar_project_pg_<%= project.id_project %>').addClass('bg-warning');
         } 
         if (<%=project.failed%>>0 && avancement==100) {
-          console.log('okkk', avancement);
           $('#topbar_project_pg_<%= project.id_project %>').addClass('bg-secondary');
         }
       <% }) %>
