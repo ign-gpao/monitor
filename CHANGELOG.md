@@ -2,23 +2,31 @@
 
 ## [Unreleased](https://github.com/ign-gpao/monitor/tree/HEAD)
 
-[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.14.0...HEAD)
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.15.0...HEAD)
+
+### 🚀 Enhancements
+
+- Fonctionnement derrière un proxy : BASE\_URL [\#21](https://github.com/ign-gpao/monitor/issues/21)
+
+## [1.15.0](https://github.com/ign-gpao/monitor/tree/1.15.0) (2023-01-04)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.14.0...1.15.0)
+
+### 📁 Other pull requests
+
+- variable env BASE\_URL [\#49](https://github.com/ign-gpao/monitor/pull/49) ([ijeuffrard](https://github.com/ijeuffrard))
+
+## [1.14.0](https://github.com/ign-gpao/monitor/tree/1.14.0) (2022-12-15)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.13.0...1.14.0)
 
 ### 🚀 Enhancements
 
 - Revoir la colorisation de la page des hosts [\#33](https://github.com/ign-gpao/monitor/issues/33)
 
-## [1.14.0](https://github.com/ign-gpao/monitor/tree/1.14.0) (2022-12-15)
-
-[Full Changelog](https://github.com/ign-gpao/monitor/compare/20221214095013...1.14.0)
-
 ### 📁 Other pull requests
 
 - colorisation host [\#48](https://github.com/ign-gpao/monitor/pull/48) ([ijeuffrard](https://github.com/ijeuffrard))
-
-## [20221214095013](https://github.com/ign-gpao/monitor/tree/20221214095013) (2022-12-14)
-
-[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.13.0...20221214095013)
 
 ## [1.13.0](https://github.com/ign-gpao/monitor/tree/1.13.0) (2022-12-14)
 
