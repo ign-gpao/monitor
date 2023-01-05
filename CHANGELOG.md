@@ -1,16 +1,24 @@
 # 📑 Changelog
 
-## [Unreleased](https://github.com/ign-gpao/monitor/tree/HEAD)
+## [1.16.0](https://github.com/ign-gpao/monitor/tree/1.16.0) (2023-01-05)
 
-[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.15.0...HEAD)
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.15.0...1.16.0)
+
+### 📁 Other pull requests
+
+- add lien urlAPI + popup info statut + tobar dashboard echec [\#52](https://github.com/ign-gpao/monitor/pull/52) ([ijeuffrard](https://github.com/ijeuffrard))
+
+## [1.15.0](https://github.com/ign-gpao/monitor/tree/1.15.0) (2023-01-04)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/20230104153637...1.15.0)
+
+## [20230104153637](https://github.com/ign-gpao/monitor/tree/20230104153637) (2023-01-04)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.14.0...20230104153637)
 
 ### 🚀 Enhancements
 
 - Fonctionnement derrière un proxy : BASE\_URL [\#21](https://github.com/ign-gpao/monitor/issues/21)
-
-## [1.15.0](https://github.com/ign-gpao/monitor/tree/1.15.0) (2023-01-04)
-
-[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.14.0...1.15.0)
 
 ### 📁 Other pull requests
 
