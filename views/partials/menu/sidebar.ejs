@@ -66,8 +66,8 @@
           </a>
         </li>
     
-        <!-- Divider -->
-        <hr class="sidebar-divider d-none d-md-block">
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
 
         <!-- Heading -->
         <div class="sidebar-heading">
@@ -81,12 +81,18 @@
           </a>
         </li>
 
-        <!-- Divider -->
-        <hr class="sidebar-divider d-none d-md-block">
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
 
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">
       <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
+
+    <!-- Collapse Url Api -->
+    <div id="collapseTrigger" class="row align-items-center position-fixed rounded-right m-0 mb-4 p-2" style="z-index: 1; bottom: 0; background-color: #1d3b95;">
+      <a id="collapseUrl" class="collapse width text-light pr-2" href="<%= api %>/api/doc/"><%= api %>/api/doc/</a>
+      <img src="/images/swagger.png" alt="logo" width="25">
     </div>
 
   </ul>
@@ -94,3 +100,14 @@
 
 <!-- Popups of Sidebar -->
 <%- include ("../../popups/popup_import_project_from_txt") %>
+
+<script>
+  // Event hover sur le lien Url API
+  $("#collapseTrigger").hover(
+  function() {
+      $('#collapseUrl').collapse('show');
+    }, function() {
+      $('#collapseUrl').collapse('hide');
+    }
+  );
+</script>

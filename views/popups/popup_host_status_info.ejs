@@ -1,0 +1,33 @@
+<!--Info sur le statut des projets -->
+<div class="modal fade" id="hostStatusInfo" data-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">À propos du status des machines</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container p-0">
+                    <div class="row">
+                        <div class="col text-danger">fermée</div>
+                        <div class="col-9 font-italic">toutes les sessions de la machine sont fermées</div>
+                    </div>
+                    <div class="row">
+                        <div class="col text-secondary">en veille</div>
+                        <div class="col-9 font-italic">toutes les sessions de la machines sont en veille</div>
+                    </div>
+                    <div class="row">
+                        <div class="col text-success">active</div>
+                        <div class="col-9 font-italic">au moins une session est prête à être utilisée</div>
+                    </div>
+                    <div class="row">
+                        <div class="col text-warning">utilisée</div>
+                        <div class="col-9 font-italic">au moins une session est en cours d'utilisation</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

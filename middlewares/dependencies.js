@@ -18,7 +18,7 @@ async function getJobDependencies(req, res, next) {
       data: 'job_name',
     },
     {
-      title: 'Statut',
+      title: 'Statut <a class=\\"far fa-question-circle collapse-item\\" data-toggle=\\"modal\\" data-target=\\"#jobStatusInfo\\"></a>',
       data: 'job_status',
     },
     {
@@ -48,7 +48,7 @@ async function getProjectDependencies(req, res, next) {
       data: 'project_name',
     },
     {
-      title: 'Statut',
+      title: 'Statut <a class=\\"far fa-question-circle collapse-item\\" data-toggle=\\"modal\\" data-target=\\"#projectStatusInfo\\"></a>',
       data: 'project_status',
     },
     {
