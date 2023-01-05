@@ -1,5 +1,13 @@
 # 📑 Changelog
 
+## [1.17.0](https://github.com/ign-gpao/monitor/tree/1.17.0) (2023-01-05)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.16.0...1.17.0)
+
+### 📁 Other pull requests
+
+- fix build docker image [\#54](https://github.com/ign-gpao/monitor/pull/54) ([arnaudbirk](https://github.com/arnaudbirk))
+
 ## [1.16.0](https://github.com/ign-gpao/monitor/tree/1.16.0) (2023-01-05)
 
 [Full Changelog](https://github.com/ign-gpao/monitor/compare/1.15.0...1.16.0)
@@ -10,11 +18,7 @@
 
 ## [1.15.0](https://github.com/ign-gpao/monitor/tree/1.15.0) (2023-01-04)
 
-[Full Changelog](https://github.com/ign-gpao/monitor/compare/20230104153637...1.15.0)
-
-## [20230104153637](https://github.com/ign-gpao/monitor/tree/20230104153637) (2023-01-04)
-
-[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.14.0...20230104153637)
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.14.0...1.15.0)
 
 ### 🚀 Enhancements
 
