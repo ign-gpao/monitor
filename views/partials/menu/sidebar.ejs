@@ -36,10 +36,10 @@
           </a>
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-              <a class="collapse-item" href="javascript:document.getElementById('file-json').click();">A partir d'un Json</a>
+              <a class="collapse-item" href="javascript:document.getElementById('file-json').click();">Fichier Json</a>
               <input id="file-json" type="file" accept=".json" name="name" onchange="jsonChanged(this.files[0])" style="display: none;" />
-              <a class="collapse-item" data-toggle="modal" data-target="#importTxt">A partir d'un fichier texte</a>
-              <a class="collapse-item" data-toggle="modal" data-target="#inputProject">A partir d'une zone de texte</a>
+              <a class="collapse-item" data-toggle="modal" data-target="#importTxt">Fichier Texte</a>
+              <a class="collapse-item" data-toggle="modal" data-target="#inputProject">Liste de commande</a>
             </div>
           </div>
         </li>
@@ -95,3 +95,4 @@
 
 <!-- Popups of Sidebar -->
 <%- include ("../../popups/popup_import_project_from_txt") %>
+<%- include ("../../popups/popup_input_project") %>
