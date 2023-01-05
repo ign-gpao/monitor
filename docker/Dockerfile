@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:19
 LABEL maintainer="IGN"
 LABEL version="1.16.0"
 
@@ -10,7 +10,7 @@ ADD ./ /var/monitor
 
 WORKDIR /var/monitor
 
-RUN npm config set http-proxy $http_proxy
+#RUN npm config set http-proxy $http_proxy
 RUN npm config set https-proxy $http_proxy
 
 RUN npm install supervisor -g
