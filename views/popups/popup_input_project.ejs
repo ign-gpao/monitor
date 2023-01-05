@@ -1,0 +1,56 @@
+<!-- Ajout de projet via fichier texte -->
+<div class="modal fade" id="inputProject" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="importTxtLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="importTxtLabel">Saisir un projet dans la zone de texte</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">Saisir les tags à attribuer au projet</span>
+                    </div>
+                    <input id="tags" type="text" class="form-control" pattern="(\w+,{1}){0,}\w+" placeholder="tag1,tag2" aria-label="tag" aria-describedby="invalid-feedback">
+                    <div class="invalid-tooltip">Format invalide : chaînes de caractères alphanumériques séparées d'une virgule</div>
+                </div>
+                <i>S'applique à toutes les commandes du projet, laisser vide pour n'attribuer aucun tag.</i>
+            </div>
+            <div class="modal-footer">
+                <button id="btn-import" type="submit" class="btn btn-primary">Importer un fichier texte</button>
+                <input id="file-txt" type="file" accept=".txt" name="name" onchange="txtChanged(this.files[0],document.getElementById('tags').value)" style="display: none;" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    // Validation de l'input tags
+    $('#tags').on('input', function(event) {
+        const tags = document.getElementById('tags')
+        const invalidValue = tags.validity.patternMismatch 
+        if (tags.value == "") {
+            tags.classList.remove("is-invalid");
+            tags.classList.remove("is-valid");
+        } else {
+            if (invalidValue){
+                tags.classList.add("is-invalid");
+            } else {
+                tags.classList.remove("is-invalid");
+                tags.classList.add("is-valid");
+            } 
+        } 
+    });
+
+    // Import du fichier texte si validation ok
+    $('#btn-import').on('click', function(event) {
+        const tags = document.getElementById('tags')
+        const invalidValue = tags.validity.patternMismatch
+        if (tags.value == "" || invalidValue == false) {
+            document.getElementById('file-txt').click();
+        }
+    });
+</script>
