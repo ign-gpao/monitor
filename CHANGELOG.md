@@ -1,5 +1,13 @@
 # 📑 Changelog
 
+## [1.19.0](https://github.com/ign-gpao/monitor/tree/1.19.0) (2023-01-06)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.18.0...1.19.0)
+
+### 📁 Other pull requests
+
+- fix pb create release [\#56](https://github.com/ign-gpao/monitor/pull/56) ([arnaudbirk](https://github.com/arnaudbirk))
+
 ## [1.18.0](https://github.com/ign-gpao/monitor/tree/1.18.0) (2023-01-06)
 
 [Full Changelog](https://github.com/ign-gpao/monitor/compare/1.17.0...1.18.0)
@@ -10,11 +18,7 @@
 
 ## [1.17.0](https://github.com/ign-gpao/monitor/tree/1.17.0) (2023-01-05)
 
-[Full Changelog](https://github.com/ign-gpao/monitor/compare/20230105145444...1.17.0)
-
-## [20230105145444](https://github.com/ign-gpao/monitor/tree/20230105145444) (2023-01-05)
-
-[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.16.0...20230105145444)
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.16.0...1.17.0)
 
 ### 📁 Other pull requests
 
@@ -135,20 +139,20 @@
 
 ## [1.6.0](https://github.com/ign-gpao/monitor/tree/1.6.0) (2022-11-23)
 
-[Full Changelog](https://github.com/ign-gpao/monitor/compare/20221025095119...1.6.0)
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.5.0...1.6.0)
 
 ### 🚀 Enhancements
 
 - Ajouter un lien qui permet de basculer sur la page des jobs filtrés par projet depuis la page détaillé d'un job. [\#30](https://github.com/ign-gpao/monitor/issues/30)
 - enhancement \#30 ok [\#39](https://github.com/ign-gpao/monitor/pull/39) ([ijeuffrard](https://github.com/ijeuffrard))
 
-## [20221025095119](https://github.com/ign-gpao/monitor/tree/20221025095119) (2022-10-25)
-
-[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.5.0...20221025095119)
-
 ## [1.5.0](https://github.com/ign-gpao/monitor/tree/1.5.0) (2022-10-25)
 
-[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.4.0...1.5.0)
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/20221025095119...1.5.0)
+
+## [20221025095119](https://github.com/ign-gpao/monitor/tree/20221025095119) (2022-10-25)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.4.0...20221025095119)
 
 ## [1.4.0](https://github.com/ign-gpao/monitor/tree/1.4.0) (2022-10-25)
 
