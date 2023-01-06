@@ -1,8 +1,20 @@
 # 📑 Changelog
 
+## [1.18.0](https://github.com/ign-gpao/monitor/tree/1.18.0) (2023-01-06)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.17.0...1.18.0)
+
+### 📁 Other pull requests
+
+- 53 ajout possibilité saisir directement via le monitor des commandes jobs dans un bloc note = 1 projet [\#55](https://github.com/ign-gpao/monitor/pull/55) ([ijeuffrard](https://github.com/ijeuffrard))
+
 ## [1.17.0](https://github.com/ign-gpao/monitor/tree/1.17.0) (2023-01-05)
 
-[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.16.0...1.17.0)
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/20230105145444...1.17.0)
+
+## [20230105145444](https://github.com/ign-gpao/monitor/tree/20230105145444) (2023-01-05)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.16.0...20230105145444)
 
 ### 📁 Other pull requests
 
