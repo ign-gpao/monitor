@@ -6,6 +6,7 @@
 
 ### 📁 Other pull requests
 
+- fix pb create release [\#57](https://github.com/ign-gpao/monitor/pull/57) ([arnaudbirk](https://github.com/arnaudbirk))
 - fix pb create release [\#56](https://github.com/ign-gpao/monitor/pull/56) ([arnaudbirk](https://github.com/arnaudbirk))
 
 ## [1.18.0](https://github.com/ign-gpao/monitor/tree/1.18.0) (2023-01-06)
