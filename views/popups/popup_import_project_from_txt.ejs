@@ -13,14 +13,14 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1">Saisir les tags à attribuer au projet</span>
                     </div>
-                    <input id="tags" type="text" class="form-control" pattern="(\w+,{1}){0,}\w+" placeholder="tag1,tag2" aria-label="tag" aria-describedby="invalid-feedback">
+                    <input id="tagsTxt" type="text" class="form-control" pattern="(\w+,{1}){0,}\w+" placeholder="tag1,tag2" aria-label="tag" aria-describedby="invalid-feedback">
                     <div class="invalid-tooltip">Format invalide : chaînes de caractères alphanumériques séparées d'une virgule</div>
                 </div>
                 <i>S'applique à toutes les commandes du projet, laisser vide pour n'attribuer aucun tag.</i>
             </div>
             <div class="modal-footer">
-                <button id="btn-import" type="submit" class="btn btn-primary">Importer un fichier texte</button>
-                <input id="file-txt" type="file" accept=".txt" name="name" onchange="txtChanged(this.files[0],document.getElementById('tags').value)" style="display: none;" />
+                <button id="btn-import" type="submit" class="btn btn-primary" onclick="document.getElementById('file-txt').click();">Importer un fichier texte</button>
+                <input id="file-txt" type="file" accept=".txt" name="name" onchange="txtChanged(this.files[0],document.getElementById('tagsTxt').value)" style="display: none;" />
             </div>
         </div>
     </div>
@@ -29,28 +29,22 @@
 <script type="text/javascript">
 
     // Validation de l'input tags
-    $('#tags').on('input', function(event) {
-        const tags = document.getElementById('tags')
+    $('#tagsTxt').on('input', function(event) {
+        const tags = document.getElementById('tagsTxt')
         const invalidValue = tags.validity.patternMismatch 
         if (tags.value == "") {
             tags.classList.remove("is-invalid");
             tags.classList.remove("is-valid");
+            document.getElementById('btn-import').disabled = false;
         } else {
             if (invalidValue){
                 tags.classList.add("is-invalid");
+                document.getElementById('btn-import').disabled = true;
             } else {
                 tags.classList.remove("is-invalid");
                 tags.classList.add("is-valid");
+                document.getElementById('btn-import').disabled = false;
             } 
         } 
-    });
-
-    // Import du fichier texte si validation ok
-    $('#btn-import').on('click', function(event) {
-        const tags = document.getElementById('tags')
-        const invalidValue = tags.validity.patternMismatch
-        if (tags.value == "" || invalidValue == false) {
-            document.getElementById('file-txt').click();
-        }
     });
 </script>

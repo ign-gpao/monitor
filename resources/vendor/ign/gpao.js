@@ -48,21 +48,42 @@ function percent(num, per) {
   return (Math.round((num / per) * 100));
 }
 
+function sendProject(json){
+  fetch(`${apiUrl}/api/project`, {
+    method: "PUT",
+    body: json,
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }).then(() => {
+    location.reload();
+  });
+}
+
+function createJson(projectName, commandLines, tags) {
+  // contents of file in variable     
+  const P = { projects:[{name: projectName, jobs:[]}]};
+  commandLines.forEach((line, index) => {
+    if (line.length>0) {
+      let job;
+      if (tags === "") {
+        job = {name: `job ${index}`, command: line};
+      } else {
+        job = {name: `job ${index}`, command: line, tags: tags.split(',')};
+      }
+      P.projects[0].jobs.push(job);
+    }
+  });
+  var json = JSON.stringify(P);
+  return json;
+}
+
 function jsonChanged(file) {
   var reader = new FileReader();
   reader.addEventListener('load', function(e) {
-  // contents of file in variable     
+    // contents of file in variable     
     var json = e.target.result;
-    // on fait une requete sur l'API
-    fetch(`${apiUrl}/api/project`, {
-      method: "PUT",
-      body: json,
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }).then(() => {
-      location.reload();
-    });
+    sendProject(json);
   });
   // read as text file
   reader.readAsText(file);  
@@ -71,34 +92,18 @@ function jsonChanged(file) {
 function txtChanged(file, tags) {
   var reader = new FileReader();
   reader.addEventListener('load', function(e) {
-  // contents of file in variable     
     var text = e.target.result.split(/\r\n|\n/);
-    const P = { projects:[{name: file.name, jobs:[]}]};
-    text.forEach((line, index) => {
-      if (line.length>0) {
-        let job;
-        if (tags === "") {
-          job = {name: `job ${index}`, command: line};
-        } else {
-          job = {name: `job ${index}`, command: line, tags: tags.split(',')};
-        }
-        P.projects[0].jobs.push(job);
-      }
-    });
-    var json = JSON.stringify(P);
-    // on fait une requete sur l'API
-    fetch(`${apiUrl}/api/project`, {
-      method: "PUT",
-      body: json,
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }).then(() => {
-      location.reload();
-    });
+    var json = createJson(file.name, text, tags);
+    sendProject(json);
   });
   // read as text file
   reader.readAsText(file);
+}
+
+function textareaSubmited(projectName, textarea, tags){
+  textarea = textarea.split(/\r\n|\n/);
+  var json = createJson(projectName, textarea, tags);
+  sendProject(json);
 }
 
 //Fonction qui permet de réinitialiser un tableau de jobs
