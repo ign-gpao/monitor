@@ -122,9 +122,7 @@ function reinitJobs(ids){
 }
 
 //Fonction qui réinitialise tous les jobs avec le statut failed
-function reinitAllJobs(){
-  var table = $('#dataTable').DataTable();
-
+function reinitAllJobs(table){
   var ids = [];
   
   table.rows().eq( 0 ).each( function (idx) {

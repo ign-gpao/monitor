@@ -1,0 +1,96 @@
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-primary">Jobs du projet</h6>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped" id="dataTableJobs" cellspacing="0">
+      </table>
+    </div>
+  </div>
+</div>
+<script>
+
+$(document).ready(function() {
+    const data = JSON.parse('<%- jobs_data %>');
+    const columns = JSON.parse('<%- jobs_columns %>');
+    
+    var table = $('#dataTableJobs').DataTable( {
+      "language": {
+          "lengthMenu": "Afficher _MENU_ par page",
+          "zeroRecords": "Aucun éléments",
+          "info": "Page _PAGE_ sur _PAGES_",
+          "infoEmpty": "Aucun enregistrement disponible",
+          "infoFiltered": "(filtered from _MAX_ total records)",
+          "search": "Rechercher",
+          "paginate": {
+              "first":	"Premier",
+              "previous":	"Pr&eacute;c&eacute;dent",
+              "next":	"Suivant",
+              "last":	"Dernier"
+          }
+      },
+      "order": [[ 0, "asc" ]],
+      "lengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "Tous"]],
+      "pageLength": 10,
+      "dom": '<"d-flex m-1"<"mr-auto"l><f>><"d-flex m-1"<"mr-auto toolbar_tab2"><p>>t<"d-flex m-1"<"mr-auto"i><p>>',
+      "data": data,
+      "columns": columns,
+      "autoWidth": false,
+      "createdRow": function( row, data, dataIndex, cells ) {
+          if (data.job_status !== 'failed')
+              $('button', cells[9])[0].style.visibility = "hidden";
+      },
+      "rowCallback": function( row, data, index ) {
+          var job_id = $('td:eq(0)', row);
+          job_id.html('<a href="<%= base %>/job/'+data.job_id+'">'+data.job_id+'</a>')
+
+          var job_name = $('td:eq(1)', row);
+          job_name.html('<a href="<%= base %>/job/'+data.job_id+'">'+data.job_name+'</a>')
+
+          var status = data.job_status;
+          switch(status){
+              case "failed":
+                  $('td, a', row).addClass('text-danger');
+                  break;
+              case "running":
+                  $('td, a', row).addClass('text-warning');
+                  break;
+              case "waiting":
+                  $('td, a', row).addClass('text-secondary');
+                  break;
+              case "done":
+                  $('td, a', row).addClass('text-success');
+                  break;
+              case "ready":
+                  $('td, a', row).addClass('text-primary');
+                  break;
+          }
+      }
+    } 
+);
+
+// Add event listener for actions
+$('#dataTableJobs tbody').on('click', 'button.reinit_job', function () {
+    var tr = $(this).closest('tr');
+    var row = table.row( tr );
+    if (row.data().job_status == 'failed')
+        reinitJobs([row.data().job_id]);
+} );
+
+// Add btn Réinitialiser les jobs en échecs
+var i = jQuery('<i></i>');
+i.addClass('fas fa-sync-alt fa-1x')
+
+var button = jQuery('<button></button>');
+button.addClass('btn btn-warning');
+button.attr('type', 'button')
+      .attr('data-toggle', "tooltip")
+      .attr('title', 'Réinitialise tous les jobs en échecs')
+      .attr('onclick', 'reinitAllJobs($("#dataTableJobs").DataTable())')
+      .append(i)
+      .append(' Réinitialiser les jobs en échecs');
+$("div.toolbar_tab2").append(button);
+
+} );
+</script>

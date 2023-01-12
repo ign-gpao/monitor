@@ -56,8 +56,53 @@ async function getProjectStatus(req, res, next) {
   next();
 }
 
+async function getJobsOfProject(req, res, next) {
+  const json = await axios.get(`${req.app.get('apiUrl')}/api/project/${req.params.id}/jobs`);
+
+  req.jobs_of_project_data = JSON.stringify(json.data);
+  req.jobs_of_project_columns = JSON.stringify([
+    {
+      title: 'Id',
+      data: 'job_id',
+    },
+    {
+      title: 'Nom',
+      data: 'job_name',
+    },
+    {
+      title: 'Statut <a class=\\"far fa-question-circle collapse-item\\" data-toggle=\\"modal\\" data-target=\\"#jobStatusInfo\\"></a>',
+      data: 'job_status',
+    },
+    {
+      title: 'Code retour',
+      data: 'job_return_code',
+    },
+    {
+      title: 'Date début',
+      data: 'date',
+    },
+    {
+      title: 'Heure début (UTC)',
+      data: 'hms',
+    },
+    {
+      title: 'Durée (s)',
+      data: 'duree',
+    },
+    {
+      title: 'Action',
+      orderable: false,
+      data: null,
+      defaultContent: '<button type=\\"button\\" data-toggle=\\"tooltip\\" title=\\"Réinitialise le job\\" class=\\"reinit_job btn btn-sm btn-circle btn-warning\\"><i class=\\"fas fa-sync-alt fa-1x\\" aria-hidden=\\"true\\"></i></button>',
+    },
+  ]);
+
+  next();
+}
+
 module.exports = {
   getProject,
   getProjects,
   getProjectStatus,
+  getJobsOfProject,
 };
