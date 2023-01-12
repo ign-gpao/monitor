@@ -39,7 +39,7 @@ router.get('/job/:id', topBar.getInfo, jobs.getJob, dependencies.getJobDependenc
 });
 
 // project page with id
-router.get('/project/:id', topBar.getInfo, projects.getProject, dependencies.getProjectDependencies, (req, res) => {
+router.get('/project/:id', topBar.getInfo, projects.getProject, projects.getJobsOfProject, dependencies.getProjectDependencies, (req, res) => {
   res.render('pages/project', {
     topBar: req.topBar,
     id: req.params.id,
@@ -47,6 +47,8 @@ router.get('/project/:id', topBar.getInfo, projects.getProject, dependencies.get
     deps: req.deps,
     data: req.dependencies_data,
     columns: req.dependencies_columns,
+    jobs_data: req.jobs_of_project_data,
+    jobs_columns: req.jobs_of_project_columns,
     base: req.app.get('baseUrl'),
     api: req.app.get('apiUrl'),
     server: req.app.get('server'),

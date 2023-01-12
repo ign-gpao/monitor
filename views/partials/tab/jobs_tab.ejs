@@ -106,7 +106,7 @@ $(document).ready(function() {
     button.attr('type', 'button')
           .attr('data-toggle', "tooltip")
           .attr('title', 'Réinitialise tous les jobs en échecs')
-          .attr('onclick', 'reinitAllJobs()')
+          .attr('onclick', 'reinitAllJobs($("#dataTable").DataTable())')
           .append(i)
           .append(' Réinitialiser les jobs en échecs');
     $("div.toolbar_tab").append(button);
