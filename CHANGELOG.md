@@ -1,5 +1,13 @@
 # 📑 Changelog
 
+## [1.22.0](https://github.com/ign-gpao/monitor/tree/1.22.0) (2023-01-12)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.21.0...1.22.0)
+
+### 📁 Other pull requests
+
+- hide btn reinit [\#63](https://github.com/ign-gpao/monitor/pull/63) ([ijeuffrard](https://github.com/ijeuffrard))
+
 ## [1.21.0](https://github.com/ign-gpao/monitor/tree/1.21.0) (2023-01-12)
 
 [Full Changelog](https://github.com/ign-gpao/monitor/compare/1.20.0...1.21.0)
