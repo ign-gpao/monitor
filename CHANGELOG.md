@@ -1,5 +1,13 @@
 # 📑 Changelog
 
+## [1.21.0](https://github.com/ign-gpao/monitor/tree/1.21.0) (2023-01-12)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.20.0...1.21.0)
+
+### 📁 Other pull requests
+
+- 58 ajouter dans la vue détaillée dun projet le tableau des jobs de ce projet [\#61](https://github.com/ign-gpao/monitor/pull/61) ([ijeuffrard](https://github.com/ijeuffrard))
+
 ## [1.20.0](https://github.com/ign-gpao/monitor/tree/1.20.0) (2023-01-06)
 
 [Full Changelog](https://github.com/ign-gpao/monitor/compare/1.19.0...1.20.0)
