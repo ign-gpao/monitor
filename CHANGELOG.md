@@ -1,5 +1,13 @@
 # 📑 Changelog
 
+## [1.23.0](https://github.com/ign-gpao/monitor/tree/1.23.0) (2023-01-13)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.22.0...1.23.0)
+
+### 📁 Other pull requests
+
+- popup et colorisation progress bars [\#65](https://github.com/ign-gpao/monitor/pull/65) ([ijeuffrard](https://github.com/ijeuffrard))
+
 ## [1.22.0](https://github.com/ign-gpao/monitor/tree/1.22.0) (2023-01-12)
 
 [Full Changelog](https://github.com/ign-gpao/monitor/compare/1.21.0...1.22.0)
