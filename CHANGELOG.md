@@ -1,5 +1,13 @@
 # 📑 Changelog
 
+## [1.24.0](https://github.com/ign-gpao/monitor/tree/1.24.0) (2023-01-27)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.23.0...1.24.0)
+
+### 📁 Other pull requests
+
+- fix bug liens [\#67](https://github.com/ign-gpao/monitor/pull/67) ([ijeuffrard](https://github.com/ijeuffrard))
+
 ## [1.23.0](https://github.com/ign-gpao/monitor/tree/1.23.0) (2023-01-13)
 
 [Full Changelog](https://github.com/ign-gpao/monitor/compare/1.22.0...1.23.0)
@@ -177,11 +185,7 @@
 
 ## [1.5.0](https://github.com/ign-gpao/monitor/tree/1.5.0) (2022-10-25)
 
-[Full Changelog](https://github.com/ign-gpao/monitor/compare/20221025095119...1.5.0)
-
-## [20221025095119](https://github.com/ign-gpao/monitor/tree/20221025095119) (2022-10-25)
-
-[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.4.0...20221025095119)
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.4.0...1.5.0)
 
 ## [1.4.0](https://github.com/ign-gpao/monitor/tree/1.4.0) (2022-10-25)
 
