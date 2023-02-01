@@ -136,6 +136,23 @@ function reinitAllJobs(table){
   reinitJobs(ids);
 }
 
+//Fonction qui réinitialise tous les jobs filtrés avec le statut failed
+function reinitFilteredJobs(table){
+  var ids = [];
+  
+  var rowsFiltered = table.rows({
+    search: 'applied',     // 'none',    'applied', 'removed'
+  }).data();
+
+  rowsFiltered.each( function (row) {
+    if ( row.job_status === 'failed' ) {
+        ids.push(row.job_id)
+    }
+  });
+  
+  reinitJobs(ids);
+}
+
 //Fonction qui supprime toutes les sessions inutiles
 function deleteUnusedSession(){
   fetch(`${apiUrl}/api/session/cleanUnused`, {

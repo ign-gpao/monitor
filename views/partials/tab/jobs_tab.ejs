@@ -105,11 +105,12 @@ $(document).ready(function() {
     button.addClass('btn btn-warning');
     button.attr('type', 'button')
           .attr('data-toggle', "tooltip")
-          .attr('title', 'Réinitialise tous les jobs en échecs')
-          .attr('onclick', 'reinitAllJobs($("#dataTable").DataTable())')
+          .attr('title', 'Réinitialise tous les jobs en échecs visibles')
+          .attr('onclick', 'reinitFilteredJobs($("#dataTable").DataTable())')
           .append(i)
-          .append(' Réinitialiser les jobs en échecs');
+          .append(' Réinitialiser les jobs en échecs visibles');
     $("div.toolbar_tab").append(button);
+    
     var table = $('#dataTable').DataTable();
     $('#project-select').change( function() {
         table.draw();
