@@ -1,20 +1,5 @@
 const apiUrl = document.currentScript.getAttribute('api-url');
 
-// Fonction permettant de supprimer un projet
-function deleteProject(id, name) {
-  if (window.confirm(`Supprimer le projet : ${name} ?`)) {
-    // on fait une requete sur l'API
-    fetch(`${apiUrl}/api/project/${id}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }).then(() => {
-      location.reload();
-    });
-  }
-}
-
 // Fonction permettant de changer la priorité d'un projet
 function setPriority(id, priority) {
   // on fait une requete sur l'API
@@ -113,9 +98,9 @@ function reinitJobs(ids){
   fetch(`${apiUrl}/api/jobs/reinit`, {
     method: 'POST',
     body: JSON.stringify(data),
-      headers: {
-        'Content-Type': 'application/json'
-      }
+    headers: {
+      'Content-Type': 'application/json'
+    }
   }).then(() => {
     location.reload();
   });
@@ -157,23 +142,42 @@ function reinitFilteredJobs(table){
 function deleteUnusedSession(){
   fetch(`${apiUrl}/api/session/cleanUnused`, {
     method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json'
-      }
+    headers: {
+      'Content-Type': 'application/json'
+    }
   }).then(() => {
     location.reload();
   });
 }
 
-// Fonction permettant de supprimer tous les projets
-function deleteAllProjects () {
-  if (window.confirm(`Supprimer tous les projets ?`)) {
-    // on fait une requete sur l'API
-    fetch(`${apiUrl}/api/projects/delete`, {
+// Fonction permettant de supprimer tous les projets : A SUPPRIMER
+// function deleteAllProjects () {
+//   if (window.confirm(`Supprimer tous les projets ?`)) {
+//     // on fait une requete sur l'API
+//     fetch(`${apiUrl}/api/projects/delete`, {
+//       method: 'DELETE',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//     }).then(() => {
+//       location.reload();
+//     });
+//   }
+// }
+
+// Fonction permettant de supprimer un projet
+function deleteProject(id, name) {
+  if (window.confirm(`Supprimer le projet : ${name} ?`)) {
+    var idsStr = '{"ids":[]}';
+    var jsonIds = JSON.parse(idsStr);
+    jsonIds["ids"].push(id);
+
+    fetch(`${apiUrl}/api/projects/deleteList`, {
       method: 'DELETE',
+      body: JSON.stringify(jsonIds),
       headers: {
         'Content-Type': 'application/json',
-      },
+      }
     }).then(() => {
       location.reload();
     });
@@ -189,21 +193,19 @@ function deleteFilteredProjects () {
       search: 'applied',     // 'none',    'applied', 'removed'
     }).data();
 
-    var projectsStr = '{"projects":[]}';
-    var jsonProject = JSON.parse(projectsStr);
+    var idsStr = '{"ids":[]}';
+    var jsonIds = JSON.parse(idsStr);
 
     for(i = 0; i < rowsFiltered.length; i++){
-      jsonProject["projects"].push(rowsFiltered[i].id);
+      jsonIds["ids"].push(rowsFiltered[i].id);
     }
-
-    console.log(JSON.stringify(jsonProject));
 
     fetch(`${apiUrl}/api/projects/deleteList`, {
       method: 'DELETE',
+      body: JSON.stringify(jsonIds),
       headers: {
         'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(jsonProject)
+      }
     }).then(() => {
       location.reload();
     });
