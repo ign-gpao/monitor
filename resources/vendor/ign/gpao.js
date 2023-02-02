@@ -13,7 +13,7 @@ function setPriority(id, priority) {
   });
 }
 
-// Fonction modifiant le nombre de thrad actif sur une machine
+// Fonction modifiant le nombre de thread actif sur une machine
 function setNbThread(host, active) {
   value = window.prompt(`Modifier le nombre de Threads actifs pour ${host}, ${active}`, 0);
 
@@ -32,6 +32,8 @@ function percent(num, per) {
     return 0;
   return (Math.round((num / per) * 100));
 }
+
+// Groupe de fonctions qui permettent d'importer un projet
 
 function sendProject(json){
   fetch(`${apiUrl}/api/project`, {
@@ -150,29 +152,15 @@ function deleteUnusedSession(){
   });
 }
 
-// Fonction permettant de supprimer tous les projets : A SUPPRIMER
-// function deleteAllProjects () {
-//   if (window.confirm(`Supprimer tous les projets ?`)) {
-//     // on fait une requete sur l'API
-//     fetch(`${apiUrl}/api/projects/delete`, {
-//       method: 'DELETE',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//     }).then(() => {
-//       location.reload();
-//     });
-//   }
-// }
-
 // Fonction permettant de supprimer un projet
 function deleteProject(id, name) {
   if (window.confirm(`Supprimer le projet : ${name} ?`)) {
+    
     var idsStr = '{"ids":[]}';
     var jsonIds = JSON.parse(idsStr);
     jsonIds["ids"].push(id);
 
-    fetch(`${apiUrl}/api/projects/deleteList`, {
+    fetch(`${apiUrl}/api/projects/delete`, {
       method: 'DELETE',
       body: JSON.stringify(jsonIds),
       headers: {
@@ -200,7 +188,7 @@ function deleteFilteredProjects () {
       jsonIds["ids"].push(rowsFiltered[i].id);
     }
 
-    fetch(`${apiUrl}/api/projects/deleteList`, {
+    fetch(`${apiUrl}/api/projects/delete`, {
       method: 'DELETE',
       body: JSON.stringify(jsonIds),
       headers: {
