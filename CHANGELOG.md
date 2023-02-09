@@ -1,5 +1,13 @@
 # 📑 Changelog
 
+## [1.25.0](https://github.com/ign-gpao/monitor/tree/1.25.0) (2023-02-09)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.24.0...1.25.0)
+
+### 📁 Other pull requests
+
+- btn reinit filtered jobs [\#70](https://github.com/ign-gpao/monitor/pull/70) ([ijeuffrard](https://github.com/ijeuffrard))
+
 ## [1.24.0](https://github.com/ign-gpao/monitor/tree/1.24.0) (2023-01-27)
 
 [Full Changelog](https://github.com/ign-gpao/monitor/compare/1.23.0...1.24.0)
