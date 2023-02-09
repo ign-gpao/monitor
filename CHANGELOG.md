@@ -1,5 +1,13 @@
 # 📑 Changelog
 
+## [1.26.0](https://github.com/ign-gpao/monitor/tree/1.26.0) (2023-02-09)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.25.0...1.26.0)
+
+### 📁 Other pull requests
+
+- reorg fct delete project [\#73](https://github.com/ign-gpao/monitor/pull/73) ([ijeuffrard](https://github.com/ijeuffrard))
+
 ## [1.25.0](https://github.com/ign-gpao/monitor/tree/1.25.0) (2023-02-09)
 
 [Full Changelog](https://github.com/ign-gpao/monitor/compare/1.24.0...1.25.0)
