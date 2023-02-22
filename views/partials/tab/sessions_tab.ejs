@@ -63,13 +63,13 @@
       i.addClass('fas fa-trash fa-1x')
   
       var button = jQuery('<button></button>');
-      button.addClass('btn btn-warning');
+      button.addClass('btn btn-danger');
       button.attr('type', 'button')
             .attr('data-toggle', "tooltip")
-            .attr('title', 'Supprime les sessions qui ont un statut closed')
+            .attr('title', 'Supprimer les sessions qui ont un statut closed')
             .attr('onclick', 'deleteUnusedSession()')
             .append(i)
-            .append(' Supprime les sessions fermées');
+            .append(' Supprimer les sessions fermées');
       $("div.toolbar_tab").append(button);
     } );
   </script>
