@@ -13,13 +13,32 @@ function setPriority(id, priority) {
   });
 }
 
-// Fonction modifiant le nombre de thread actif sur une machine
-function setNbThread(host, active) {
-  value = window.prompt(`Modifier le nombre de Threads actifs pour ${host}, ${active}`, 0);
+// Fonction qui récupère la liste des machines filtrées (en json)
+function getFilteredHosts(){
+  var table = $('#dataTable').DataTable();
+  var rowsFiltered = table.rows({
+    search: 'applied',     // 'none',    'applied', 'removed'
+  }).data();
 
+  var hosts = '{"hosts":[]}';
+  var jsonHosts = JSON.parse(hosts);
+  
+  rowsFiltered.each( function (row) {
+    jsonHosts["hosts"].push(row.host);
+  });
+
+  return jsonHosts
+}
+
+// Fonction modifiant le nombre de threads actifs sur une liste de machine
+function setNbActiveSessions(jsonHosts, value) {
   if (!isNaN(value)) {
-    fetch(`${apiUrl}/api/node/setNbActive?host=${host}&limit=${value}`, {
+    fetch(`${apiUrl}/api/node/setNbActive?value=${value}`, {
       method: 'POST',
+      body: JSON.stringify(jsonHosts),
+      headers: {
+        'Content-Type': 'application/json',
+      }
     }).then(() => {
       location.reload();
     });

@@ -53,10 +53,63 @@
         );
 
         // Add event listener for actions
+
+        var i = jQuery('<i></i>');
+        i.addClass('fas fa-play')
+        var button = jQuery('<button></button>');
+        button.addClass('btn btn-success');
+        button.attr('type', 'button')
+              .attr('data-toggle', "tooltip")
+              .attr('title', 'Activer toutes les sessions des machines visibles')
+              .on('click', function () {
+                var jsonHosts = getFilteredHosts()
+                setNbActiveSessions(jsonHosts, 10000)
+              } )
+              .append(i)
+              .append(' Activer toutes les sessions');
+
+        $("div.toolbar_tab").append(button);
+        
+        var i = jQuery('<i></i>');
+        i.addClass('fas fa-stop')
+        var button = jQuery('<button></button>');
+        button.addClass('btn btn-danger ml-2 mr-2');
+        button.attr('type', 'button')
+              .attr('data-toggle', "tooltip")
+              .attr('title', 'Fermer toutes les sessions des machines visibles')
+              .on('click', function () {
+                var jsonHosts = getFilteredHosts()
+                setNbActiveSessions(jsonHosts, 0)
+              } )
+              .append(i)
+              .append(' Fermer toutes les sessions');
+        $("div.toolbar_tab").append(button);
+
+        var i = jQuery('<i></i>');
+        i.addClass('fas fa-cogs')
+        var button = jQuery('<button></button>');
+        button.addClass('btn btn-info');
+        button.attr('type', 'button')
+              .attr('data-toggle', "tooltip")
+              .attr('title', 'Paramétrer un nombre de sessions actives sur les machines visibles')
+              .on('click', function () {
+                var jsonHosts = getFilteredHosts()
+                var value = window.prompt(`Saisir le nombre de Threads à activer pour toutes les machines visibles`, 0);
+                setNbActiveSessions(jsonHosts, value)
+              } )
+              .append(i)
+              .append(' Activer des sessions');
+        $("div.toolbar_tab").append(button);
+
         $('#dataTable tbody').on('click', 'button.view_host', function () {
             var tr = $(this).closest('tr');
             var row = table.row( tr );
-            setNbThread(row.data().host, row.data().active);
+            var host = row.data().host
+            var jsonHosts = JSON.parse('{"hosts":[]}');
+            jsonHosts["hosts"].push(host);
+           
+            var value = window.prompt(`Modifier le nombre de Threads actifs pour ${host}, ${row.data().active}`, 0);
+            setNbActiveSessions(jsonHosts, value);
         } );    
     } );
 </script>
