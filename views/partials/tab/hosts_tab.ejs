@@ -53,6 +53,8 @@
         );
 
         // Add event listener for actions
+        var buttonGroup = jQuery('<div class="btn-group btn-group-toggle" data-toggle="buttons">');
+        $("div.toolbar_tab").append(buttonGroup);
 
         var i = jQuery('<i></i>');
         i.addClass('fas fa-play')
@@ -68,12 +70,12 @@
               .append(i)
               .append(' Activer toutes les sessions');
 
-        $("div.toolbar_tab").append(button);
+        buttonGroup.append(button);
         
         var i = jQuery('<i></i>');
         i.addClass('fas fa-stop')
         var button = jQuery('<button></button>');
-        button.addClass('btn btn-danger ml-2 mr-2');
+        button.addClass('btn btn-danger mr-4');
         button.attr('type', 'button')
               .attr('data-toggle', "tooltip")
               .attr('title', 'Fermer toutes les sessions des machines visibles')
@@ -83,12 +85,12 @@
               } )
               .append(i)
               .append(' Fermer toutes les sessions');
-        $("div.toolbar_tab").append(button);
+        buttonGroup.append(button);
 
         var i = jQuery('<i></i>');
         i.addClass('fas fa-cogs')
         var button = jQuery('<button></button>');
-        button.addClass('btn btn-info');
+        button.addClass('btn btn-outline-info');
         button.attr('type', 'button')
               .attr('data-toggle', "tooltip")
               .attr('title', 'Paramétrer un nombre de sessions actives sur les machines visibles')
@@ -98,7 +100,7 @@
                 setNbActiveSessions(jsonHosts, value)
               } )
               .append(i)
-              .append(' Activer des sessions');
+              .append(' Paramétrer un nombre de sessions actives');
         $("div.toolbar_tab").append(button);
 
         $('#dataTable tbody').on('click', 'button.view_host', function () {
