@@ -37,8 +37,15 @@
             "data": data,
             "columns": columns,
             "autoWidth": false,
-            "createdRow": function( row, data, dataIndex, cells ) {
-                $('button', cells[3])[0].innerText = data.priority;
+            "columnDefs": [ {
+              "targets": 3,
+              "data": "priority",
+              "render": function ( data, type, row, meta ) {
+                return '<p hidden>' + data +'</p> <select class="custom-select custom-select-sm project_priority" value=><option value="low">Low</option><option value="normal" selected>Normal</option><option value="high">High</option></select>';
+              }
+            } ],
+            "createdRow": function( row, data, dataIndex, cells ) {   
+              $('select', cells[3])[0].value = data.priority;
             },
             "rowCallback": function( row, data, index ) {
 
@@ -80,40 +87,29 @@
             var row = table.row( tr );
             window.location.href = `/project/${row.data().id}`;
         } );
-        $('#dataTable tbody').on('click', 'a.dropdown-item', function (event) {
+        $('.project_priority').change( function(event) {
+            var table = $('#dataTable').DataTable();
             var tr = $(this).closest('tr');
             var row = table.row( tr );
-            switch (event.target.innerText) {
-                case 'Low':
-                    setPriority(row.data().id, 'low');
-                    break;
-
-                case 'Normal':
-                    setPriority(row.data().id, 'normal');
-                    break;
-                
-                case 'High':
-                    setPriority(row.data().id, 'high');
-                    break;
-            
-                default:
-                    break;
-            }
+            setPriority(row.data().id, event.target.value);
         } );
       var i = jQuery('<i></i>');
       i.addClass('fas fa-trash fa-1x')
-      
-      var i2 = jQuery('<i></i>');
-      i2.addClass('fas fa-trash fa-1x')
-  
+        
       var buttonDelFilteredProject = jQuery('<button></button>');
       buttonDelFilteredProject.addClass('btn btn-danger');
       buttonDelFilteredProject.attr('type', 'button')
             .attr('data-toggle', "tooltip")
             .attr('title', 'Supprime tous les projets visibles')
             .attr('onclick', 'deleteFilteredProjects()')
-            .append(i2)
+            .append(i)
             .append(' Supprimer les projets visibles');
       $("div.toolbar_tab").append(buttonDelFilteredProject);
+
+      // var buttonPriorityFilteredProject = jQuery('<div class="btn-group"><button type="button" class="btn btn-primary ml-2 dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Changer la priorité des projets visibles </button><div class="dropdown-menu"><a class="dropdown-item" href="#">Low</a><a class="dropdown-item" href="#">Normal</a><a class="dropdown-item" href="#">High</a></div>');
+      // buttonPriorityFilteredProject.on('click', function () {
+      //         } )
+      // $("div.toolbar_tab").append(buttonPriorityFilteredProject);
+      
     } );
   </script>

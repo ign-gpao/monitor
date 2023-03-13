@@ -19,9 +19,9 @@ async function getProjects(req, res, next) {
     },
     {
       title: 'Priorité',
-      orderable: false,
-      data: null,
-      defaultContent: '<button class=\\"project_priority btn btn-sm btn-primary dropdown-toggle\\" type=\\"button\\" id=\\"dropdownMenuButton\\" data-toggle=\\"dropdown\\" aria-haspopup=\\"true\\" aria-expanded=\\"false\\">Change Priority</button><div class=\\"dropdown-menu\\" aria-labelledby=\\"dropdownMenuButton\\"><a class=\\"dropdown-item\\">Low</a><a class=\\"dropdown-item\\">Normal</a><a class=\\"dropdown-item\\">High</a></div>',
+      // orderable: false,
+      data: 'priority',
+      // defaultContent: 'select class=\\"custom-select custom-select-sm project_priority\\"><option value=\\"low\\">Low</option><option value=\\"normal\\" selected>Normal</option><option value=\\"high\\">High</option></select>',
     },
     {
       title: 'Action',
