@@ -1,5 +1,13 @@
 # 📑 Changelog
 
+## [1.27.0](https://github.com/ign-gpao/monitor/tree/1.27.0) (2023-03-13)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.26.0...1.27.0)
+
+### 📁 Other pull requests
+
+- add functions/buttons manage threads [\#75](https://github.com/ign-gpao/monitor/pull/75) ([ijeuffrard](https://github.com/ijeuffrard))
+
 ## [1.26.0](https://github.com/ign-gpao/monitor/tree/1.26.0) (2023-02-09)
 
 [Full Changelog](https://github.com/ign-gpao/monitor/compare/1.25.0...1.26.0)
