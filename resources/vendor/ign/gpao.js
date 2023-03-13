@@ -7,9 +7,7 @@ function setPriority(id, priority) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-    },
-  }).then(() => {
-    location.reload();
+    }
   });
 }
 
@@ -217,6 +215,23 @@ function deleteFilteredProjects () {
       location.reload();
     });
   }
+}
+
+// Fonction qui récupère la liste des projets filtrées (en json)
+function getFilteredProjects(){
+  var table = $('#dataTable').DataTable();
+  var rowsFiltered = table.rows({
+    search: 'applied',     // 'none',    'applied', 'removed'
+  }).data();
+
+  var idsStr = '{"ids":[]}';
+  var jsonIds = JSON.parse(idsStr);
+
+  rowsFiltered.each( function (row) {
+    jsonIds["ids"].push(row.id);
+  });
+
+  return jsonIds
 }
 
 // Fonction permettant de vider la base GPAO
