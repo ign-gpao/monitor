@@ -19,9 +19,7 @@ async function getProjects(req, res, next) {
     },
     {
       title: 'Priorité',
-      // orderable: false,
       data: 'priority',
-      // defaultContent: 'select class=\\"custom-select custom-select-sm project_priority\\"><option value=\\"low\\">Low</option><option value=\\"normal\\" selected>Normal</option><option value=\\"high\\">High</option></select>',
     },
     {
       title: 'Action',
