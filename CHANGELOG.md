@@ -1,5 +1,13 @@
 # 📑 Changelog
 
+## [1.28.0](https://github.com/ign-gpao/monitor/tree/1.28.0) (2023-03-14)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.27.0...1.28.0)
+
+### 📁 Other pull requests
+
+- 76 ne pas rafraîchir la page lorsque lon modifie la priorité dun projet [\#77](https://github.com/ign-gpao/monitor/pull/77) ([ijeuffrard](https://github.com/ijeuffrard))
+
 ## [1.27.0](https://github.com/ign-gpao/monitor/tree/1.27.0) (2023-03-13)
 
 [Full Changelog](https://github.com/ign-gpao/monitor/compare/1.26.0...1.27.0)
