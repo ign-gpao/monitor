@@ -1,6 +1,10 @@
 const express = require('express');
 const debug = require('debug');
+// const cors = require('cors');
+const bodyParser = require('body-parser');
 
+const pages = require('./routes/pages');
+const controller = require('./routes/controller');
 const app = express();
 
 // URL publique de base
@@ -31,7 +35,6 @@ app.set('apiMonitor', `http://${URL_MONITOR}:${MONITOR_PORT}`);
 app.set('server', SERVER_URL);
 app.set('version', process.env.npm_package_version);
 
-const routes = require('./routes');
 
 // set the view engine to ejs
 app.set('view engine', 'ejs');
@@ -43,8 +46,23 @@ app.use('/chart.js', express.static(`${__dirname}/node_modules/chart.js`));
 app.use('/images', express.static(`${__dirname}/resources/images`));
 
 // use res.render to load up an ejs view file
-app.use('/', routes);
+app.use('/', pages);
+app.use('/', controller);
 debug.log(`URL de l'API : ${app.get('apiUrl')}`);
+
+// app.use(cors());
+app.use(bodyParser.json({ limit: '50mb', extended: true }));
+// app.use(function (req, res) {
+//   res.setHeader('Content-Type', 'text/plain')
+//   res.write('you posted:\n')
+//   res.end(JSON.stringify(req.body, null, 2))
+// })
+
+// app.use((req, res, next) => {
+//   debug.log(req.method, ' ', req.path, ' ', req.body);
+//   debug.log(`received at ${Date.now()}`);
+//   next();
+// });
 
 app.listen(MONITOR_PORT);
 debug.log(`URL de base : ${app.get('baseUrl')}`);

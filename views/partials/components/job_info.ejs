@@ -7,7 +7,7 @@
       </div>
         <%if (job.job_status == 'failed') { %>
           <div class="col-lg-6 text-right">
-            <button type="button" onclick='reinitJobs([<%= job.job_id %>])' data-toggle="tooltip" title="Réinitialise le job <%= job.job_id %>" class="btn btn-circle btn-warning">
+            <button type="button" onclick='reinitJobs({"ids":[<%= job.job_id %>]})' data-toggle="tooltip" title="Réinitialise le job <%= job.job_id %>" class="btn btn-circle btn-warning">
               <i class="fas fa-sync-alt fa-1x" aria-hidden="true"></i>
             </button>
           </div>
