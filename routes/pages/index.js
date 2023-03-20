@@ -1,11 +1,10 @@
 const router = require('express').Router();
-const jobs = require('../middlewares/job');
-const projects = require('../middlewares/project');
-const sessions = require('../middlewares/session');
-const hosts = require('../middlewares/host');
-const dependencies = require('../middlewares/dependencies');
-
-const topBar = require('../middlewares/topBar');
+const jobs = require('../../middlewares/job');
+const projects = require('../../middlewares/project');
+const sessions = require('../../middlewares/session');
+const hosts = require('../../middlewares/host');
+const dependencies = require('../../middlewares/dependencies');
+const topBar = require('../../middlewares/topBar');
 
 // dashboard page
 router.get('/', topBar.getInfo, projects.getProjectStatus, (req, res) => {

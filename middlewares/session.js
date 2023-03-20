@@ -42,6 +42,18 @@ async function getSessions(req, res, next) {
   next();
 }
 
+async function setNbActive(req, res, next) {
+  // await axios.post(`${req.app.get('apiUrl')}/api/node/setNbActive?value=${req.query.value}`);
+  next();
+}
+
+async function cleanUnused(req, res, next) {
+  await axios.delete(`${req.app.get('apiUrl')}/api/session/cleanUnused`);
+  next();
+}
+
 module.exports = {
   getSessions,
+  setNbActive,
+  cleanUnused,
 };

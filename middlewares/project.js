@@ -98,9 +98,27 @@ async function getJobsOfProject(req, res, next) {
   next();
 }
 
+async function sendProject(req, res, next) {
+  // await axios.put(`${req.app.get('apiUrl')}/api/project`, req.body);
+  next();
+}
+
+async function deleteProjects(req, res, next) {
+  // await axios.delete(`${req.app.get('apiUrl')}/api/projects/delete`, req.body);
+  next();
+}
+
+async function setPriority(req, res, next) {
+  await axios.post(`${req.app.get('apiUrl')}/api/project/${req.query.id}/setPriority?priority=${req.query.priority}`);
+  next();
+}
+
 module.exports = {
   getProject,
   getProjects,
   getProjectStatus,
   getJobsOfProject,
+  sendProject,
+  deleteProjects,
+  setPriority,
 };

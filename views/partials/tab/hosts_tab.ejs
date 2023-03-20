@@ -78,13 +78,13 @@
         button.addClass('btn btn-danger mr-4');
         button.attr('type', 'button')
               .attr('data-toggle', "tooltip")
-              .attr('title', 'Fermer toutes les sessions des machines visibles')
+              .attr('title', 'Désactiver toutes les sessions des machines visibles')
               .on('click', function () {
                 var jsonHosts = getFilteredHosts()
                 setNbActiveSessions(jsonHosts, 0)
               } )
               .append(i)
-              .append(' Fermer toutes les sessions');
+              .append(' Désactiver toutes les sessions');
         buttonGroup.append(button);
 
         var i = jQuery('<i></i>');

@@ -75,7 +75,7 @@ $('#dataTableJobs tbody').on('click', 'button.reinit_job', function () {
     var tr = $(this).closest('tr');
     var row = table.row( tr );
     if (row.data().job_status == 'failed')
-        reinitJobs([row.data().job_id]);
+        reinitJobs({"ids":[row.data().job_id]});
 } );
 
 // Add btn Réinitialiser les jobs en échecs
