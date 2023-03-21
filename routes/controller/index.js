@@ -6,43 +6,38 @@ const sessions = require('../../middlewares/session');
 const sideBar = require('../../middlewares/sideBar');
 
 // sendProject
-router.put('/projects/sendProject',  projects.sendProject, (req, res) => {
-    console.log(req.body)
-    res.redirect('/')
+router.put('/projects/sendProject', projects.sendProject, (req, res) => {
+  res.redirect('/');
 });
 
 // deleteProjects
-router.delete('/projects/deleteProjects',  projects.deleteProjects, (req, res) => {
-    console.log(req.body)
-    res.redirect('/')
+router.delete('/projects/deleteProjects', projects.deleteProjects, (req, res) => {
+  res.redirect('/');
 });
 
-// setProjectPriority ok
-router.post('/projects/setPriority',  projects.setPriority, (req, res) => {
-    res.redirect('/')
+// setProjectPriority
+router.post('/projects/setPriority', projects.setPriority, (req, res) => {
+  res.redirect('/');
 });
 
 // reinitJobs
-router.post('/jobs/reinit',  jobs.reinitJobs, (req, res) => {
-    console.log(req.body)
-    res.redirect('/')
+router.post('/jobs/reinit', jobs.reinitJobs, (req, res) => {
+  res.redirect('/');
 });
 
 // setNbActiveSessions
 router.post('/sessions/setNbActive', sessions.setNbActive, (req, res) => {
-    console.log(req.body)
-    res.redirect('/')
+  res.redirect('/');
 });
 
-// cleanUnusedSessions ok
+// cleanUnusedSessions
 router.delete('/sessions/cleanUnused', sessions.cleanUnused, (req, res) => {
-    res.redirect('/')
+  res.redirect('/');
 });
 
-// cleanDatabase ok
+// cleanDatabase
 router.get('/maintenance/cleanDatabase', sideBar.cleanDatabase, (req, res) => {
-    res.redirect('/')
+  res.redirect('/');
 });
 
 module.exports = router;
-

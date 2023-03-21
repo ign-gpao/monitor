@@ -99,12 +99,12 @@ async function getJobsOfProject(req, res, next) {
 }
 
 async function sendProject(req, res, next) {
-  // await axios.put(`${req.app.get('apiUrl')}/api/project`, req.body);
+  await axios.put(`${req.app.get('apiUrl')}/api/project`, req.body);
   next();
 }
 
 async function deleteProjects(req, res, next) {
-  // await axios.delete(`${req.app.get('apiUrl')}/api/projects/delete`, req.body);
+  await axios.delete(`${req.app.get('apiUrl')}/api/projects/delete`, { data: req.body });
   next();
 }
 

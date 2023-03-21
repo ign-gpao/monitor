@@ -64,9 +64,7 @@ async function getJob(req, res, next) {
 }
 
 async function reinitJobs(req, res, next) {
-  // console.log(req.body)
-  // const ids = { ids: [186] };
-  // await axios.post(`${req.app.get('apiUrl')}/api/jobs/reinit`, ids);
+  await axios.post(`${req.app.get('apiUrl')}/api/jobs/reinit`, req.body);
   next();
 }
 

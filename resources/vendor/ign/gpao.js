@@ -6,7 +6,6 @@ const monitorUrl = "http://"+window.location.href.split('/')[2];
 //------ Groupe de fonctions qui permettent d'importer un projet -----
 
 function sendProject(json){
-  // fetch(`${apiUrl}/api/project`, {
   fetch(`${monitorUrl}/projects/sendProject`, {
     method: "PUT",
     body: json,
@@ -87,7 +86,6 @@ function getFilteredProjects(){
 }
 
 function deleteProject(jsonIds) {
-  // fetch(`${apiUrl}/api/projects/delete`, {
   fetch(`${monitorUrl}/projects/deleteProjects`, {
     method: 'DELETE',
     body: JSON.stringify(jsonIds),
@@ -187,7 +185,6 @@ function getFilteredHosts(){
 function setNbActiveSessions(jsonHosts, value) {
   if (!isNaN(value)) {
     console.log(monitorUrl);
-    // fetch(`${apiUrl}/api/node/setNbActive?value=${value}`, {
     fetch(`${monitorUrl}/sessions/setNbActive?value=${value}`, {
       method: 'POST',
       body: JSON.stringify(jsonHosts),

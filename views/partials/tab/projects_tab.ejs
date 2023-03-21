@@ -80,7 +80,7 @@
         $('#dataTable tbody').on('click', 'button.del_project', function () {
             var tr = $(this).closest('tr');
             var row = table.row( tr );
-            deleteProject(row.data().id, row.data().name);
+            deleteOneProject(row.data().id, row.data().name);
         } );
         $('#dataTable tbody').on('click', 'button.view_project', function () {
             var tr = $(this).closest('tr');
