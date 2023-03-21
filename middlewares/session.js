@@ -43,7 +43,7 @@ async function getSessions(req, res, next) {
 }
 
 async function setNbActive(req, res, next) {
-  // await axios.post(`${req.app.get('apiUrl')}/api/node/setNbActive?value=${req.query.value}`);
+  await axios.post(`${req.app.get('apiUrl')}/api/node/setNbActive?value=${req.query.value}`, req.body);
   next();
 }
 
