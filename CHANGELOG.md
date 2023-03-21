@@ -1,5 +1,21 @@
 # 📑 Changelog
 
+## [Unreleased](https://github.com/ign-gpao/monitor/tree/HEAD)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.29.0...HEAD)
+
+### 🚀 Enhancements
+
+- Fonctionnement derrière un proxy : Redirection des appels à l'API [\#22](https://github.com/ign-gpao/monitor/issues/22)
+
+## [1.29.0](https://github.com/ign-gpao/monitor/tree/1.29.0) (2023-03-21)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.28.0...1.29.0)
+
+### 📁 Other pull requests
+
+- 22 fonctionnement derrière un proxy redirection des appels à lapi [\#78](https://github.com/ign-gpao/monitor/pull/78) ([ijeuffrard](https://github.com/ijeuffrard))
+
 ## [1.28.0](https://github.com/ign-gpao/monitor/tree/1.28.0) (2023-03-14)
 
 [Full Changelog](https://github.com/ign-gpao/monitor/compare/1.27.0...1.28.0)
