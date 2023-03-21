@@ -7,6 +7,8 @@ const pages = require('./routes/pages');
 const controller = require('./routes/controller');
 const app = express();
 
+app.use(bodyParser.json({ limit: '50mb', extended: true }));
+
 // URL publique de base
 const BASE_URL = process.env.BASE_URL || '';
 
@@ -51,7 +53,7 @@ app.use('/', controller);
 debug.log(`URL de l'API : ${app.get('apiUrl')}`);
 
 // app.use(cors());
-app.use(bodyParser.json({ limit: '50mb', extended: true }));
+
 // app.use(function (req, res) {
 //   res.setHeader('Content-Type', 'text/plain')
 //   res.write('you posted:\n')
