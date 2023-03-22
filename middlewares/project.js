@@ -109,7 +109,7 @@ async function deleteProjects(req, res, next) {
 }
 
 async function setPriority(req, res, next) {
-  await axios.post(`${req.app.get('apiUrl')}/api/project/${req.query.id}/setPriority?priority=${req.query.priority}`);
+  await axios.post(`${req.app.get('apiUrl')}/api/projects/setPriority?priority=${req.query.priority}`, req.body);
   next();
 }
 
