@@ -117,16 +117,28 @@ function deleteFilteredProjects () {
 }
 
 // Fonction permettant de changer la priorité d'un projet
-function setPriority(id, priority) {
+function setPriority(jsonIds, priority) {
   // on fait une requete sur l'API
-  fetch(`${monitorUrl}/projects/setPriority?id=${id}&priority=${priority}`, {
+  fetch(`${monitorUrl}/projects/setPriority?priority=${priority}`, {
     method: 'POST',
+    body: JSON.stringify(jsonIds),
     headers: {
       'Content-Type': 'application/json',
     }
   });
 }
 
+function setPriorityOneProject(id, priority){
+  var ids = '{"ids":[]}';
+  var jsonIds = JSON.parse(ids);
+  jsonIds["ids"].push(id);
+  setPriority(jsonIds, priority)
+}
+
+function setPriorityFilteredProjects(priority){
+  var jsonIds = getFilteredProjects()
+  setPriority(jsonIds, priority)
+}
 
 //------------------------------- JOBS -------------------------------
 

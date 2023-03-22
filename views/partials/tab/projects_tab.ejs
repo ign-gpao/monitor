@@ -91,7 +91,7 @@
             var table = $('#dataTable').DataTable();
             var tr = $(this).closest('tr');
             var row = table.row( tr );
-            setPriority(row.data().id, event.target.value);
+            setPriorityOneProject(row.data().id, event.target.value);
         } );
       var i = jQuery('<i></i>');
       i.addClass('fas fa-trash fa-1x')
@@ -106,10 +106,28 @@
             .append(' Supprimer les projets visibles');
       $("div.toolbar_tab").append(buttonDelFilteredProject);
 
-      // var buttonPriorityFilteredProject = jQuery('<div class="btn-group"><button type="button" class="btn btn-primary ml-2 dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Changer la priorité des projets visibles </button><div class="dropdown-menu"><a class="dropdown-item" href="#">Low</a><a class="dropdown-item" href="#">Normal</a><a class="dropdown-item" href="#">High</a></div>');
-      // buttonPriorityFilteredProject.on('click', function () {
-      //         } )
-      // $("div.toolbar_tab").append(buttonPriorityFilteredProject);
+      function changePriorityFilteredProjects(priority){
+        var selectsFiltered = $('.project_priority')
+        selectsFiltered.each(function(select) {
+          $(this)[0].value = priority        
+        });
+        setPriorityFilteredProjects(priority) 
+      }
+
+      var buttonPriorityFilteredProject = jQuery('<div class="btn-group"><button type="button" class="btn btn-primary ml-2 dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Changer la priorité des projets visibles </button>');
+      var dropdownMenu = jQuery('<div class="dropdown-menu"></div>');
+      var lowItem = jQuery('<a class="dropdown-item" href="#">Low</a>');
+      lowItem.on('click', function () { changePriorityFilteredProjects("low") } );
+      var normalItem = jQuery('<a class="dropdown-item" href="#">Normal</a>');
+      normalItem.on('click', function () { changePriorityFilteredProjects("normal") } );
+      var highItem = jQuery('<a class="dropdown-item" href="#">High</a>');
+      highItem.on('click', function () { changePriorityFilteredProjects("high") } );
+    
+      dropdownMenu.append(lowItem)
+      dropdownMenu.append(normalItem)      
+      dropdownMenu.append(highItem)      
+      buttonPriorityFilteredProject.append(dropdownMenu)
+      $("div.toolbar_tab").append(buttonPriorityFilteredProject);
       
     } );
   </script>
