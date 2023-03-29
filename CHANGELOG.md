@@ -1,16 +1,20 @@
 # 📑 Changelog
 
-## [Unreleased](https://github.com/ign-gpao/monitor/tree/HEAD)
+## [1.30.0](https://github.com/ign-gpao/monitor/tree/1.30.0) (2023-03-29)
 
-[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.29.0...HEAD)
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.29.0...1.30.0)
 
-### 🚀 Enhancements
+### 📁 Other pull requests
 
-- Fonctionnement derrière un proxy : Redirection des appels à l'API [\#22](https://github.com/ign-gpao/monitor/issues/22)
+- set priority filtered projects [\#81](https://github.com/ign-gpao/monitor/pull/81) ([ijeuffrard](https://github.com/ijeuffrard))
 
 ## [1.29.0](https://github.com/ign-gpao/monitor/tree/1.29.0) (2023-03-21)
 
 [Full Changelog](https://github.com/ign-gpao/monitor/compare/1.28.0...1.29.0)
+
+### 🚀 Enhancements
+
+- Fonctionnement derrière un proxy : Redirection des appels à l'API [\#22](https://github.com/ign-gpao/monitor/issues/22)
 
 ### 📁 Other pull requests
 
