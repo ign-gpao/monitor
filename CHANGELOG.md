@@ -1,5 +1,13 @@
 # 📑 Changelog
 
+## [1.31.0](https://github.com/ign-gpao/monitor/tree/1.31.0) (2023-04-11)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.30.0...1.31.0)
+
+### 🐛 Bug fixes
+
+- quand on ajoute un projet il est automatiquement mis en running alors qu'aucune machine n'est dans la base ou aucun thread activé, les jobs restent ready [\#72](https://github.com/ign-gpao/monitor/issues/72)
+
 ## [1.30.0](https://github.com/ign-gpao/monitor/tree/1.30.0) (2023-03-29)
 
 [Full Changelog](https://github.com/ign-gpao/monitor/compare/1.29.0...1.30.0)
