@@ -1,5 +1,9 @@
 # 📑 Changelog
 
+## [1.32.0](https://github.com/ign-gpao/monitor/tree/1.32.0) (2023-04-14)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.31.0...1.32.0)
+
 ## [1.31.0](https://github.com/ign-gpao/monitor/tree/1.31.0) (2023-04-11)
 
 [Full Changelog](https://github.com/ign-gpao/monitor/compare/1.30.0...1.31.0)
