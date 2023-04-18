@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <title>GPAO - Job</title>
+
+    <%- include ("../partials/head") %>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""></script>
+
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <%- include ("../partials/menu/sidebar") %>
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Map</h1>
+          </div>
+          
+          <div id="map" style="height: 800px;"></div>
+
+          <script>
+
+            var ortho = L.tileLayer('https://wxs.ign.fr/decouverte/geoportail/wmts?' +
+                                    'service=WMTS&request=GetTile&version=1.0.0' +
+                                    '&tilematrixset=PM&tilematrix={z}&tilecol={x}&tilerow={y}' +
+                                    '&layer=ORTHOIMAGERY.ORTHOPHOTOS' +
+                                    '&format=image/jpeg&style=normal',
+                                    {
+                                        minZoom : 2,
+                                        maxZoom : 21,
+                                        tileSize : 256,
+                                        attribution : "IGN-F/Géoportail"
+                                    });
+
+            var plan = L.tileLayer('https://wxs.ign.fr/{ignApiKey}/geoportail/wmts?'+
+                                    '&REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&TILEMATRIXSET=PM'+
+                                    '&LAYER={ignLayer}&STYLE={style}&FORMAT={format}'+
+                                    '&TILECOL={x}&TILEROW={y}&TILEMATRIX={z}',
+                                    {
+                                      ignApiKey: 'decouverte',
+                                      ignLayer: 'GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2',
+                                      style: 'normal',
+                                      format: 'image/png',
+                                      service: 'WMTS',
+                                    });
+            
+            var map = L.map('map', {center: [46.845,2.424], zoom: 6, layers: [ortho, plan]});
+
+            var baseMaps = {
+                "Ortho": ortho,
+                "Plan": plan
+            };
+
+            var layerControl = L.control.layers(baseMaps).addTo(map);
+
+            L.control.scale().addTo(map);
+
+            // var polygon = L.polygon([
+            //     [46.845,2.424],
+            //     [46.503, -0.06],
+            //     [47.51, -0.047]
+            // ]).addTo(map);
+
+            var geojsonFeature = require('../../../test_map.json')
+            
+
+            L.geoJSON(geojsonFeature).addTo(map);
+
+          </script>
+
+      </div>
+      <!-- End of Main Content -->
+
+      <%- include ("../partials/footer") %>
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Custom scripts for all pages-->
+  <script src="<%= base %>/js/sb-admin-2.min.js"></script>
+   
+  <!-- Popups Info -->
+  <%- include ("../popups/popup_job_status_info") %>
+
+</body>
+</html>

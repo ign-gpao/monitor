@@ -108,4 +108,14 @@ router.get('/hosts', topBar.getInfo, hosts.getHosts, (req, res) => {
   });
 });
 
+// hosts page
+router.get('/map', (req, res) => {
+  res.render('pages/map', {
+    base: req.app.get('baseUrl'),
+    api: req.app.get('apiUrl'),
+    server: req.app.get('server'),
+    version: req.app.get('version'),
+  });
+});
+
 module.exports = router;
