@@ -1,12 +1,15 @@
 const axios = require('axios');
 
 async function getProjects(req, res, next) {
-  const json = await axios.get(`${req.app.get('apiUrl')}/api/projects`);
+  var json = await axios.get(`${req.app.get('apiUrl')}/api/projects`);
+  
+  var arr = json.data;
+  arr.filter(obj => obj.avancement = Math.round( (+obj.done + +obj.failed) / +obj.total * 100))
 
-  req.projects_data = JSON.stringify(json.data);
+  req.projects_data = JSON.stringify(arr);
   req.projects_columns = JSON.stringify([
     {
-      title: 'Id',
+      title: 'Id <a class=\\"far fa-question-circle collapse-item\\" data-toggle=\\"modal\\" data-target=\\"#projectStatusInfo\\"></a>',
       data: 'id',
     },
     {
@@ -14,8 +17,28 @@ async function getProjects(req, res, next) {
       data: 'name',
     },
     {
-      title: 'Statut <a class=\\"far fa-question-circle collapse-item\\" data-toggle=\\"modal\\" data-target=\\"#projectStatusInfo\\"></a>',
-      data: 'status',
+      title: '<div class=\\"text-secondary\\">Waiting</div>',
+      data: 'waiting',
+    },
+    {
+      title: '<div class=\\"text-primary\\">Ready</div>',
+      data: 'ready',
+    },
+    {
+      title: '<div class=\\"text-warning\\">Running</div>',
+      data: 'running',
+    },
+    {
+      title: '<div class=\\"text-success\\">Done</div>',
+      data: 'done',
+    },
+    {
+      title: '<div class=\\"text-danger\\">Failed</div>',
+      data: 'failed',
+    },
+    {
+      title: 'Avancement (%)',
+      data: 'avancement',
     },
     {
       title: 'Priorité',
@@ -46,9 +69,13 @@ async function getProject(req, res, next) {
 }
 
 async function getProjectStatus(req, res, next) {
-  const json = await axios.get(`${req.app.get('apiUrl')}/api/projects/statusByJobs`);
+  const json = await axios.get(`${req.app.get('apiUrl')}/api/projects`);
 
-  const projects = json.data;
+  var arr = json.data;
+  arr.filter(obj => obj.id_project = obj.id)
+  arr.filter(obj => delete obj.id)
+
+  const projects = arr;
 
   req.projectStatus = projects;
   next();

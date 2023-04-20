@@ -38,14 +38,14 @@
             "columns": columns,
             "autoWidth": false,
             "columnDefs": [ {
-              "targets": 3,
+              "targets": 8,
               "data": "priority",
               "render": function ( data, type, row, meta ) {
                 return '<p hidden>' + data +'</p> <select class="custom-select custom-select-sm project_priority" value=><option value="low">Low</option><option value="normal" selected>Normal</option><option value="high">High</option></select>';
               }
             } ],
             "createdRow": function( row, data, dataIndex, cells ) {   
-              $('select', cells[3])[0].value = data.priority;
+              $('select', cells[8])[0].value = data.priority;
             },
             "rowCallback": function( row, data, index ) {
 
@@ -55,26 +55,29 @@
             var name = $('td:eq(1)', row);
             name.html('<a href="<%= base %>/project/'+data.id+'">'+data.name+'</a>')
 
-            var status = data.status;
-            switch(status){
-                case "failed":
-                    $('td, a', row).addClass('text-danger');
-                    break;
-                case "running":
-                    $('td, a', row).addClass('text-warning');
-                    break;
-                case "waiting":
+              if (data.running > 0) {
+                $('td, a', row).addClass('text-warning');
+              } else {
+                if (data.ready > 0) {
+                  $('td, a', row).addClass('text-primary');
+                } else {
+                  if (data.waiting > 0) {
                     $('td, a', row).addClass('text-secondary');
-                    break;
-                case "done":
+                  } if (data.done == data.total) {
                     $('td, a', row).addClass('text-success');
-                    break;
-                case "ready":
-                    $('td, a', row).addClass('text-primary');
-                    break;
+                  } if (data.failed > 0) {
+                    $('td, a', row).addClass('text-danger');
+                  }
+                }
+              }
+
+              if (data.failed > 0) {
+                var failed = $('td:eq(6)', row);
+                failed.html(data.failed+' <i class="fas fa-exclamation-triangle text-danger"></i>')
+              }
             }
         }
-          } 
+          
         );
         // Add event listener for actions
         $('#dataTable tbody').on('click', 'button.del_project', function () {
