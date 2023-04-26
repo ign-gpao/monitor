@@ -36,7 +36,7 @@ async function getProjectDependencies(req, res, next) {
   req.dependencies_data = JSON.stringify(json.data);
   req.dependencies_columns = JSON.stringify([
     {
-      title: 'Id',
+      title: 'Id <a class=\\"far fa-question-circle collapse-item\\" data-toggle=\\"modal\\" data-target=\\"#projectStatusInfo\\"></a>',
       data: 'dep_id',
     },
     {
@@ -46,10 +46,6 @@ async function getProjectDependencies(req, res, next) {
     {
       title: 'Nom du projet',
       data: 'project_name',
-    },
-    {
-      title: 'Statut <a class=\\"far fa-question-circle collapse-item\\" data-toggle=\\"modal\\" data-target=\\"#projectStatusInfo\\"></a>',
-      data: 'project_status',
     },
     {
       title: 'Priorité',

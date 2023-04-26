@@ -9,25 +9,23 @@
     </div>
     <div id="no-elements" class="card-body">
         <% projects.forEach(function( project ){ %>
-            <div class="row m-0 mb-1">
-              <h4 class="col-7 small font-weight-bold p-0"><a class="text-secondary" href="<%= base %>/project/<%= project.id_project %>"><%= project.name %></a></h4>
-              <!-- <div class="col justify-content-end"> -->
-                <table class="d-flex ">
-                  <tr>
-                    <td id="nb_ready_<%= project.id_project %>" class="text-primary border-right pr-1 pl-1"></td>
-                    <td id="nb_waiting_<%= project.id_project %>" class="text-secondary border-right pr-1 pl-1"></td>
-                    <td id="nb_running_<%= project.id_project %>" class="text-warning border-right pr-1 pl-1"></td>
-                    <td id="nb_done_<%= project.id_project %>" class="text-success border-right pr-1 pl-1"></td>
-                    <td id="nb_failed_<%= project.id_project %>" class="text-danger border-right pr-1 pl-1"></td>
-                    <td id="nb_total_<%= project.id_project %>" class="text-secondary pr-1 pl-1"></td>
-                  </tr>
-                </table>
-              <!-- </div> -->
+            <div class="d-flex justify-content-between m-0" >
+              <h4 class="small font-weight-bold p-0"><a class="text-secondary" href="<%= base %>/project/<%= project.project_id %>" style="word-break: break-all;"><%= project.project_name %></a></h4>
+              <table class=" ml-2 mb-1" style=" white-space: nowrap;">
+                <tr>
+                  <td id="nb_ready_<%= project.project_id %>" class="text-primary border-right pr-1 pl-1"></td>
+                  <td id="nb_waiting_<%= project.project_id %>" class="text-secondary border-right pr-1 pl-1"></td>
+                  <td id="nb_running_<%= project.project_id %>" class="text-warning border-right pr-1 pl-1"></td>
+                  <td id="nb_done_<%= project.project_id %>" class="text-success border-right pr-1 pl-1"></td>
+                  <td id="nb_failed_<%= project.project_id %>" class="text-danger border-right pr-1 pl-1"></td>
+                  <td id="nb_total_<%= project.project_id %>" class="text-secondary pr-1 pl-1"></td>
+                </tr>
+              </table>
             </div>
             <div class="progress mb-4">
-              <div id="topbar_project_pg_done_<%= project.id_project %>" class="progress-bar bg-success" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-              <div id="topbar_project_pg_failed_<%= project.id_project %>" class="progress-bar bg-danger" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-              <div id="topbar_project_pg_running_<%= project.id_project %>" class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+              <div id="topbar_project_pg_done_<%= project.project_id %>" class="progress-bar bg-success" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+              <div id="topbar_project_pg_failed_<%= project.project_id %>" class="progress-bar bg-danger" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+              <div id="topbar_project_pg_running_<%= project.project_id %>" class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
         <% }) %>
     </div>
@@ -37,26 +35,26 @@
 <script type="text/javascript">
   $(document).ready(function() {  
     <% projects.forEach(function( project ){ %>
-      $('#nb_ready_<%= project.id_project %>').text("<%= project.ready %>");
-      $('#nb_waiting_<%= project.id_project %>').text("<%= project.waiting %>");
-      $('#nb_running_<%= project.id_project %>').text("<%= project.running %>");
-      $('#nb_done_<%= project.id_project %>').text("<%= project.done %>");
-      $('#nb_failed_<%= project.id_project %>').text("<%= project.failed %>");
-      $('#nb_total_<%= project.id_project %>').text("sur <%= project.total %>");
+      $('#nb_ready_<%= project.project_id %>').text("<%= project.ready %>");
+      $('#nb_waiting_<%= project.project_id %>').text("<%= project.waiting %>");
+      $('#nb_running_<%= project.project_id %>').text("<%= project.running %>");
+      $('#nb_done_<%= project.project_id %>').text("<%= project.done %>");
+      $('#nb_failed_<%= project.project_id %>').text("<%= project.failed %>");
+      $('#nb_total_<%= project.project_id %>').text("sur <%= project.total %>");
       
-      $('#topbar_project_pg_done_<%= project.id_project %>').attr('style', 'width: '+percent(<%= project.done %>, <%= project.total %>)+"%");
-      $('#topbar_project_pg_done_<%= project.id_project %>').text(percent(<%= project.done %>, <%= project.total %>)+"%");
-      $('#topbar_project_pg_failed_<%= project.id_project %>').attr('style', 'width: '+percent(<%= project.failed %>, <%= project.total %>)+"%");
-      $('#topbar_project_pg_failed_<%= project.id_project %>').text(percent(<%= project.failed %>, <%= project.total %>)+"%");
-      $('#topbar_project_pg_running_<%= project.id_project %>').attr('style', 'width: '+percent(<%= project.running %>, <%= project.total %>)+"%");
-      $('#topbar_project_pg_running_<%= project.id_project %>').text(percent(<%= project.running %>, <%= project.total %>)+"%");
+      $('#topbar_project_pg_done_<%= project.project_id %>').attr('style', 'width: '+percent(<%= project.done %>, <%= project.total %>)+"%");
+      $('#topbar_project_pg_done_<%= project.project_id %>').text(percent(<%= project.done %>, <%= project.total %>)+"%");
+      $('#topbar_project_pg_failed_<%= project.project_id %>').attr('style', 'width: '+percent(<%= project.failed %>, <%= project.total %>)+"%");
+      $('#topbar_project_pg_failed_<%= project.project_id%>').text(percent(<%= project.failed %>, <%= project.total %>)+"%");
+      $('#topbar_project_pg_running_<%= project.project_id %>').attr('style', 'width: '+percent(<%= project.running %>, <%= project.total %>)+"%");
+      $('#topbar_project_pg_running_<%= project.project_id %>').text(percent(<%= project.running %>, <%= project.total %>)+"%");
 
       if (<%= project.failed %> >0) {
-        $('#nb_failed_<%= project.id_project %>').append(" <i class='fa fa-exclamation-triangle' aria-hidden='true'></i>");
+        $('#nb_failed_<%= project.project_id %>').append(" <i class='fa fa-exclamation-triangle' aria-hidden='true'></i>");
       }
 
       if (<%= project.running%> >0) {
-        $('#nb_running_<%= project.id_project %>').append(' <div class="spinner-border spinner-border-sm text-warning" role="status"><span class="sr-only">Loading...</span></div>');
+        $('#nb_running_<%= project.project_id %>').append(' <div class="spinner-border spinner-border-sm text-warning" role="status"><span class="sr-only">Loading...</span></div>');
       }
     <% }) %>
     <% if (projects.length==0) { %>

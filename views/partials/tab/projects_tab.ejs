@@ -45,15 +45,15 @@
               }
             } ],
             "createdRow": function( row, data, dataIndex, cells ) {   
-              $('select', cells[8])[0].value = data.priority;
+              $('select', cells[8])[0].value = data.project_priority;
             },
             "rowCallback": function( row, data, index ) {
 
             var id = $('td:eq(0)', row);
-            id.html('<a href="<%= base %>/project/'+data.id+'">'+data.id+'</a>')
+            id.html('<a href="<%= base %>/project/'+data.project_id+'">'+data.project_id+'</a>')
 
             var name = $('td:eq(1)', row);
-            name.html('<a href="<%= base %>/project/'+data.id+'">'+data.name+'</a>')
+            name.html('<a href="<%= base %>/project/'+data.project_id+'">'+data.project_name+'</a>')
 
               if (data.running > 0) {
                 $('td, a', row).addClass('text-warning');
@@ -83,18 +83,18 @@
         $('#dataTable tbody').on('click', 'button.del_project', function () {
             var tr = $(this).closest('tr');
             var row = table.row( tr );
-            deleteOneProject(row.data().id, row.data().name);
+            deleteOneProject(row.data().project_id, row.data().project_name);
         } );
         $('#dataTable tbody').on('click', 'button.view_project', function () {
             var tr = $(this).closest('tr');
             var row = table.row( tr );
-            window.location.href = `/project/${row.data().id}`;
+            window.location.href = `/project/${row.data().project_id}`;
         } );
         $('.project_priority').change( function(event) {
             var table = $('#dataTable').DataTable();
             var tr = $(this).closest('tr');
             var row = table.row( tr );
-            setPriorityOneProject(row.data().id, event.target.value);
+            setPriorityOneProject(row.data().project_id, event.target.value);
         } );
       var i = jQuery('<i></i>');
       i.addClass('fas fa-trash fa-1x')
