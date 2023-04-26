@@ -79,7 +79,7 @@ function getFilteredProjects(){
   var jsonIds = JSON.parse(ids);
 
   rowsFiltered.each( function (row) {
-    jsonIds["ids"].push(row.id);
+    jsonIds["ids"].push(row.project_id);
   });
 
   return jsonIds

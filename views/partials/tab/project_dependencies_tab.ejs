@@ -33,7 +33,7 @@
             "order": [[ 0, "asc" ]],
             "lengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "Tous"]],
             "pageLength": 10,
-            "dom": '<"d-flex m-1"<"mr-auto"l><f>><"d-flex m-1"<"mr-auto toolbar_tab"><p>>t<"d-flex m-1"<"mr-auto"i><p>>',
+            "dom": '<"d-flex m-1"<"mr-auto"l><f>><"d-flex m-1"<"mr-auto toolbar_tab"><p>>t<"d-flex m-1"<"mr-auto"i>>',
             "data": data,
             "columns": columns,
             "rowCallback": function( row, data, index ) {
@@ -44,25 +44,21 @@
               var name = $('td:eq(2)', row);
               name.html('<a href="<%= base %>/project/'+data.project_id+'">'+data.project_name+'</a>')
 
-              var status = data.project_status;
-
-              switch(status){
-                  case "failed":
-                      $('td, a', row).addClass('text-danger');
-                      break;
-                  case "running":
-                      $('td, a', row).addClass('text-warning');
-                      break;
-                  case "waiting":
+              if (data.running > 0) {
+                  $('td, a', row).addClass('text-warning');
+                } else {
+                  if (data.ready > 0) {
+                    $('td, a', row).addClass('text-primary');
+                  } else {
+                    if (data.waiting > 0) {
                       $('td, a', row).addClass('text-secondary');
-                      break;
-                  case "done":
+                    } if (data.done == data.total) {
                       $('td, a', row).addClass('text-success');
-                      break;
-                  case "ready":
-                      $('td, a', row).addClass('text-primary');
-                      break;                  
-            }
+                    } if (data.failed > 0) {
+                      $('td, a', row).addClass('text-danger');
+                    }
+                  }
+                }
           } 
         });
     } );

@@ -1,28 +1,32 @@
 const axios = require('axios');
 
 async function getProjects(req, res, next) {
-  var json = await axios.get(`${req.app.get('apiUrl')}/api/projects`);
-  
-  var arr = json.data;
-  arr.filter(obj => obj.avancement = Math.round( (+obj.done + +obj.failed) / +obj.total * 100))
+  const json = await axios.get(`${req.app.get('apiUrl')}/api/projects`);
+  const arr = json.data;
+  arr.filter((obj) => {
+    const projet = obj;
+    const avancement = (+projet.done + +projet.failed) / +projet.total;
+    projet.avancement = Math.round(avancement * 100);
+    return null;
+  });
 
   req.projects_data = JSON.stringify(arr);
   req.projects_columns = JSON.stringify([
     {
       title: 'Id <a class=\\"far fa-question-circle collapse-item\\" data-toggle=\\"modal\\" data-target=\\"#projectStatusInfo\\"></a>',
-      data: 'id',
+      data: 'project_id',
     },
     {
       title: 'Nom',
-      data: 'name',
-    },
-    {
-      title: '<div class=\\"text-secondary\\">Waiting</div>',
-      data: 'waiting',
+      data: 'project_name',
     },
     {
       title: '<div class=\\"text-primary\\">Ready</div>',
       data: 'ready',
+    },
+    {
+      title: '<div class=\\"text-secondary\\">Waiting</div>',
+      data: 'waiting',
     },
     {
       title: '<div class=\\"text-warning\\">Running</div>',
@@ -42,7 +46,7 @@ async function getProjects(req, res, next) {
     },
     {
       title: 'Priorité',
-      data: 'priority',
+      data: 'project_priority',
     },
     {
       title: 'Action',
@@ -71,11 +75,7 @@ async function getProject(req, res, next) {
 async function getProjectStatus(req, res, next) {
   const json = await axios.get(`${req.app.get('apiUrl')}/api/projects`);
 
-  var arr = json.data;
-  arr.filter(obj => obj.id_project = obj.id)
-  arr.filter(obj => delete obj.id)
-
-  const projects = arr;
+  const projects = json.data;
 
   req.projectStatus = projects;
   next();
