@@ -1,5 +1,5 @@
 const apiUrl = document.currentScript.getAttribute('api-url');
-const monitorUrl = "http://"+window.location.href.split('/')[2];
+const monitorUrl = document.currentScript.getAttribute('base-url');
 
 //----------------------------- PROJETS ------------------------------
 
