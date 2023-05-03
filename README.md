@@ -34,6 +34,19 @@ L'installation et l'execution d'une GPAO complète (database, api, monitor, etc.
 
 Une fois lancé vous pouvez tester le bon fonctionnement depuis l'url : http://localhost:8000/
 
+## Variables d'environnement
+
+La configuration de variables d'environnement propres au Monitor est nécessaire pour son bon fonctionnement. Elles sont définies par défaut ou dans le script `start.sh` dans le cas d'un déploiement local mais sont à adapter en fonction de votre installation. En voici l'inventaire :
+
+| Variable | Obligatoire | Valeur par défaut | Commentaire |
+| --- | --- | --- | --- |
+| SERVER_HOSTNAME | Non | localhost | Nom de la machine qui héberge le monitor |
+| URL_MONITOR | Non | localhost | Url du monitor |
+| MONITOR_PORT | Non | 8000 | Port du monitor |
+| URL_API | Non | localhost | Nom de la machine qui héberge l'API |
+| API_PORT | Non | 8080 | Port de l'API vu par le monitor |
+| BASE_URL | Non | '' | Url de base du site (utile dans le cas où un alias a été créé pour le site et qu'il diffère du nom de machine), exemples : http://toto.truc:port/titi ou https://toto/tata/titi/ |
+
 ## Pour les développeurs
 
 ### Analyse du code
