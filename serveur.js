@@ -45,7 +45,7 @@ app.use('/chart.js', express.static(`${__dirname}/node_modules/chart.js`));
 app.use('/images', express.static(`${__dirname}/resources/images`));
 
 // use res.render to load up an ejs view file
-app.use(bodyParser.json({ limit: '50mb', extended: true }));
+app.use(bodyParser.json({ limit: '500mb', extended: true }));
 app.use('/', pages);
 app.use('/', controller);
 
