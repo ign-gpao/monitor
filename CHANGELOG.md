@@ -1,5 +1,19 @@
 # 📑 Changelog
 
+## [1.35.0](https://github.com/ign-gpao/monitor/tree/1.35.0) (2023-05-11)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.34.0...1.35.0)
+
+### 🐛 Bug fixes
+
+- Quand un job a fail, il faudrait que le projet soit aussi en fail \(il reste en running\) [\#20](https://github.com/ign-gpao/monitor/issues/20)
+
+### 📁 Other pull requests
+
+- extension de la limite du bodyParser [\#89](https://github.com/ign-gpao/monitor/pull/89) ([ijeuffrard](https://github.com/ijeuffrard))
+- 86 base url [\#88](https://github.com/ign-gpao/monitor/pull/88) ([ijeuffrard](https://github.com/ijeuffrard))
+- 20 refactoring projects tab [\#87](https://github.com/ign-gpao/monitor/pull/87) ([ijeuffrard](https://github.com/ijeuffrard))
+
 ## [1.34.0](https://github.com/ign-gpao/monitor/tree/1.34.0) (2023-05-03)
 
 [Full Changelog](https://github.com/ign-gpao/monitor/compare/1.33.0...1.34.0)
