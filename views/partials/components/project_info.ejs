@@ -12,11 +12,38 @@
           <li class="list-group-item">Id : <%= project.project_id %></li>
           <li class="list-group-item">Nom du Projet : <%= project.project_name %></li>
           <li class="list-group-item">Priorité : <%= project.project_priority %></li>
-          <li class="list-group-item">Nombre de jobs total : <%= project.count %></li>
-          <li class="list-group-item">Duree Moyenne d'un job : <%= project.avg_job_duree %>s</li>
-          <li class="list-group-item">Durée Minimal d'un job : <%= project.min_job_duree %>s</li>
-          <li class="list-group-item">Durée Maximal d'un job : <%= project.max_job_duree %>s</li>
-          <li class="list-group-item">Durée Total de traitement : <%= project.total_job_duree %>s</li>
+          <li class="list-group-item d-flex flex-wrap"> 
+            <div class="pr-1">Répartition des jobs : </div>
+            <table style=" white-space: nowrap;">
+              <tr>
+                <td class="text-primary border-right pr-1"> <%= project.ready %></td>
+                <td class="text-secondary border-right pr-1 pl-1"><%= project.waiting %></td>
+                <td class="text-warning border-right pr-1 pl-1"><%= project.running %></td>
+                <td class="text-success border-right pr-1 pl-1"><%= project.done %></td>
+                <td class="text-danger border-right pr-1 pl-1"><%= project.failed %></td>
+                <td class="text-secondary pl-1">sur <%= project.total %></td>
+              </tr>
+            </table>
+          </li>
+          <li class="list-group-item text-bold"><strong>Statistiques : </strong><a class="far fa-question-circle collapse-item" data-toggle="modal" data-target="#projectInfo"></a>
+            <ul class="nav flex-column pl-4 ">
+              <li class="border-top p-1 mt-2">Durée Moyenne d'un job : <%= project.avg_job_duree %>s</li>
+              <li class="border-top p-1">Durée Minimale d'un job : <%= project.min_job_duree %>s</li>
+              <li class="border-top p-1">Durée Maximale d'un job : <%= project.max_job_duree %>s</li>
+              <li class="border-top p-1" id="jobs_duree"></li>
+              <li class="border-top p-1" data-toggle="tooltip" data-placement="right" title="Date de début du premier job traité">Début du projet : <%= project.project_start_date %></li>
+              <li class="border-top p-1" data-toggle="tooltip" data-placement="right" title="Date de fin du dernier job traité">Fin du projet : <%= project.project_end_date %></li>
+              <li class="border-top p-1" id="project_duree" data-toggle="tooltip" data-placement="right" title="Durée calendaire : Date de fin - Date de début du projet"></li>
+              <li class="border-top p-1" data-toggle="tooltip" data-placement="right" title="Somme des durées des jobs / Durée (calendaire) du projet Attention ce calcul est indicatif, il ne prend pas en compte les interruptions de traitement.">Coefficient de parallélisation : <%= project.parallelization_coeff %></li>
+            </ul>  
+          </li>
       </ul>        
   </div>
 </div>
+
+<script type="text/javascript">
+  $(document).ready(function() {  
+    $('#jobs_duree').text('Somme des durées des jobs : ' + convertSeconds(<%= project.total_job_duree %>));
+    $('#project_duree').text('Durée du projet : ' + convertSeconds(<%= project.project_duree %>));
+  } );
+  </script>
