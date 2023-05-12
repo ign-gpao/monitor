@@ -11,8 +11,8 @@
         <select class="custom-select" name="projects" id="project-select">
           <option value="-1">-- Tous les projets --</option>
           <% projects.forEach(function( project ){ %>
-            <option value="<%= project.id %>"  <%if (filter && filter==project.id) {%>  selected <%}%> > 
-              <%= project.id %> - <%= project.name %>
+            <option value="<%= project.project_id %>"  <%if (filter && filter==project.project_id) {%>  selected <%}%> > 
+              <%= project.project_id %> - <%= project.project_name %>
             </option>
           <% }) %>
         </select>    
