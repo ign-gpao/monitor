@@ -244,3 +244,27 @@ function percent(num, per) {
     return 0;
   return (Math.round((num / per) * 100));
 }
+
+// Fonction qui permet de convertir des secondes en jours,h,m,s
+function convertSeconds(seconds) {
+  nb_jours = Math.floor(seconds / (3600 * 24))
+  seconds = seconds % (3600 * 24)
+  var result = new Date(seconds * 1000).toISOString()
+  h = result.slice(11, 13)
+  m = result.slice(14, 16)
+  s = result.slice(17, 19)
+  if(nb_jours > 0){
+    result = nb_jours + 'j' + h + 'h' + m + 'm' + s + 's';
+  }else{
+    if(h > 0){
+      result = h + 'h' + m + 'm' + s + 's';
+    }else{
+      if(m > 0){
+        result = m + 'm' + s + 's';
+      }else{
+        result = s + 's';
+      }
+    }
+  }
+  return result
+}
