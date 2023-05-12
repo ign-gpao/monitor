@@ -1,5 +1,13 @@
 # 📑 Changelog
 
+## [1.36.0](https://github.com/ign-gpao/monitor/tree/1.36.0) (2023-05-12)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.35.0...1.36.0)
+
+### 📁 Other pull requests
+
+- ajout des stats sur un projet [\#91](https://github.com/ign-gpao/monitor/pull/91) ([ijeuffrard](https://github.com/ijeuffrard))
+
 ## [1.35.0](https://github.com/ign-gpao/monitor/tree/1.35.0) (2023-05-11)
 
 [Full Changelog](https://github.com/ign-gpao/monitor/compare/1.34.0...1.35.0)
