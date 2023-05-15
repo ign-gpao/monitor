@@ -1,5 +1,21 @@
 # 📑 Changelog
 
+## [Unreleased](https://github.com/ign-gpao/monitor/tree/HEAD)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.37.0...HEAD)
+
+### 🐛 Bug fixes
+
+- fix bug filter projects on jobs page [\#92](https://github.com/ign-gpao/monitor/issues/92)
+
+## [1.37.0](https://github.com/ign-gpao/monitor/tree/1.37.0) (2023-05-15)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.36.0...1.37.0)
+
+### 📁 Other pull requests
+
+- fix bug project filter on jobs page [\#93](https://github.com/ign-gpao/monitor/pull/93) ([ijeuffrard](https://github.com/ijeuffrard))
+
 ## [1.36.0](https://github.com/ign-gpao/monitor/tree/1.36.0) (2023-05-12)
 
 [Full Changelog](https://github.com/ign-gpao/monitor/compare/1.35.0...1.36.0)
