@@ -7,13 +7,6 @@
 
     <%- include ("../partials/head") %>
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
-    crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
-    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
-    crossorigin=""></script>
-
 </head>
 
 <body id="page-top">
@@ -65,7 +58,7 @@
                                       service: 'WMTS',
                                     });
             
-            var map = L.map('map', {center: [46.845,2.424], zoom: 6, layers: [ortho, plan]});
+            var map = L.map('map', {center: [46.845,2.424], zoom: 2, layers: [ortho, plan]});
 
             var baseMaps = {
                 "Ortho": ortho,
@@ -82,10 +75,38 @@
             //     [47.51, -0.047]
             // ]).addTo(map);
 
-            var geojsonFeature = require('../../../test_map.json')
+            // var geojsonFeature = require('../../../test_map.json')
             
+            // var states = [{
+            //     "type": "Feature",
+            //     "properties": {"party": "Republican"},
+            //     "geometry": {
+            //         "type": "Polygon",
+            //         "coordinates": [[
+            //         [2.424,46],
+            //         [-0.06, 46],
+            //         [-0.047, 47]
+            //         ]]
+            //     }
+            // }, {
+            //     "type": "Feature",
+            //     "properties": {"party": "Democrat"},
+            //     "geometry": {
+            //         "type": "Polygon",
+            //         "coordinates": [[
+            //         [3,49],
+            //         [4, 44],
+            //         [6, 43]
+            //         ]]
+            //     }
+            // }];
 
-            L.geoJSON(geojsonFeature).addTo(map);
+            // L.geoJSON(states).addTo(map);
+
+            var wmsLayer = L.Geoserver.wms("http://localhost:8081/geoserver/wms", {
+              layers: "topp:states",
+            });
+            wmsLayer.addTo(map);
 
           </script>
 
