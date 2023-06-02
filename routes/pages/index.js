@@ -108,9 +108,11 @@ router.get('/hosts', topBar.getInfo, hosts.getHosts, (req, res) => {
   });
 });
 
-// hosts page
-router.get('/map', (req, res) => {
+// map page
+router.get('/map', projects.getProjects, (req, res) => {
   res.render('pages/map', {
+    projects: req.projects,
+    filter: req.query.filter,
     base: req.app.get('baseUrl'),
     api: req.app.get('apiUrl'),
     server: req.app.get('server'),

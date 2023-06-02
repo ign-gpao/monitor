@@ -3,7 +3,7 @@
 
 <head>
 
-    <title>GPAO - Job</title>
+    <title>GPAO - Map</title>
 
     <%- include ("../partials/head") %>
 
@@ -27,88 +27,26 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Map</h1>
+            <h1 class="h3 mb-0 text-gray-800">Géovisualisation des jobs</h1>
           </div>
+
+          <div class="input-group input-group-sm mb-2">
+            <div class="input-group-prepend">
+              <label class="input-group-text">Filtrer par projets</label>
+            </div>
+            <select class="custom-select" name="projects" id="project-select">
+              <option value="-1">-- Tous les projets --</option>
+              <% projects.forEach(function( project ){ %>
+                <option value="<%= project.project_id %>"  <%if (filter && filter==project.project_id) {%>  selected <%}%> > 
+                  <%= project.project_id %> - <%= project.project_name %>
+                </option>
+              <% }) %>
+            </select>    
+          </div>  
+
+          <div id="map" style="height: 80vh;">
           
-          <div id="map" style="height: 800px;"></div>
-
-          <script>
-
-            var ortho = L.tileLayer('https://wxs.ign.fr/decouverte/geoportail/wmts?' +
-                                    'service=WMTS&request=GetTile&version=1.0.0' +
-                                    '&tilematrixset=PM&tilematrix={z}&tilecol={x}&tilerow={y}' +
-                                    '&layer=ORTHOIMAGERY.ORTHOPHOTOS' +
-                                    '&format=image/jpeg&style=normal',
-                                    {
-                                        minZoom : 2,
-                                        maxZoom : 21,
-                                        tileSize : 256,
-                                        attribution : "IGN-F/Géoportail"
-                                    });
-
-            var plan = L.tileLayer('https://wxs.ign.fr/{ignApiKey}/geoportail/wmts?'+
-                                    '&REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&TILEMATRIXSET=PM'+
-                                    '&LAYER={ignLayer}&STYLE={style}&FORMAT={format}'+
-                                    '&TILECOL={x}&TILEROW={y}&TILEMATRIX={z}',
-                                    {
-                                      ignApiKey: 'decouverte',
-                                      ignLayer: 'GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2',
-                                      style: 'normal',
-                                      format: 'image/png',
-                                      service: 'WMTS',
-                                    });
-            
-            var map = L.map('map', {center: [46.845,2.424], zoom: 2, layers: [ortho, plan]});
-
-            var baseMaps = {
-                "Ortho": ortho,
-                "Plan": plan
-            };
-
-            var layerControl = L.control.layers(baseMaps).addTo(map);
-
-            L.control.scale().addTo(map);
-
-            // var polygon = L.polygon([
-            //     [46.845,2.424],
-            //     [46.503, -0.06],
-            //     [47.51, -0.047]
-            // ]).addTo(map);
-
-            // var geojsonFeature = require('../../../test_map.json')
-            
-            // var states = [{
-            //     "type": "Feature",
-            //     "properties": {"party": "Republican"},
-            //     "geometry": {
-            //         "type": "Polygon",
-            //         "coordinates": [[
-            //         [2.424,46],
-            //         [-0.06, 46],
-            //         [-0.047, 47]
-            //         ]]
-            //     }
-            // }, {
-            //     "type": "Feature",
-            //     "properties": {"party": "Democrat"},
-            //     "geometry": {
-            //         "type": "Polygon",
-            //         "coordinates": [[
-            //         [3,49],
-            //         [4, 44],
-            //         [6, 43]
-            //         ]]
-            //     }
-            // }];
-
-            // L.geoJSON(states).addTo(map);
-
-            var wmsLayer = L.Geoserver.wms("http://localhost:8081/geoserver/wms", {
-              layers: "topp:states",
-            });
-            wmsLayer.addTo(map);
-
-          </script>
+          </div>
 
       </div>
       <!-- End of Main Content -->
@@ -134,3 +72,73 @@
 
 </body>
 </html>
+
+<script>
+
+  var ortho = L.tileLayer('https://wxs.ign.fr/decouverte/geoportail/wmts?' +
+                          'service=WMTS&request=GetTile&version=1.0.0' +
+                          '&tilematrixset=PM&tilematrix={z}&tilecol={x}&tilerow={y}' +
+                          '&layer=ORTHOIMAGERY.ORTHOPHOTOS' +
+                          '&format=image/jpeg&style=normal',
+                          {
+                              minZoom : 2,
+                              maxZoom : 21,
+                              tileSize : 256,
+                              attribution : "IGN-F/Géoportail"
+                          });
+
+  var plan = L.tileLayer('https://wxs.ign.fr/{ignApiKey}/geoportail/wmts?'+
+                          '&REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&TILEMATRIXSET=PM'+
+                          '&LAYER={ignLayer}&STYLE={style}&FORMAT={format}'+
+                          '&TILECOL={x}&TILEROW={y}&TILEMATRIX={z}',
+                          {
+                            ignApiKey: 'decouverte',
+                            ignLayer: 'GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2',
+                            style: 'normal',
+                            format: 'image/png',
+                            service: 'WMTS',
+                          });
+  
+  var map = L.map('map', {center: [46.845,2.424], zoom: 7, layers: [plan, ortho]});
+  var baseMaps = {
+      "Photographies aériennes IGN": ortho,
+      "Plan IGN": plan
+  };
+  var layerControl = L.control.layers(baseMaps).addTo(map);
+  L.control.scale().addTo(map);
+
+  var project_filter = $('#project-select').val()
+  $('#project-select').change( function() {
+    var project_filter = $('#project-select').val()
+    location.reload();
+  } );
+
+  var gpaoLayer = L.Geoserver.wfs("http://localhost:8081/geoserver/wfs", {
+    layers: "gpao:emprises",
+    onEachFeature: function (feature, layer) {
+      layer.bindPopup(
+        "Id : " + feature.properties.id + "<br>" +
+        "Nom : " + '<a href="<%= base %>/job/'+feature.properties.id+'">'+feature.properties.name+'</a>' + "<br>" + 
+        "Id du projet : " + '<a href="<%= base %>/project/'+feature.properties.id_project+'">'+feature.properties.id_project+'</a>'
+      );
+    },
+    style: function(feature) {
+      switch (feature.properties.status) {
+          case 'done': return {color: '#1cc88a',weight: 2};
+          case 'failed':   return {color: "#e74a3b",weight: 2};
+          case 'running':   return {color: "#f6c23e",weight: 2};
+          case 'waiting':   return {color: "#858796",weight: 2};
+          case 'ready':   return {color: "#4e73df",weight: 2};
+      }
+    },
+    CQL_FILTER: function(feature) {
+      if(project_filter != -1){
+        return "id_project="+project_filter
+      }else{
+        return "INCLUDE"
+      }
+    }
+  });
+  gpaoLayer.addTo(map);
+
+</script>
