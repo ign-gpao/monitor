@@ -83,11 +83,11 @@ L'interface de la GPAO s'organise autour des éléments suivants :
 * Contenu de la page, ici le Dashboard soit la page d'accueil de la GPAO
 
 Un code couleur relatif au statut des jobs est respecté sur chacune des pages de la GPAO :
-* <span style="color:blue">`ready`</span> : le job est prêt à être exécuté
-* <span style="color:gray">`waiting`</span> : le job est en attente que les jobs dont il dépend soient terminés (<span style="color:green">`done`</span>)
-* <span style="color:orange">`running`</span> : le job est en cours d'exécution
-* <span style="color:green">`done`</span> : le job est terminé (avec succès)
-* <span style="color:red">`failed`</span> : l'exécution du job a échoué
+* 🔵 <span style="color:blue">`ready`</span> : le job est prêt à être exécuté
+* ⚪️ <span style="color:gray">`waiting`</span> : le job est en attente que les jobs dont il dépend soient terminés (<span style="color:green">`done`</span>)
+* 🟡 <span style="color:orange">`running`</span> : le job est en cours d'exécution
+* 🟢 <span style="color:green">`done`</span> : le job est terminé (avec succès)
+* 🔴 <span style="color:red">`failed`</span> : l'exécution du job a échoué
 
 Un clic sur les icônes d'aide <span>![?](help.png)</span> permet d'afficher un popup détaillant un point précis de l'interface.
 
@@ -98,11 +98,11 @@ Un clic sur les icônes d'aide <span>![?](help.png)</span> permet d'afficher un 
 Le **Dashboard** permet le suivi de l'avancement de l'ensemble des projets et des jobs en un coup d’œil.
 
 Les barres de progression et les mini-tableaux associés indiquent pour chaque **projet** :
-* Son avancement (parts de jobs <span style="color:green">terminés</span>/<span style="color:red">échoués</span>/<span style="color:orange">en cours de traitement</span>)
+* Son avancement (parts de jobs <span style="color:green">`done`</span>/<span style="color:red">`failed`</span>/<span style="color:orange">`running`</span>)
 * Le détail numérique des jobs selon leur statut dans le mini-tableau. Un warning ⚠ apparaît quand au moins un job a échoué.
 * S'il est en train d'être traité. Une roue dynamique apparaît quand au moins un job est en cours de traitement.
 
-Les barres de progression des **jobs** indiquent le nombre tous projets confondus de jobs <span style="color:blue">prêts</span>/<span style="color:gray">en attente</span>/<span style="color:orange">en cours de traitement</span>/<span style="color:green">terminés</span>/<span style="color:red">échoués</span>.
+Les barres de progression des **jobs** indiquent le nombre tous projets confondus de jobs <span style="color:blue">`ready`</span>/<span style="color:gray">`waiting`</span>/<span style="color:orange">`running`</span>/<span style="color:green">`done`</span>/<span style="color:red">`failed`</span>.
 
 
 ## Jobs
@@ -119,7 +119,7 @@ Dans le tableau, en cliquant sur l'Id ou le Nom d'un job, un lien redirige vers 
 
 ![jobs](jobs.png)
 
-Ci-dessous, la <u>page détaillée d'un job</u> .
+Ci-dessous, la **page détaillée d'un job**.
 
 Elle est composée de 4 blocs d'informations :
  * Les **caractéristiques** listées du job (id, nom, tags, etc.).
@@ -161,7 +161,7 @@ Dans le tableau, en cliquant sur l'Id ou le Nom d'un projet, un lien redirige ve
 
 ![projets](projets.png)
 
-Ci-dessous, la <u>page détaillée d'un projet</u>.
+Ci-dessous, la **page détaillée d'un projet**.
 
 Elle est composée de 4 blocs d'informations :
  * Les **caractéristiques** listées du projet (id, nom, mini-tableau de répartition des jobs, etc.) ainsi que des statistiques propres à ce projet.
