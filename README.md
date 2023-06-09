@@ -53,6 +53,10 @@ La configuration de variables d'environnement propres au Monitor est nécessaire
 
 Le code doit être analysé avec [ESLint](https://eslint.org/) avant d'être mergé sur la branche main. Voici la commande à exécuter avant de pousser votre code depuis le répertoire des sources : `npm run lint`
 
+## Pour les utilisateurs
+
+Une documentation utilisateur complète est disponible [ici](https://github.com/ign-gpao/monitor/doc_utilisateur/doc_utilisateur.md)
+
 ## Licence
 
 Ce projet est sous licence CECILL-B (voir [LICENSE.md](https://github.com/ign-gpao/.github/blob/main/LICENSE.md)).
