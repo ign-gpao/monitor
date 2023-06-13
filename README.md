@@ -40,12 +40,11 @@ La configuration de variables d'environnement propres au Monitor est nécessaire
 
 | Variable | Obligatoire | Valeur par défaut | Commentaire |
 | --- | --- | --- | --- |
-| SERVER_HOSTNAME | Non | localhost | Nom de la machine qui héberge le monitor |
-| URL_MONITOR | Non | localhost | Url du monitor |
-| MONITOR_PORT | Non | 8000 | Port du monitor |
-| URL_API | Non | localhost | Nom de la machine qui héberge l'API |
-| API_PORT | Non | 8080 | Port de l'API vu par le monitor |
-| BASE_URL | Non | '' | Url de base du site (utile dans le cas où un alias a été créé pour le site et qu'il diffère du nom de machine), exemples : http://toto.truc:port/titi ou https://toto/tata/titi/ |
+| GPAO_MONITOR_BASE_URL | Non | '' | Url de base du site (utile dans le cas où un alias a été créé pour le site et qu'il diffère du nom de machine), exemples : http://toto.truc:port/titi ou https://toto/tata/titi/ |
+| GPAO_MONITOR_PORT | Non | 8000 | Port du monitor |
+| GPAO_API_URL | Non | localhost | Nom de la machine qui héberge l'API |
+| GPAO_API_PORT | Non | 8080 | Port de l'API vu par le monitor |
+| GPAO_API_PROTOCOL | Non | http | Protocole de l'API vu par le monitor |
 
 ## Pour les développeurs
 

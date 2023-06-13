@@ -9,20 +9,20 @@ const app = express();
 
 // URL publique de base du monitor (ex: http://gpao-bidule/gpao)
 // par défaut http://localhost:8000
-const BASE_URL = process.env.BASE_URL || '';
-const MONITOR_PORT = process.env.MONITOR_PORT || 8000;
+const MONITOR_BASE_URL = process.env.GPAO_MONITOR_BASE_URL || '';
+const MONITOR_PORT = process.env.GPAO_MONITOR_PORT || 8000;
 
 // Url de l'api
 // par défaut http://localhost:8080
-const API_URL = process.env.URL_API || 'localhost'; // accès api via backend
-const API_PROTOCOL = process.env.API_PROTOCOL || 'http';
-const API_PORT = process.env.API_PORT || 8080;
+const API_URL = process.env.GPAO_API_URL || 'localhost'; // accès api via backend
+const API_PROTOCOL = process.env.GPAO_API_PROTOCOL || 'http';
+const API_PORT = process.env.GPAO_API_PORT || 8080;
 
 // Dans le cas d'un déploiement de la stack via docker les variables d'environnement:
-// BASE_URL, URL_API, API_PORT, API_PROTOCOL
+// BASE_URL, API, API_PORT, API_PROTOCOL
 // sont surchargées dans le docker-compose.yml.
 
-app.set('baseUrl', `${BASE_URL}`);
+app.set('baseUrl', `${MONITOR_BASE_URL}`);
 app.set('apiUrl', `${API_PROTOCOL}://${API_URL}:${API_PORT}`);
 app.set('version', process.env.npm_package_version);
 
@@ -44,6 +44,6 @@ debug.log(`URL de l'API : ${app.get('apiUrl')}`);
 
 app.listen(MONITOR_PORT);
 let monitorUrl = 'http://localhost:8080';
-if (BASE_URL !== '') { monitorUrl = BASE_URL; }
+if (MONITOR_BASE_URL !== '') { monitorUrl = MONITOR_BASE_URL; }
 debug.log(`URL du monitor : ${monitorUrl}`);
 debug.log(`Version du monitor : ${app.get('version')}`);
