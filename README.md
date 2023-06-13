@@ -54,7 +54,7 @@ Le code doit être analysé avec [ESLint](https://eslint.org/) avant d'être mer
 
 ## Pour les utilisateurs
 
-Une documentation utilisateur complète est disponible [ici](https://github.com/ign-gpao/monitor/doc_utilisateur/doc_utilisateur.md)
+Une documentation utilisateur complète est disponible [ici](https://github.com/ign-gpao/monitor/blob/main/doc_utilisateur/doc_utilisateur.md)
 
 ## Licence
 

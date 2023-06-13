@@ -122,16 +122,16 @@ Dans le tableau, en cliquant sur l'Id ou le Nom d'un job, un lien redirige vers 
 Ci-dessous, la **page détaillée d'un job**.
 
 Elle est composée de 4 blocs d'informations :
- * Les **caractéristiques** listées du job (id, nom, tags, etc.).
-  * Si le job est en échec, on peut le réinitialiser à partir du bouton jaune en haut à droite du bloc.
-  * En cliquant sur `Accéder aux jobs de ce projet` un lien redirige sur la page des jobs filtrés par ce projet.
- * Un **tableau des dépendances** du job. Ici le job dépend de 2 autres jobs en amont.
-  * Des liens sur les Id et les Noms permettent d'accéder à la vue détaillée de ces jobs.
-  * La colonne Active indique l'état de la dépendance entre 2 jobs :
-    * `true` : Le job en amont n'est pas <span style="color:green">`done`</span>, donc la dépendance reste activée, le job suivant reste <span style="color:gray">`waiting`</span>.
-    * `false` : Le job en amont est <span style="color:green">`done`</span>, donc la dépendance est désactivée, le job suivant peut être traité (si toutes ses autres dépendances le sont également).
- * La **commande** `bash` associée au job.
- * Les **logs** générés par cette commande lorsqu'elle a été exécutée.
+- Les **caractéristiques** listées du job (id, nom, tags, etc.).
+  - Si le job est en échec, on peut le réinitialiser à partir du bouton jaune en haut à droite du bloc.
+  - En cliquant sur `Accéder aux jobs de ce projet` un lien redirige sur la page des jobs filtrés par ce projet.
+- Un **tableau des dépendances** du job. Ici le job dépend de 2 autres jobs en amont.
+  - Des liens sur les Id et les Noms permettent d'accéder à la vue détaillée de ces jobs.
+  - La colonne Active indique l'état de la dépendance entre 2 jobs :
+    - `true` : Le job en amont n'est pas <span style="color:green">`done`</span>, donc la dépendance reste activée, le job suivant reste <span style="color:gray">`waiting`</span>.
+    - `false` : Le job en amont est <span style="color:green">`done`</span>, donc la dépendance est désactivée, le job suivant peut être traité (si toutes ses autres dépendances le sont       également).
+- La **commande** `bash` associée au job.
+- Les **logs** générés par cette commande lorsqu'elle a été exécutée.
 
 ![job](job.png)
 
@@ -164,15 +164,14 @@ Dans le tableau, en cliquant sur l'Id ou le Nom d'un projet, un lien redirige ve
 Ci-dessous, la **page détaillée d'un projet**.
 
 Elle est composée de 4 blocs d'informations :
- * Les **caractéristiques** listées du projet (id, nom, mini-tableau de répartition des jobs, etc.) ainsi que des statistiques propres à ce projet.
- * Un **tableau des dépendances** du projet. Ici le projet dépend d'un autre projet en amont.
-  * Des liens sur les Id et les Noms permettent d'accéder à la vue détaillée de ce projet.
-  * La colonne Active indique l'état de la dépendance entre 2 projets :
-    * `true` : Au moins un job du projet en amont n'est pas <span style="color:green">`done`</span>, donc la dépendance reste activée, le projet suivant reste <span style="color:gray">`waiting`</span>.
-    * `false` : <u>Tous</u> les jobs du projet en amont sont <span style="color:green">`done`</span>, donc la dépendance est désactivée, le projet suivant peut être traité (si toutes ses autres dépendances le sont également).
- * Un **diagramme** de la répartition des jobs du projet en fonction de leur statut.
- * Un **tableau des jobs** de ce projet offrant les mêmes fonctionnalités que celui sur la page des jobs.
-
+- Les **caractéristiques** listées du projet (id, nom, mini-tableau de répartition des jobs, etc.) ainsi que des statistiques propres à ce projet.
+- Un **tableau des dépendances** du projet. Ici le projet dépend d'un autre projet en amont.
+  - Des liens sur les Id et les Noms permettent d'accéder à la vue détaillée de ce projet.
+  - La colonne Active indique l'état de la dépendance entre 2 projets :
+    - `true` : Au moins un job du projet en amont n'est pas <span style="color:green">`done`</span>, donc la dépendance reste activée, le projet suivant reste <span style="color:gray">`waiting`</span>.
+    - `false` : <u>Tous</u> les jobs du projet en amont sont <span style="color:green">`done`</span>, donc la dépendance est désactivée, le projet suivant peut être traité (si toutes ses autres dépendances le sont également).
+- Un **diagramme** de la répartition des jobs du projet en fonction de leur statut.
+- Un **tableau des jobs** de ce projet offrant les mêmes fonctionnalités que celui sur la page des jobs.
 
 ![projet](projet.png)
 
