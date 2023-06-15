@@ -1,5 +1,13 @@
 # 📑 Changelog
 
+## [1.41.0](https://github.com/ign-gpao/monitor/tree/1.41.0) (2023-06-15)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.40.0...1.41.0)
+
+### 📁 Other pull requests
+
+- 50 paramétrage de lurl serveur dans swagger [\#96](https://github.com/ign-gpao/monitor/pull/96) ([ijeuffrard](https://github.com/ijeuffrard))
+
 ## [1.40.0](https://github.com/ign-gpao/monitor/tree/1.40.0) (2023-06-09)
 
 [Full Changelog](https://github.com/ign-gpao/monitor/compare/1.39.0...1.40.0)
