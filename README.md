@@ -10,7 +10,7 @@ docker pull gpao/monitor-gpao
 ```
 et peut être lancée avec :
 ``` shell
-docker run -ti --rm -p 8000:8000 -e SERVER_HOSTNAME=`hostname` gpao/monitor-gpao
+docker run -ti --rm -p 8000:8000 -e GPAO_MONITOR_BASE_URL=`monitor-base-url` gpao/monitor-gpao
 ```
 
 L'installation et l'execution d'une GPAO complète (database, api, monitor, etc...) via Docker est décrite [ici](https://github.com/ign-gpao/docker).
