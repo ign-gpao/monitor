@@ -13,7 +13,7 @@ async function getProjects(req, res, next) {
   req.projects_data = JSON.stringify(arr);
   req.projects_columns = JSON.stringify([
     {
-      title: 'Id <a class=\\"far fa-question-circle collapse-item\\" data-toggle=\\"modal\\" data-target=\\"#projectStatusInfo\\"></a>',
+      title: 'Id',
       data: 'project_id',
     },
     {
@@ -95,7 +95,7 @@ async function getJobsOfProject(req, res, next) {
       data: 'job_name',
     },
     {
-      title: 'Statut <a class=\\"far fa-question-circle collapse-item\\" data-toggle=\\"modal\\" data-target=\\"#jobStatusInfo\\"></a>',
+      title: 'Statut',
       data: 'job_status',
     },
     {
