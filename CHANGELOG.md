@@ -1,5 +1,13 @@
 # 📑 Changelog
 
+## [1.42.0](https://github.com/ign-gpao/monitor/tree/1.42.0) (2023-06-15)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.41.0...1.42.0)
+
+### 📁 Other pull requests
+
+- add idle\_requested in host tab + doc [\#97](https://github.com/ign-gpao/monitor/pull/97) ([ijeuffrard](https://github.com/ijeuffrard))
+
 ## [1.41.0](https://github.com/ign-gpao/monitor/tree/1.41.0) (2023-06-15)
 
 [Full Changelog](https://github.com/ign-gpao/monitor/compare/1.40.0...1.41.0)
