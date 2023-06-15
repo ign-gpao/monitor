@@ -18,7 +18,7 @@ async function getJobDependencies(req, res, next) {
       data: 'job_name',
     },
     {
-      title: 'Statut <a class=\\"far fa-question-circle collapse-item\\" data-toggle=\\"modal\\" data-target=\\"#jobStatusInfo\\"></a>',
+      title: 'Statut',
       data: 'job_status',
     },
     {
@@ -36,7 +36,7 @@ async function getProjectDependencies(req, res, next) {
   req.dependencies_data = JSON.stringify(json.data);
   req.dependencies_columns = JSON.stringify([
     {
-      title: 'Id <a class=\\"far fa-question-circle collapse-item\\" data-toggle=\\"modal\\" data-target=\\"#projectStatusInfo\\"></a>',
+      title: 'Id',
       data: 'dep_id',
     },
     {

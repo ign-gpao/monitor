@@ -15,7 +15,7 @@ async function getJobs(req, res, next) {
       data: 'job_name',
     },
     {
-      title: 'Statut <a class=\\"far fa-question-circle collapse-item\\" data-toggle=\\"modal\\" data-target=\\"#jobStatusInfo\\"></a>',
+      title: 'Statut',
       data: 'job_status',
     },
     {
