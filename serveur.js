@@ -40,7 +40,7 @@ app.use(bodyParser.json({ limit: '500mb', extended: true }));
 app.use('/', pages);
 app.use('/', controller);
 
-debug.log(`URL de l'API : ${app.get('apiUrl')}`);
+debug.log(`URL de l'API : ${app.get('apiUrl')}/api`);
 
 app.listen(MONITOR_PORT);
 let monitorUrl = 'http://localhost:8080';

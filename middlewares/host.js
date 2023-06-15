@@ -2,7 +2,14 @@ const axios = require('axios');
 
 async function getHosts(req, res, next) {
   const json = await axios.get(`${req.app.get('apiUrl')}/api/nodes`);
-  req.hosts_data = JSON.stringify(json.data);
+  const arr = json.data;
+  arr.filter((obj) => {
+    const host = obj;
+    host.used = +host.running + +host.idle_requested;
+    return null;
+  });
+
+  req.hosts_data = JSON.stringify(arr);
   req.hosts_columns = JSON.stringify([
     {
       title: 'Host <a class=\\"far fa-question-circle collapse-item\\" data-toggle=\\"modal\\" data-target=\\"#hostStatusInfo\\"></a>',
@@ -22,7 +29,7 @@ async function getHosts(req, res, next) {
     },
     {
       title: 'Utilisée',
-      data: 'running',
+      data: 'used',
     },
     {
       title: 'Action',
