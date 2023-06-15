@@ -173,7 +173,6 @@ Elle est composée de 4 blocs d'informations :
 - Un **diagramme** de la répartition des jobs du projet en fonction de leur statut.
 - Un **tableau des jobs** de ce projet offrant les mêmes fonctionnalités que celui sur la page des jobs.
 
-
 ![projet](projet.png)
 
 ## Hosts

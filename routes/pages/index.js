@@ -16,7 +16,6 @@ router.get('/', topBar.getInfo, projects.getProjectStatus, (req, res) => {
     columns: '{}',
     base: req.app.get('baseUrl'),
     api: req.app.get('apiUrl'),
-    server: req.app.get('server'),
     version: req.app.get('version'),
   });
 });
@@ -32,7 +31,6 @@ router.get('/job/:id', topBar.getInfo, jobs.getJob, dependencies.getJobDependenc
     columns: req.dependencies_columns,
     base: req.app.get('baseUrl'),
     api: req.app.get('apiUrl'),
-    server: req.app.get('server'),
     version: req.app.get('version'),
   });
 });
@@ -50,7 +48,6 @@ router.get('/project/:id', topBar.getInfo, projects.getProject, projects.getJobs
     jobs_columns: req.jobs_of_project_columns,
     base: req.app.get('baseUrl'),
     api: req.app.get('apiUrl'),
-    server: req.app.get('server'),
     version: req.app.get('version'),
   });
 });
@@ -66,7 +63,6 @@ router.get('/jobs', topBar.getInfo, jobs.getJobs, projects.getProjects, (req, re
     jobs: req.jobs,
     base: req.app.get('baseUrl'),
     api: req.app.get('apiUrl'),
-    server: req.app.get('server'),
     version: req.app.get('version'),
   });
 });
@@ -80,7 +76,6 @@ router.get('/projects', topBar.getInfo, projects.getProjects, (req, res) => {
     columns: req.projects_columns,
     base: req.app.get('baseUrl'),
     api: req.app.get('apiUrl'),
-    server: req.app.get('server'),
     version: req.app.get('version'),
   });
 });
@@ -94,7 +89,6 @@ router.get('/sessions', topBar.getInfo, sessions.getSessions, (req, res) => {
     columns: req.sessions_columns,
     base: req.app.get('baseUrl'),
     api: req.app.get('apiUrl'),
-    server: req.app.get('server'),
     version: req.app.get('version'),
   });
 });
@@ -108,7 +102,6 @@ router.get('/hosts', topBar.getInfo, hosts.getHosts, (req, res) => {
     columns: req.hosts_columns,
     base: req.app.get('baseUrl'),
     api: req.app.get('apiUrl'),
-    server: req.app.get('server'),
     version: req.app.get('version'),
   });
 });
