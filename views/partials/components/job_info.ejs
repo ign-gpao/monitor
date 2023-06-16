@@ -18,18 +18,50 @@
       <ul class="list-group list-group-flush">
           <li class="list-group-item">Id : <%= job.job_id %></li>
           <li class="list-group-item">Nom du Job : <%= job.job_name %></li>
-          <li class="list-group-item">Tags : <%= job.job_tags %></li>
+          <li class="list-group-item">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>Tags : <%= job.job_tags %></div>
+              <div class="d-flex justify-content-end align-items-center">
+                <%if (job.job_status == 'ready' || job.job_status == 'waiting' || job.job_status == 'failed') { %>                  
+                  <input id="tags" type="text" class="form-control mr-2" pattern="(\w+,{1}){0,}\w+" aria-label="tag" aria-describedby="invalid-feedback" style="display: none;">
+                  <div class="invalid-tooltip">Format invalide : chaînes de caractères alphanumériques séparées d'une virgule</div>
+                  <button class="btn btn-sm btn-circle btn-primary" id="btn-show" type="button" onclick="showTags()" data-toggle="tooltip" title="Changer les tags"><i class="fa fa-pen"></i></button>
+                  <button class="btn btn-sm btn-circle btn-success" id="btn-send" type="button" onclick="setTags({'ids':[<%= job.job_id %>]}, document.getElementById('tags').value)" data-toggle="tooltip" title="Valider" style="display: none;"><i class="fas fa-check"></i></button>
+                <%}%>
+              </div>
+            </div>
+          </li>
           <li class="list-group-item">Date de début : <%= job.date_debut %> à  <%= job.hms_debut %> (UTC)</li>
           <li class="list-group-item">Date de fin : <%= job.date_fin %> à  <%= job.hms_fin %> (UTC)</li>
           <li class="list-group-item">Durée : <%= job.duree %> secondes</li>
           <li class="list-group-item">Statut : <%= job.job_status %></li>
           <li class="list-group-item">Code de retour : <%= job.job_return_code %></li>
           <li class="list-group-item">Id Projet : <%= job.project_id %></li>
-          <li class="list-group-item">Nom du Projet : <%= job.project_name %>
-            <a class="font-italic btn btn-link" id="linked_jobs" href="<%= base %>/jobs?filter=<%= job.project_id %>" >Accéder aux jobs de ce projet</a>
+          <li class="list-group-item">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>Nom du Projet : <%= job.project_name %></div>
+              <a type="button" data-toggle="tooltip" title="Accéder aux jobs de ce projet" class="btn btn-sm btn-circle btn-primary" href="<%= base %>/jobs?filter=<%= job.project_id %>">
+                <i class="fas fa-search" aria-hidden="true"></i>
+              </a>
+            </div>
           </li>
           <li class="list-group-item">Id Session : <%= job.session_id %></li>
           <li class="list-group-item">Machine : <%= job.session_host %></li>
       </ul>        
   </div>
 </div>
+
+<script type="text/javascript">
+
+function showTags(){
+  document.getElementById("btn-show").style.display = "none";
+  document.getElementById("btn-send").style.display = "inline-block";
+  document.getElementById("tags").style.display = "inline-block";
+
+}
+// Validation de l'input tags
+$('#tags').on('input', function(event) {
+    validateTags('tags')
+});
+
+</script>

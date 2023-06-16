@@ -28,23 +28,9 @@
 
 <script type="text/javascript">
 
-    // Validation de l'input tags
-    $('#tagsTxt').on('input', function(event) {
-        const tags = document.getElementById('tagsTxt')
-        const invalidValue = tags.validity.patternMismatch 
-        if (tags.value == "") {
-            tags.classList.remove("is-invalid");
-            tags.classList.remove("is-valid");
-            document.getElementById('btn-import').disabled = false;
-        } else {
-            if (invalidValue){
-                tags.classList.add("is-invalid");
-                document.getElementById('btn-import').disabled = true;
-            } else {
-                tags.classList.remove("is-invalid");
-                tags.classList.add("is-valid");
-                document.getElementById('btn-import').disabled = false;
-            } 
-        } 
-    });
+// Validation de l'input tags
+$('#tagsTxt').on('input', function(event) {
+    validateTags('tagsTxt')
+});
+
 </script>
