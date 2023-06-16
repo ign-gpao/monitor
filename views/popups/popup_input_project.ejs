@@ -35,23 +35,9 @@
 
 <script type="text/javascript">
 
-    // Validation de l'input tags
-    $('#tagsTextArea').on('input', function(event) {
-        const tags = document.getElementById('tagsTextArea')
-        const invalidValue = tags.validity.patternMismatch 
-        if (tags.value == "") {
-            tags.classList.remove("is-invalid");
-            tags.classList.remove("is-valid");
-            document.getElementById('createProject').disabled = false;
-        } else {
-            if (invalidValue){
-                tags.classList.add("is-invalid");
-                document.getElementById('createProject').disabled = true;
-            } else {
-                tags.classList.remove("is-invalid");
-                tags.classList.add("is-valid");
-                document.getElementById('createProject').disabled = false;
-            } 
-        } 
-    });
+// Validation de l'input tags
+$('#tagsTextArea').on('input', function(event) {
+    validateTags('tagsTextArea')
+});
+
 </script>

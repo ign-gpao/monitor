@@ -68,8 +68,14 @@ async function reinitJobs(req, res, next) {
   next();
 }
 
+async function setTags(req, res, next) {
+  await axios.post(`${req.app.get('apiUrl')}/api/jobs/setTags?tags=${req.query.tags}`, req.body);
+  next();
+}
+
 module.exports = {
   getJobs,
   getJob,
   reinitJobs,
+  setTags,
 };

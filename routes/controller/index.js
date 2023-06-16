@@ -25,6 +25,11 @@ router.post('/jobs/reinit', jobs.reinitJobs, (req, res) => {
   res.redirect('/');
 });
 
+// reinitJobs
+router.post('/jobs/setTags', jobs.setTags, (req, res) => {
+  res.redirect('/');
+});
+
 // setNbActiveSessions
 router.post('/sessions/setNbActive', sessions.setNbActive, (req, res) => {
   res.redirect('/');

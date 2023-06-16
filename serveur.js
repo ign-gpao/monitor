@@ -1,6 +1,7 @@
 const express = require('express');
 const debug = require('debug');
 const bodyParser = require('body-parser');
+// const bootstrap = require('bootstrap');
 
 const pages = require('./routes/pages');
 const controller = require('./routes/controller');

@@ -172,6 +172,23 @@ function reinitFilteredJobs(table){
   reinitJobs(jsonIds);
 }
 
+//Fonction qui permet de réinitialiser une liste de jobs (en json)
+function setTags(jsonIds, tags){
+  // var ids = '{"ids":[]}';
+  // var jsonIds = JSON.parse(ids);
+  // jsonIds["ids"].push(id);
+
+  fetch(`${monitorUrl}/jobs/setTags?tags=${tags}`, {
+    method: 'POST',
+    body: JSON.stringify(jsonIds),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }).then(() => {
+    location.reload();
+  });
+}
+
 
 //-------------------------- SESSIONS/HOSTS --------------------------
 
@@ -266,4 +283,24 @@ function convertSeconds(seconds) {
     }
   }
   return result
+}
+
+// Fonction qui permet de valider l'input tags
+function validateTags(domTags) {
+  const tags = document.getElementById(domTags)
+  const invalidValue = tags.validity.patternMismatch 
+  if (tags.value == "") {
+      tags.classList.remove("is-invalid");
+      tags.classList.remove("is-valid");
+      document.getElementById('btn-import').disabled = false;
+  } else {
+      if (invalidValue){
+          tags.classList.add("is-invalid");
+          document.getElementById('btn-import').disabled = true;
+      } else {
+          tags.classList.remove("is-invalid");
+          tags.classList.add("is-valid");
+          document.getElementById('btn-import').disabled = false;
+      } 
+  } 
 }
