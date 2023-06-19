@@ -1,5 +1,21 @@
 # 📑 Changelog
 
+## [Unreleased](https://github.com/ign-gpao/monitor/tree/HEAD)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.44.0...HEAD)
+
+### 🐛 Bug fixes
+
+- Tri sur les tableau avec popup d'aide [\#90](https://github.com/ign-gpao/monitor/issues/90)
+
+## [1.44.0](https://github.com/ign-gpao/monitor/tree/1.44.0) (2023-06-19)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.43.0...1.44.0)
+
+### 📁 Other pull requests
+
+- deplacement btn info [\#98](https://github.com/ign-gpao/monitor/pull/98) ([ijeuffrard](https://github.com/ijeuffrard))
+
 ## [1.43.0](https://github.com/ign-gpao/monitor/tree/1.43.0) (2023-06-19)
 
 [Full Changelog](https://github.com/ign-gpao/monitor/compare/1.42.0...1.43.0)
