@@ -286,21 +286,22 @@ function convertSeconds(seconds) {
 }
 
 // Fonction qui permet de valider l'input tags
-function validateTags(domTags) {
+function validateTags(domTags, btnSubmit) {
   const tags = document.getElementById(domTags)
+  const btn = document.getElementById(btnSubmit)
   const invalidValue = tags.validity.patternMismatch 
   if (tags.value == "") {
       tags.classList.remove("is-invalid");
       tags.classList.remove("is-valid");
-      document.getElementById('btn-import').disabled = false;
+      btn.disabled = false;
   } else {
       if (invalidValue){
           tags.classList.add("is-invalid");
-          document.getElementById('btn-import').disabled = true;
+          btn.disabled = true;
       } else {
           tags.classList.remove("is-invalid");
           tags.classList.add("is-valid");
-          document.getElementById('btn-import').disabled = false;
+          btn.disabled = false;
       } 
   } 
 }
