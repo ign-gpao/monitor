@@ -1,5 +1,13 @@
 # 📑 Changelog
 
+## [1.43.0](https://github.com/ign-gpao/monitor/tree/1.43.0) (2023-06-19)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.42.0...1.43.0)
+
+### 📁 Other pull requests
+
+- fix pb gros fichier json [\#100](https://github.com/ign-gpao/monitor/pull/100) ([arnaudbirk](https://github.com/arnaudbirk))
+
 ## [1.42.0](https://github.com/ign-gpao/monitor/tree/1.42.0) (2023-06-15)
 
 [Full Changelog](https://github.com/ign-gpao/monitor/compare/1.41.0...1.42.0)
