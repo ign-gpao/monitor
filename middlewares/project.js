@@ -126,7 +126,14 @@ async function getJobsOfProject(req, res, next) {
 }
 
 async function sendProject(req, res, next) {
-  await axios.put(`${req.app.get('apiUrl')}/api/project`, req.body);
+  //await axios.put(`${req.app.get('apiUrl')}/api/project`, req.body);
+  await axios({
+    url: `${req.app.get('apiUrl')}/api/project`,
+    method: 'put',
+    data: req.body,
+    maxBodyLength: Infinity,
+    maxContentLength: Infinity,
+ });
   next();
 }
 
