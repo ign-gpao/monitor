@@ -1,16 +1,20 @@
 # 📑 Changelog
 
-## [Unreleased](https://github.com/ign-gpao/monitor/tree/HEAD)
+## [1.45.0](https://github.com/ign-gpao/monitor/tree/1.45.0) (2023-06-20)
 
-[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.44.0...HEAD)
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.44.0...1.45.0)
 
-### 🐛 Bug fixes
+### 📁 Other pull requests
 
-- Tri sur les tableau avec popup d'aide [\#90](https://github.com/ign-gpao/monitor/issues/90)
+- 83 permettre de modifier les tags dun job [\#101](https://github.com/ign-gpao/monitor/pull/101) ([ijeuffrard](https://github.com/ijeuffrard))
 
 ## [1.44.0](https://github.com/ign-gpao/monitor/tree/1.44.0) (2023-06-19)
 
 [Full Changelog](https://github.com/ign-gpao/monitor/compare/1.43.0...1.44.0)
+
+### 🐛 Bug fixes
+
+- Tri sur les tableau avec popup d'aide [\#90](https://github.com/ign-gpao/monitor/issues/90)
 
 ### 📁 Other pull requests
 
