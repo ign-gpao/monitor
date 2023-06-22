@@ -81,10 +81,12 @@ router.get('/projects', topBar.getInfo, projects.getProjects, (req, res) => {
 });
 
 // sessions page
-router.get('/sessions', topBar.getInfo, sessions.getSessions, (req, res) => {
+router.get('/sessions', topBar.getInfo, sessions.getSessions, hosts.getHosts, (req, res) => {
   res.render('pages/sessions', {
     topBar: req.topBar,
+    filter: req.query.filter,
     sessions: req.sessions,
+    hosts: req.hosts,
     data: req.sessions_data,
     columns: req.sessions_columns,
     base: req.app.get('baseUrl'),

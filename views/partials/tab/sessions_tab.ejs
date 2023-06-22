@@ -3,6 +3,21 @@
       <h6 class="m-0 font-weight-bold text-success">Sessions <span class="far fa-question-circle collapse-item text-dark" data-toggle="modal" data-target="#sessionStatusInfo"></span></h6>
     </div>
     <div class="card-body">
+      <div class="btn-toolbar ml-1 mb-3"> 
+        <div class="input-group input-group-sm">
+          <div class="input-group-prepend">
+            <label class="input-group-text">Filtrer par clients</label>
+          </div>
+          <select class="custom-select" name="host" id="host-select">
+            <option value="-1">-- Tous les clients --</option>
+            <% hosts.forEach(function( host ){ %>
+              <option value="<%= host.host %>"  <%if (filter && filter==host.host) {%>  selected <%}%> > 
+               <%= host.host %>
+              </option>
+            <% }) %>
+          </select>    
+        </div>  
+      </div>
       <div class="table-responsive">
         <table class="table table-bordered table-striped" id="dataTable" cellspacing="0">
         </table>
@@ -71,5 +86,25 @@
             .append(i)
             .append(' Supprimer les sessions fermées');
       $("div.toolbar_tab").append(button);
+
+      var table = $('#dataTable').DataTable();
+    $('#host-select').change( function() {
+        table.draw();
     } );
+  } );
+
+  $.fn.dataTable.ext.search.push(
+    function( settings, data, dataIndex ) {
+        var host = $('#host-select').val()
+        console.log("host = "+host+", data = "+data[1])
+        if(host == -1){
+          return true;
+        }else if(data[1] == host){
+          console.log("true")
+          return true
+        }else{
+          return false
+        }
+    }
+);
   </script>

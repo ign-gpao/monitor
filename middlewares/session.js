@@ -36,6 +36,10 @@ async function getSessions(req, res, next) {
       title: 'Heure fin (UTC)',
       data: 'hms_fin',
     },
+    {
+      title: 'Heure dernière activité (UTC)',
+      data: 'hms_last_activity',
+    },
   ]);
 
   req.sessions = json.data;

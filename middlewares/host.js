@@ -32,6 +32,10 @@ async function getHosts(req, res, next) {
       data: 'used',
     },
     {
+      title: 'Heure dernière activité (UTC)',
+      data: 'hms_last_activity',
+    },
+    {
       title: 'Action',
       orderable: false,
       data: null,
