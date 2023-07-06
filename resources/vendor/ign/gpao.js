@@ -211,7 +211,7 @@ function getFilteredHosts(){
 
 // Fonction modifiant le nombre de threads actifs sur une liste de machine
 function setNbActiveSessions(jsonHosts, value) {
-  if (!isNaN(value)) {
+  if (!isNaN(value) && value!==null) {
     console.log(monitorUrl);
     fetch(`${monitorUrl}/sessions/setNbActive?value=${value}`, {
       method: 'POST',
