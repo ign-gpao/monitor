@@ -1,5 +1,25 @@
 # 📑 Changelog
 
+## [Unreleased](https://github.com/ign-gpao/monitor/tree/HEAD)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.47.0...HEAD)
+
+### 🐛 Bug fixes
+
+- Plantage monitor, modification du nombre de thread [\#103](https://github.com/ign-gpao/monitor/issues/103)
+
+## [1.47.0](https://github.com/ign-gpao/monitor/tree/1.47.0) (2023-09-28)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.46.0...1.47.0)
+
+### 🚀 Enhancements
+
+- Ajouter un lien vers la documention d'installation du client depuis le menu gauche du monitor [\#6](https://github.com/ign-gpao/monitor/issues/6)
+
+### 📁 Other pull requests
+
+- fix cancel update threads [\#104](https://github.com/ign-gpao/monitor/pull/104) ([arnaudbirk](https://github.com/arnaudbirk))
+
 ## [1.46.0](https://github.com/ign-gpao/monitor/tree/1.46.0) (2023-06-27)
 
 [Full Changelog](https://github.com/ign-gpao/monitor/compare/1.45.0...1.46.0)
