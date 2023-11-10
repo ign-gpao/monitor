@@ -30,6 +30,9 @@
             <h1 class="h3 mb-0 text-gray-800">Géovisualisation des jobs</h1>
           </div>
 
+          <%- include ("../partials/menu/topbar") %>
+
+          <!-- Content Row -->
           <div class="input-group input-group-sm mb-2">
             <div class="input-group-prepend">
               <label class="input-group-text">Filtrer par projets</label>
@@ -99,12 +102,21 @@
                             service: 'WMTS',
                           });
   
-  var map = L.map('map', {center: [46.845,2.424], zoom: 7, layers: [plan, ortho]});
+  var contoursAdminLayer = L.Geoserver.wms("http://localhost:8081/geoserver/wms", {
+    layers: "gpao:DEPARTEMENT",
+  });
+
+
+  var map = L.map('map', {center: [46.845,2.424], zoom: 7, layers: [contoursAdminLayer, plan, ortho]});
   var baseMaps = {
       "Photographies aériennes IGN": ortho,
-      "Plan IGN": plan
+      "Plan IGN": plan,
   };
-  var layerControl = L.control.layers(baseMaps).addTo(map);
+  var overlays = {
+    "Départements (mode hors connexion)": contoursAdminLayer
+  };
+
+  var layerControl = L.control.layers(baseMaps, overlays).addTo(map);
   L.control.scale().addTo(map);
 
   var project_filter = $('#project-select').val()
@@ -114,7 +126,7 @@
   } );
 
   var gpaoLayer = L.Geoserver.wfs("http://localhost:8081/geoserver/wfs", {
-    layers: "gpao:emprises",
+    layers: "gpao:view_jobs_geometry",
     onEachFeature: function (feature, layer) {
       layer.bindPopup(
         "Id : " + feature.properties.id + "<br>" +
