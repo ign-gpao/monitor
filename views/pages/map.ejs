@@ -131,7 +131,13 @@
       layer.bindPopup(
         "Id : " + feature.properties.id + "<br>" +
         "Nom : " + '<a href="<%= base %>/job/'+feature.properties.id+'">'+feature.properties.name+'</a>' + "<br>" + 
-        "Id du projet : " + '<a href="<%= base %>/project/'+feature.properties.id_project+'">'+feature.properties.id_project+'</a>'
+        "Satut : " + feature.properties.status + "<br>" +
+        "Date de début : " + feature.properties.date_debut + " " + feature.properties.hms_debut + "<br>" +
+        "Durée : " + feature.properties.duree + " s" + "<br>" +
+        "Machine : " + feature.properties.session_host + "<br>" +
+        "<br>" +
+        "Id du projet : " + feature.properties.id_project+'</a>' + "<br>" +
+        "Nom du projet : " + '<a href="<%= base %>/project/'+feature.properties.id_project+'">' + feature.properties.name_project+'</a>'
       );
     },
     style: function(feature) {
