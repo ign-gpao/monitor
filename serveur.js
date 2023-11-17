@@ -19,6 +19,8 @@ const API_URL = process.env.GPAO_API_URL || 'localhost'; // accès api via backe
 const API_PROTOCOL = process.env.GPAO_API_PROTOCOL || 'http';
 const API_PORT = process.env.GPAO_API_PORT || 8080;
 
+const ACTIVATE_MAP = process.env.GPAO_ACTIVATE_MAP || false;
+
 // Dans le cas d'un déploiement de la stack via docker les variables d'environnement:
 // BASE_URL, API, API_PORT, API_PROTOCOL
 // sont surchargées dans le docker-compose.yml.
@@ -26,6 +28,7 @@ const API_PORT = process.env.GPAO_API_PORT || 8080;
 app.set('baseUrl', `${MONITOR_BASE_URL}`);
 app.set('apiUrl', `${API_PROTOCOL}://${API_URL}:${API_PORT}`);
 app.set('version', process.env.npm_package_version);
+app.set('activateMap', `${ACTIVATE_MAP}`);
 
 // set the view engine to ejs
 app.set('view engine', 'ejs');

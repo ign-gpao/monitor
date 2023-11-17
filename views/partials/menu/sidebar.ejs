@@ -21,7 +21,7 @@
         </li>
 
         <!-- Nav Item - Dashboard -->
-        <li class="nav-item active">
+        <li class="nav-item active" id="mapItem">
           <a class="nav-link" href="<%= base %>/map">
             <i class="fas fa-map"></i>
             <span>Map</span></a>
@@ -126,4 +126,12 @@
       $('#collapseUrl').collapse('hide');
     }
   );
+
+  let mapItem = document.getElementById("mapItem");
+  if(<%= activateMap %>){
+    mapItem.style.display = "block";
+  } else {
+    mapItem.style.display = "none";
+  }
+
 </script>
