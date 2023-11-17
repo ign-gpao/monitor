@@ -106,14 +106,20 @@
     layers: "gpao:DEPARTEMENT",
   });
 
+  var contoursPaysLayer = L.Geoserver.wms("http://localhost:8081/geoserver/wms", {
+    layers: "gpao:frontieres_pays",
+  });
 
   var map = L.map('map', {center: [46.845,2.424], zoom: 7, layers: [contoursAdminLayer, plan, ortho]});
+  
   var baseMaps = {
-      "Photographies aériennes IGN": ortho,
-      "Plan IGN": plan,
+    "Plan IGN": plan,
+    "Photographies aériennes IGN": ortho,
   };
+
   var overlays = {
-    "Départements (mode hors connexion)": contoursAdminLayer
+    "Départements (mode hors connexion)": contoursAdminLayer,
+    "Pays (mode hors connexion)": contoursPaysLayer
   };
 
   var layerControl = L.control.layers(baseMaps, overlays).addTo(map);
