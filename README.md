@@ -45,6 +45,7 @@ La configuration de variables d'environnement propres au Monitor est nécessaire
 | GPAO_API_URL | Non | localhost | Nom de la machine qui héberge l'API |
 | GPAO_API_PORT | Non | 8080 | Port de l'API vu par le monitor |
 | GPAO_API_PROTOCOL | Non | http | Protocole de l'API vu par le monitor |
+| GPAO_ACTIVATE_MAP | Non | false | Boolean qui active ou non le volet cartographique de la GPAO sur le monitor |
 
 ## Pour les développeurs
 
