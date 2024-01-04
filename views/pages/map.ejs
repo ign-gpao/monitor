@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <title>GPAO - Map</title>
+
+    <%- include ("../partials/head") %>
+
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <%- include ("../partials/menu/sidebar") %>
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Géovisualisation des jobs</h1>
+          </div>
+
+          <%- include ("../partials/menu/topbar") %>
+
+          <!-- Content Row -->
+          <div class="input-group input-group-sm mb-2">
+            <div class="input-group-prepend">
+              <label class="input-group-text">Filtrer par projets</label>
+            </div>
+            <select class="custom-select" name="projects" id="project-select">
+              <option value="-1">-- Tous les projets --</option>
+              <% projects.forEach(function( project ){ %>
+                <option value="<%= project.project_id %>"  > 
+                  <%= project.project_id %> - <%= project.project_name %>
+                </option>
+              <% }) %>
+            </select>    
+          </div>  
+
+          <div id="map" style="height: 70vh;">
+          
+          </div>
+
+      </div>
+      <!-- End of Main Content -->
+
+      <%- include ("../partials/footer") %>
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Custom scripts for all pages-->
+  <script src="<%= base %>/js/sb-admin-2.min.js"></script>
+   
+  <!-- Popups Info -->
+  <%- include ("../popups/popup_job_status_info") %>
+
+</body>
+</html>
+
+<script>
+
+  var ortho = L.tileLayer('https://wxs.ign.fr/decouverte/geoportail/wmts?' +
+                          'service=WMTS&request=GetTile&version=1.0.0' +
+                          '&tilematrixset=PM&tilematrix={z}&tilecol={x}&tilerow={y}' +
+                          '&layer=ORTHOIMAGERY.ORTHOPHOTOS' +
+                          '&format=image/jpeg&style=normal',
+                          {
+                              minZoom : 2,
+                              maxZoom : 21,
+                              tileSize : 256,
+                              attribution : "IGN-F/Géoportail"
+                          });
+
+  var plan = L.tileLayer('https://wxs.ign.fr/{ignApiKey}/geoportail/wmts?'+
+                          '&REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&TILEMATRIXSET=PM'+
+                          '&LAYER={ignLayer}&STYLE={style}&FORMAT={format}'+
+                          '&TILECOL={x}&TILEROW={y}&TILEMATRIX={z}',
+                          {
+                            ignApiKey: 'decouverte',
+                            ignLayer: 'GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2',
+                            style: 'normal',
+                            format: 'image/png',
+                            service: 'WMTS',
+                          });
+  
+  var contoursAdminLayer = L.Geoserver.wms("http://localhost:8081/geoserver/wms", {
+    layers: "gpao:DEPARTEMENT",
+  });
+
+  var contoursPaysLayer = L.Geoserver.wms("http://localhost:8081/geoserver/wms", {
+    layers: "gpao:frontieres_pays",
+  });
+
+  var map = L.map('map', {center: [46.845,2.424], zoom: 7, layers: [contoursAdminLayer, plan, ortho]});
+  
+  var baseMaps = {
+    "Plan IGN": plan,
+    "Photographies aériennes IGN": ortho,
+  };
+
+  var overlays = {
+    "Départements (mode hors connexion)": contoursAdminLayer,
+    "Pays (mode hors connexion)": contoursPaysLayer
+  };
+
+  var layerControl = L.control.layers(baseMaps, overlays).addTo(map);
+  L.control.scale().addTo(map);
+
+  var job_filter  = '<%= jobFilter %>'
+  var fitLayer = true
+  if (job_filter != ''){
+    fitLayer = false
+  }
+
+  var project_filter = $('#project-select').val()
+  $('#project-select').change( function() {
+    var project_filter = $('#project-select').val()
+    history.replaceState("", "", location.pathname)
+    location.reload()
+  } );
+
+  var gpaoLayer = L.Geoserver.wfs("http://localhost:8081/geoserver/wfs", {
+    layers: "gpao:view_jobs_geometry",
+    onEachFeature: function (feature, layer) {
+      layer.bindPopup(
+        "Id : " + feature.properties.id + "<br>" +
+        "Nom : " + '<a href="<%= base %>/job/'+feature.properties.id+'">'+feature.properties.name+'</a>' + "<br>" + 
+        "Satut : " + feature.properties.status + "<br>" +
+        "Date de début : " + feature.properties.date_debut + " " + feature.properties.hms_debut + "<br>" +
+        "Durée : " + feature.properties.duree + " s" + "<br>" +
+        "Machine : " + feature.properties.session_host + "<br>" +
+        "<br>" +
+        "Id du projet : " + feature.properties.id_project+'</a>' + "<br>" +
+        "Nom du projet : " + '<a href="<%= base %>/project/'+feature.properties.id_project+'">' + feature.properties.name_project+'</a>'
+      );
+      if (job_filter == feature.properties.id){
+        if (typeof(layer._bounds) != 'undefined') {
+          map.fitBounds(layer._bounds);
+        }else{
+          map.setView(layer._latlng, 15);
+        }  
+      }
+    },
+    style: function(feature) {
+      switch (feature.properties.status) {
+          case 'done': return {color: '#1cc88a',weight: 2};
+          case 'failed':   return {color: "#e74a3b",weight: 2};
+          case 'running':   return {color: "#f6c23e",weight: 2};
+          case 'waiting':   return {color: "#858796",weight: 2};
+          case 'ready':   return {color: "#4e73df",weight: 2};
+      }
+    },
+    CQL_FILTER: function(feature) {
+      if(project_filter != -1){
+        return "id_project="+project_filter
+      }else{
+        return "INCLUDE"
+      }
+    },
+    fitLayer: fitLayer
+  });
+  gpaoLayer.addTo(map);
+
+</script>

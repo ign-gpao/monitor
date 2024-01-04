@@ -31,6 +31,14 @@
               </div>
             </div>
           </li>
+          <li class="list-group-item" id="geom">
+            <div class="d-flex justify-content-between align-items-center">
+              <div id="geom_text">Géometrie : </div>
+              <a id="geom_map" type="button" data-toggle="tooltip" title="voir sur la carte" class="btn btn-sm btn-circle btn-primary" href="<%= base %>/map?jobFilter=<%= job.job_id %>">
+                <i class="fas fa-map" aria-hidden="true"></i>
+              </a>
+            </div>
+          </li>
           <li class="list-group-item">Date de début : <%= job.date_debut %> à  <%= job.hms_debut %> (UTC)</li>
           <li class="list-group-item">Date de fin : <%= job.date_fin %> à  <%= job.hms_fin %> (UTC)</li>
           <li class="list-group-item">Durée : <%= job.duree %> secondes</li>
@@ -64,4 +72,14 @@ $('#tags').on('input', function(event) {
     validateTags('tags','btn-send')
 });
 
+// acces à la géometrie
+if (<%= activateMap %> == false){
+  document.getElementById("geom").style.visibility = "collapse";
+}
+if ('<%= job.job_geometry %>' == ''){
+  document.getElementById("geom_text").innerHTML += "Non";
+  document.getElementById("geom_map").style.visibility = "hidden";
+} else {
+  document.getElementById("geom_text").innerHTML += "Oui";
+}
 </script>
