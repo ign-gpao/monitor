@@ -40,14 +40,14 @@
             <select class="custom-select" name="projects" id="project-select">
               <option value="-1">-- Tous les projets --</option>
               <% projects.forEach(function( project ){ %>
-                <option value="<%= project.project_id %>"  <%if (filter && filter==project.project_id) {%>  selected <%}%> > 
+                <option value="<%= project.project_id %>"  > 
                   <%= project.project_id %> - <%= project.project_name %>
                 </option>
               <% }) %>
             </select>    
           </div>  
 
-          <div id="map" style="height: 80vh;">
+          <div id="map" style="height: 70vh;">
           
           </div>
 
@@ -125,10 +125,17 @@
   var layerControl = L.control.layers(baseMaps, overlays).addTo(map);
   L.control.scale().addTo(map);
 
+  var job_filter  = '<%= jobFilter %>'
+  var fitLayer = true
+  if (job_filter != ''){
+    fitLayer = false
+  }
+
   var project_filter = $('#project-select').val()
   $('#project-select').change( function() {
     var project_filter = $('#project-select').val()
-    location.reload();
+    history.replaceState("", "", location.pathname)
+    location.reload()
   } );
 
   var gpaoLayer = L.Geoserver.wfs("http://localhost:8081/geoserver/wfs", {
@@ -145,6 +152,13 @@
         "Id du projet : " + feature.properties.id_project+'</a>' + "<br>" +
         "Nom du projet : " + '<a href="<%= base %>/project/'+feature.properties.id_project+'">' + feature.properties.name_project+'</a>'
       );
+      if (job_filter == feature.properties.id){
+        if (typeof(layer._bounds) != 'undefined') {
+          map.fitBounds(layer._bounds);
+        }else{
+          map.setView(layer._latlng, 15);
+        }  
+      }
     },
     style: function(feature) {
       switch (feature.properties.status) {
@@ -161,7 +175,8 @@
       }else{
         return "INCLUDE"
       }
-    }
+    },
+    fitLayer: fitLayer
   });
   gpaoLayer.addTo(map);
 
