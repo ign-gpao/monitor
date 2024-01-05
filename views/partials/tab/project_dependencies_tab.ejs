@@ -17,7 +17,7 @@
 
         var table = $('#dataTable').DataTable( {
             "language": {
-                "lengthMenu": "Afficher _MENU_ par page",
+                "lengthMenu": '<div class="input-group input-group-sm"><div class="input-group-prepend"><label class="input-group-text">Items par page</label></div>_MENU_</div>',
                 "zeroRecords": "Aucun éléments",
                 "info": "Page _PAGE_ sur _PAGES_",
                 "infoEmpty": "Aucun enregistrement disponible",
@@ -33,7 +33,7 @@
             "order": [[ 0, "asc" ]],
             "lengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "Tous"]],
             "pageLength": 10,
-            "dom": '<"d-flex m-1"<"mr-auto"l><f>><"d-flex m-1"<"mr-auto toolbar_tab"><p>>t<"d-flex m-1"<"mr-auto"i>>',
+            "dom": '<"d-flex m-1"<"mr-auto"f><l>><"d-flex m-1"<"mr-auto toolbar_tab"><p>>t<"d-flex m-1"<"mr-auto"i><p>>',
             "data": data,
             "columns": columns,
             "rowCallback": function( row, data, index ) {
