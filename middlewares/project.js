@@ -115,6 +115,10 @@ async function getJobsOfProject(req, res, next) {
       data: 'duree',
     },
     {
+      title: 'Machine',
+      data: 'session_host',
+    },
+    {
       title: 'Action',
       orderable: false,
       data: null,

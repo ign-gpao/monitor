@@ -39,7 +39,7 @@ $(document).ready(function() {
       "autoWidth": false,
       "createdRow": function( row, data, dataIndex, cells ) {
           if (data.job_status !== 'failed')
-              $('button', cells[7])[0].style.visibility = "hidden";
+              $('button', cells[8])[0].style.visibility = "hidden";
       },
       "rowCallback": function( row, data, index ) {
           var job_id = $('td:eq(0)', row);

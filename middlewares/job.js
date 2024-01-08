@@ -43,6 +43,10 @@ async function getJobs(req, res, next) {
       data: 'project_name',
     },
     {
+      title: 'Machine',
+      data: 'session_host',
+    },
+    {
       title: 'Action',
       orderable: false,
       data: null,
