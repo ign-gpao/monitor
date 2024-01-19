@@ -12,7 +12,7 @@ async function getHosts(req, res, next) {
   req.hosts_data = JSON.stringify(arr);
   req.hosts_columns = JSON.stringify([
     {
-      title: 'Host',
+      title: 'Client',
       data: 'host',
     },
     {

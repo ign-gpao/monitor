@@ -29,7 +29,6 @@
 $(document).ready(function() {
     const data = <%- data %>;
     const columns = JSON.parse('<%- columns %>');
-
     var table = $('#dataTable').DataTable( {
         "language": {
             "lengthMenu": "Afficher _MENU_ par page",
@@ -54,7 +53,7 @@ $(document).ready(function() {
         "autoWidth": false,
         "createdRow": function( row, data, dataIndex, cells ) {
             if (data.job_status !== 'failed')
-                $('button', cells[9])[0].style.visibility = "hidden";
+                $('button', cells[10])[0].style.visibility = "hidden";
         },
         "rowCallback": function( row, data, index ) {
             var job_id = $('td:eq(0)', row);
