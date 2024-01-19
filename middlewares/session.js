@@ -9,7 +9,7 @@ async function getSessions(req, res, next) {
       data: 'sessions_id',
     },
     {
-      title: 'Host',
+      title: 'Client',
       data: 'sessions_host',
     },
     {

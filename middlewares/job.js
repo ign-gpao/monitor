@@ -43,7 +43,7 @@ async function getJobs(req, res, next) {
       data: 'project_name',
     },
     {
-      title: 'Machine',
+      title: 'Client',
       data: 'session_host',
     },
     {
