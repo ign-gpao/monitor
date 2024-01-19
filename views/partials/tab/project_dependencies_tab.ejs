@@ -4,7 +4,7 @@
     </div>
     <div class="card-body">
       <div class="table-responsive">
-        <table class="table table-bordered table-striped" id="dataTable" cellspacing="0">
+        <table class="table table-bordered table-striped" id="dataTableDeps" cellspacing="0">
         </table>
       </div>
     </div>
@@ -15,9 +15,9 @@
         const data = JSON.parse('<%- data %>');
         const columns = JSON.parse('<%- columns %>');
 
-        var table = $('#dataTable').DataTable( {
+        var table = $('#dataTableDeps').DataTable( {
             "language": {
-                "lengthMenu": "Afficher _MENU_ par page",
+                "lengthMenu": '<div class="input-group input-group-sm"><div class="input-group-prepend"><label class="input-group-text">Items par page</label></div>_MENU_</div>',
                 "zeroRecords": "Aucun éléments",
                 "info": "Page _PAGE_ sur _PAGES_",
                 "infoEmpty": "Aucun enregistrement disponible",
@@ -33,7 +33,7 @@
             "order": [[ 0, "asc" ]],
             "lengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "Tous"]],
             "pageLength": 10,
-            "dom": '<"d-flex m-1"<"mr-auto"l><f>><"d-flex m-1"<"mr-auto toolbar_tab"><p>>t<"d-flex m-1"<"mr-auto"i>>',
+            "dom": '<"d-flex m-1"<"mr-auto"f><"mr-2"l><"#pagination-deps">><"d-flex m-1"<"mr-auto toolbar_tab"><p>>t<"d-flex m-1"<"mr-auto"i><p>>',
             "data": data,
             "columns": columns,
             "rowCallback": function( row, data, index ) {
@@ -61,5 +61,24 @@
                 }
           } 
         });
+
+
+      //gestion du choix de la page
+      var group_page_setter = jQuery('<div class="input-group input-group-sm">'+
+                                      '<div class="input-group-prepend">'+
+                                        '<label class="input-group-text">Aller à la page</label>'+
+                                      '</div>'+
+                                      '<input type="number" class="form-control" id="page-setter-deps" name="" min="1" style="width: 70px;" autocomplete="off"/>'+
+                                    '</div>')  
+      $("#pagination-deps").append(group_page_setter);
+      $('#page-setter-deps').attr('max', table.page.info().pages)
+      $('#page-setter-deps').change( function() {
+          table.page($('#page-setter-deps').val()-1).draw( 'page' );
+      } );
+      $('#dataTableDeps_length').change( function() {
+          $('#page-setter-deps').attr('max', table.page.info().pages)  
+          $('#page-setter-deps').prop('value', "")  
+      } );
+
     } );
 </script>
