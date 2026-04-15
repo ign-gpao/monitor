@@ -33,10 +33,12 @@ async function getProjectStatusGlobal(req) {
 async function getInfo(req, res, next) {
   req.topBar = [];
 
-  await getJobStatus(req);
-  await getSessionStatus(req);
-  await getHostStatus(req);
-  await getProjectStatusGlobal(req);
+  await Promise.all([
+    getJobStatus(req),
+    getSessionStatus(req),
+    getHostStatus(req),
+    getProjectStatusGlobal(req),
+  ]);
 
   next();
 }

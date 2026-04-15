@@ -36,7 +36,22 @@ router.get('/job/:id', topBar.getInfo, jobs.getJob, dependencies.getJobDependenc
 });
 
 // project page with id
-router.get('/project/:id', topBar.getInfo, projects.getProject, projects.getJobsOfProject, dependencies.getProjectDependencies, (req, res) => {
+router.get('/project/:id', async (req, res, next) => {
+  try {
+    const wrap = (fn) => new Promise(
+      (resolve, reject) => fn(req, res, (err) => (err ? reject(err) : resolve())),
+    );
+    await Promise.all([
+      wrap(topBar.getInfo),
+      wrap(projects.getProject),
+      wrap(projects.getJobsOfProject),
+      wrap(dependencies.getProjectDependencies),
+    ]);
+    next();
+  } catch (error) {
+    next(error);
+  }
+}, (req, res) => {
   res.render('pages/project', {
     topBar: req.topBar,
     id: req.params.id,
