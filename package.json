@@ -1,6 +1,6 @@
 {
   "name": "monitor-gpao",
-  "version": "1.47.0",
+  "version": "1.48.0",
   "description": "moniteur pour IGN/GPAO",
   "repository": {
     "type": "git",

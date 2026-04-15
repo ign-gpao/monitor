@@ -1,12 +1,12 @@
 # 📑 Changelog
 
-## [Unreleased](https://github.com/ign-gpao/monitor/tree/HEAD)
+## [1.48.0](https://github.com/ign-gpao/monitor/tree/1.48.0) (2026-04-15)
 
-[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.47.0...HEAD)
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.47.0...1.48.0)
 
-### 🐛 Bug fixes
+### 📁 Other pull requests
 
-- Plantage monitor, modification du nombre de thread [\#103](https://github.com/ign-gpao/monitor/issues/103)
+- perf: parallelize API calls on project page and topbar [\#118](https://github.com/ign-gpao/monitor/pull/118) ([yoann-apel](https://github.com/yoann-apel))
 
 ## [1.47.0](https://github.com/ign-gpao/monitor/tree/1.47.0) (2023-09-28)
 
@@ -15,6 +15,10 @@
 ### 🚀 Enhancements
 
 - Ajouter un lien vers la documention d'installation du client depuis le menu gauche du monitor [\#6](https://github.com/ign-gpao/monitor/issues/6)
+
+### 🐛 Bug fixes
+
+- Plantage monitor, modification du nombre de thread [\#103](https://github.com/ign-gpao/monitor/issues/103)
 
 ### 📁 Other pull requests
 
