@@ -18,7 +18,7 @@
     
         var table = $('#dataTable').DataTable( {
             "language": {
-                "lengthMenu": "Afficher _MENU_ par page",
+                "lengthMenu": '<div class="input-group input-group-sm"><div class="input-group-prepend"><label class="input-group-text">Items par page</label></div>_MENU_</div>',
                 "zeroRecords": "Aucun éléments",
                 "info": "Page _PAGE_ sur _PAGES_",
                 "infoEmpty": "Aucun enregistrement disponible",
@@ -34,7 +34,7 @@
             "order": [[ 0, "asc" ]],
             "lengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "Tous"]],
             "pageLength": 100,
-            "dom": '<"d-flex m-1"<"mr-auto"l><f>><"d-flex m-1"<"mr-auto toolbar_tab"><p>>t<"d-flex m-1"<"mr-auto"i><p>>',
+            "dom": '<"d-flex m-1"<"mr-auto"f><"mr-2"l><"#pagination">><"d-flex m-1"<"mr-auto toolbar_tab"><p>>t<"d-flex m-1"<"mr-auto"i><p>>',
             "data": data,
             "columns": columns,
             "autoWidth": false,
@@ -112,6 +112,23 @@
            
             var value = window.prompt(`Modifier le nombre de Threads actifs pour ${host}, ${row.data().active}`, 0);
             setNbActiveSessions(jsonHosts, value);
-        } );    
+        } );  
+         
+        //gestion du choix de la page
+        var group_page_setter = jQuery('<div class="input-group input-group-sm">'+
+                                        '<div class="input-group-prepend">'+
+                                          '<label class="input-group-text">Aller à la page</label>'+
+                                        '</div>'+
+                                        '<input type="number" class="form-control" id="page-setter" name="" min="1" style="width: 70px;" autocomplete="off"/>'+
+                                       '</div>')  
+        $("#pagination").append(group_page_setter);
+        $('#page-setter').attr('max', table.page.info().pages)
+        $('#page-setter').change( function() {
+            table.page($('#page-setter').val()-1).draw( 'page' );
+        } );
+        $('#dataTable_length').change( function() {
+            $('#page-setter').attr('max', table.page.info().pages)  
+            $('#page-setter').prop('value', "")  
+        } );
     } );
 </script>
