@@ -20,6 +20,13 @@
             <span>Dashboard</span></a>
         </li>
 
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item active" id="mapItem">
+          <a class="nav-link" href="<%= base %>/map">
+            <i class="fas fa-map"></i>
+            <span>Map</span></a>
+        </li>
+
     <!-- Divider -->
     <hr class="sidebar-divider">
 
@@ -119,4 +126,12 @@
       $('#collapseUrl').collapse('hide');
     }
   );
+
+  let mapItem = document.getElementById("mapItem");
+  if(<%= activateMap %>){
+    mapItem.style.display = "block";
+  } else {
+    mapItem.style.display = "none";
+  }
+
 </script>

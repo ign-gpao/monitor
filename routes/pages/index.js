@@ -17,6 +17,7 @@ router.get('/', topBar.getInfo, projects.getProjectStatus, (req, res) => {
     base: req.app.get('baseUrl'),
     api: req.app.get('apiUrl'),
     version: req.app.get('version'),
+    activateMap: req.app.get('activateMap'),
   });
 });
 
@@ -32,6 +33,7 @@ router.get('/job/:id', topBar.getInfo, jobs.getJob, dependencies.getJobDependenc
     base: req.app.get('baseUrl'),
     api: req.app.get('apiUrl'),
     version: req.app.get('version'),
+    activateMap: req.app.get('activateMap'),
   });
 });
 
@@ -64,6 +66,7 @@ router.get('/project/:id', async (req, res, next) => {
     base: req.app.get('baseUrl'),
     api: req.app.get('apiUrl'),
     version: req.app.get('version'),
+    activateMap: req.app.get('activateMap'),
   });
 });
 
@@ -79,6 +82,7 @@ router.get('/jobs', topBar.getInfo, jobs.getJobs, projects.getProjects, (req, re
     base: req.app.get('baseUrl'),
     api: req.app.get('apiUrl'),
     version: req.app.get('version'),
+    activateMap: req.app.get('activateMap'),
   });
 });
 
@@ -92,6 +96,7 @@ router.get('/projects', topBar.getInfo, projects.getProjects, (req, res) => {
     base: req.app.get('baseUrl'),
     api: req.app.get('apiUrl'),
     version: req.app.get('version'),
+    activateMap: req.app.get('activateMap'),
   });
 });
 
@@ -107,6 +112,7 @@ router.get('/sessions', topBar.getInfo, sessions.getSessions, hosts.getHosts, (r
     base: req.app.get('baseUrl'),
     api: req.app.get('apiUrl'),
     version: req.app.get('version'),
+    activateMap: req.app.get('activateMap'),
   });
 });
 
@@ -120,6 +126,21 @@ router.get('/hosts', topBar.getInfo, hosts.getHosts, (req, res) => {
     base: req.app.get('baseUrl'),
     api: req.app.get('apiUrl'),
     version: req.app.get('version'),
+    activateMap: req.app.get('activateMap'),
+  });
+});
+
+// map page
+router.get('/map', topBar.getInfo, projects.getProjects, (req, res) => {
+  res.render('pages/map', {
+    topBar: req.topBar,
+    projects: req.projects,
+    jobFilter: req.query.jobFilter,
+    base: req.app.get('baseUrl'),
+    api: req.app.get('apiUrl'),
+    server: req.app.get('server'),
+    version: req.app.get('version'),
+    activateMap: req.app.get('activateMap'),
   });
 });
 

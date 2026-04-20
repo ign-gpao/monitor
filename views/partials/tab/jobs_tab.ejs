@@ -53,8 +53,10 @@ $(document).ready(function() {
         "columns": columns,
         "autoWidth": false,
         "createdRow": function( row, data, dataIndex, cells ) {
-            if (data.job_status !== 'failed')
+            if (<%= activateMap %> == false || data.job_geometry == null)
                 $('button', cells[9])[0].style.visibility = "hidden";
+            if (data.job_status !== 'failed')
+                $('button', cells[9])[1].style.visibility = "hidden";
         },
         "rowCallback": function( row, data, index ) {
             var job_id = $('td:eq(0)', row);
@@ -96,6 +98,14 @@ $(document).ready(function() {
         var row = table.row( tr );
         if (row.data().job_status == 'failed')
             reinitJobs({"ids":[row.data().job_id]});
+    } );
+
+    $('#dataTable tbody').on('click', 'button.map_job', function () {
+        var tr = $(this).closest('tr');
+        var row = table.row( tr );
+        var job_id = row.data().job_id;
+        console.log(job_id)
+        location.href='<%= base %>/map?jobFilter='+job_id
     } );
 
     var i = jQuery('<i></i>');
