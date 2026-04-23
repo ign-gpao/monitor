@@ -67,15 +67,40 @@ router.get('/project/:id', async (req, res, next) => {
   });
 });
 
-// jobs page
-router.get('/jobs', topBar.getInfo, jobs.getJobs, projects.getProjects, (req, res) => {
+// jobs page with id of a project
+router.get('/jobs/:id', topBar.getInfo, projects.getProjects, projects.getJobsOfProject, (req, res) => {
   res.render('pages/jobs', {
+    id: req.params.id,
     topBar: req.topBar,
-    filter: req.query.filter,
+    filter: req.params.id,
     projects: req.projects,
-    data: req.jobs_data,
-    columns: req.jobs_columns,
+    data: req.jobs_of_project_data,
+    columns: req.jobs_of_project_columns,
     jobs: req.jobs,
+    base: req.app.get('baseUrl'),
+    api: req.app.get('apiUrl'),
+    version: req.app.get('version'),
+  });
+});
+
+// jobs page
+router.get('/jobs', topBar.getInfo, projects.getProjects, (req, res) => {
+  res.render('pages/jobs', {
+    id: null,
+    topBar: req.topBar,
+    filter: null,
+    projects: req.projects,
+    data: '[]',
+     columns: JSON.stringify([
+      { title: 'Id', data: 'job_id'},
+      { title: 'Nom', data: 'job_name'},
+      { title: 'Statut', data: 'job_status'},
+      { title: 'Code retour', data: 'job_return_code'},
+      { title: 'Date début', data: 'date'},
+      { title: 'Heure début (UTC)', data: 'hms' },
+      { title: 'Durée (s)', data: 'duree' },
+    ]),
+    jobs: [],
     base: req.app.get('baseUrl'),
     api: req.app.get('apiUrl'),
     version: req.app.get('version'),

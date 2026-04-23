@@ -6,10 +6,10 @@
     <div class="btn-toolbar ml-1 mb-3"> 
       <div class="input-group input-group-sm">
         <div class="input-group-prepend">
-          <label class="input-group-text">Filtrer par projets</label>
+          <label class="input-group-text">Selectionner un projet</label>
         </div>
         <select class="custom-select" name="projects" id="project-select">
-          <option value="-1">-- Tous les projets --</option>
+          <option value="-1">--  --</option>
           <% projects.forEach(function( project ){ %>
             <option value="<%= project.project_id %>"  <%if (filter && filter==project.project_id) {%>  selected <%}%> > 
               <%= project.project_id %> - <%= project.project_name %>
@@ -112,22 +112,13 @@ $(document).ready(function() {
     $("div.toolbar_tab").append(button);
     
     var table = $('#dataTable').DataTable();
-    $('#project-select').change( function() {
-        table.draw();
-    } );
+    $('#project-select').change(function() {
+      var projectId = $(this).val();
+      if (projectId !== "-1") {
+        window.location.href = "<%= base %>/jobs/" + projectId;
+      }
+    });
 
 } );
 
-  $.fn.dataTable.ext.search.push(
-    function( settings, data, dataIndex ) {
-        var project_id = $('#project-select').val()
-        if(project_id == -1){
-          return true;
-        }else if(data[7] === project_id){
-          return true
-        }else{
-          return false
-        }
-    }
-);
 </script>
