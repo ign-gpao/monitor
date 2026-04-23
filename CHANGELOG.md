@@ -1,5 +1,13 @@
 # 📑 Changelog
 
+## [1.49.0](https://github.com/ign-gpao/monitor/tree/1.49.0) (2026-04-23)
+
+[Full Changelog](https://github.com/ign-gpao/monitor/compare/1.48.0...1.49.0)
+
+### 📁 Other pull requests
+
+- fix jobs page: change behavior of the page, show only jobs of a specific project [\#119](https://github.com/ign-gpao/monitor/pull/119) ([gliegard](https://github.com/gliegard))
+
 ## [1.48.0](https://github.com/ign-gpao/monitor/tree/1.48.0) (2026-04-15)
 
 [Full Changelog](https://github.com/ign-gpao/monitor/compare/1.47.0...1.48.0)
