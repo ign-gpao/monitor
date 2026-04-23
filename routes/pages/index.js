@@ -91,12 +91,12 @@ router.get('/jobs', topBar.getInfo, projects.getProjects, (req, res) => {
     filter: null,
     projects: req.projects,
     data: '[]',
-     columns: JSON.stringify([
-      { title: 'Id', data: 'job_id'},
-      { title: 'Nom', data: 'job_name'},
-      { title: 'Statut', data: 'job_status'},
-      { title: 'Code retour', data: 'job_return_code'},
-      { title: 'Date début', data: 'date'},
+    columns: JSON.stringify([
+      { title: 'Id', data: 'job_id' },
+      { title: 'Nom', data: 'job_name' },
+      { title: 'Statut', data: 'job_status' },
+      { title: 'Code retour', data: 'job_return_code' },
+      { title: 'Date début', data: 'date' },
       { title: 'Heure début (UTC)', data: 'hms' },
       { title: 'Durée (s)', data: 'duree' },
     ]),
