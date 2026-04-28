@@ -120,6 +120,10 @@ async function getJobsOfProject(req, res, next) {
       data: null,
       defaultContent: '<button type=\\"button\\" data-toggle=\\"tooltip\\" title=\\"Réinitialise le job\\" class=\\"reinit_job btn btn-sm btn-circle btn-warning\\"><i class=\\"fas fa-sync-alt fa-1x\\" aria-hidden=\\"true\\"></i></button>',
     },
+    {
+      title: 'Hote',
+      data: 'job_host',
+    },
   ]);
 
   next();
