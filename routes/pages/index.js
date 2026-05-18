@@ -99,6 +99,9 @@ router.get('/jobs', topBar.getInfo, projects.getProjects, (req, res) => {
       { title: 'Date début', data: 'date' },
       { title: 'Heure début (UTC)', data: 'hms' },
       { title: 'Durée (s)', data: 'duree' },
+      { title: 'Action', data: '' },
+      { title: 'Hôte', data: 'job_host' },
+
     ]),
     jobs: [],
     base: req.app.get('baseUrl'),
