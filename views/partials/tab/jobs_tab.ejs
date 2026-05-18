@@ -54,7 +54,7 @@ $(document).ready(function() {
         "autoWidth": false,
         "createdRow": function( row, data, dataIndex, cells ) {
             if (data.job_status !== 'failed')
-                $('button', cells[9])[0].style.visibility = "hidden";
+                $('button', cells[7])[0].style.visibility = "hidden";
         },
         "rowCallback": function( row, data, index ) {
             var job_id = $('td:eq(0)', row);
@@ -62,12 +62,6 @@ $(document).ready(function() {
 
             var job_name = $('td:eq(1)', row);
             job_name.html('<a href="<%= base %>/job/'+data.job_id+'">'+data.job_name+'</a>')
-
-            var project_id = $('td:eq(7)', row);
-            project_id.html('<a href="<%= base %>/project/'+data.job_id_project+'">'+data.job_id_project+'</a>')
-
-            var project_name = $('td:eq(8)', row);
-            project_name.html('<a href="<%= base %>/project/'+data.job_id_project+'">'+data.project_name+'</a>')
 
             var status = data.job_status;
             switch(status){
